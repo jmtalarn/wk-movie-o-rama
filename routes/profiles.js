@@ -13,13 +13,13 @@ router.get('/', function(req, res, next) {
           result.push({
               id: p._id,
               username: p.username,
-              likes: profile.likes,
-              shares: profile.shares,              
+              likes: p.likes,
+              shares: p.shares,}
             );
 
-          }); res.json(result);
+          });
+          res.json(result);
       });
-  });
 });
 router.get('/:id', function(req, res, next) {
   Profile.findById(req.params.id, function(err, profile) {

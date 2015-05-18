@@ -3,7 +3,7 @@
 // mongod
 //
 // # Start Webserver (in other terminal tab)
-// DEBUG=todoApp ./bin/www
+// DEBUG=wk-movie-o-rama ./bin/www
 //
 // # Test API (in other terminal tab)
 // curl localhost:3000/todos
