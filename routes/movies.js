@@ -3,6 +3,7 @@ var router = express.Router();
 
 var mongoose = require('mongoose');
 var Share = require('../models/Share.js');
+var Movie = require('../models/Movie.js');
 
 /* GET /movies listing. */
 router.get('/movie/:id', function(req, res, next) {

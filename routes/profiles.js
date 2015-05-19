@@ -8,7 +8,7 @@ var Profile = require('../models/Profile.js');
 router.get('/', function(req, res, next) {
   Profile.find(function(err, profiles) {
       if (err) return next(err);
-      result = [];
+      var result = [];
       profiles.forEach(function(p) {
           result.push({
               id: p._id,
@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   Profile.findById(req.params.id, function(err, profile) {
     if (err) return next(err);
-    result = {
+    var result = {
       id: profile._id,
       username: profile.username,
       likes: profile.likes,

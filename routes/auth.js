@@ -79,12 +79,17 @@ function ensureAuthorized(req, res, next) {
 			}
 			else {
 				// if everything is good, save to request for use in other routes
-				req.decoded = decoded;
-				req.token = token;
-				next();
+				var query = Profile.where({ token: req.token });
+			     query.findOne(function(err, profile) {
+                    	if (err) throw err;
+					req.profile = profile;
+					req.decoded = decoded;
+					req.token = token;
+					next();
+				});
+				
 			}
 		});
-
 	}
 	else {
 
@@ -99,7 +104,10 @@ function ensureAuthorized(req, res, next) {
 
 };
 
-router.post('/logout', ensureAuthorized, function(req, res) {
-
+router.post('/logout', ensureAuthorized, function(req, res,next) {
+	req.profile.token = "";
+	req.profile.save(function(err, p) {
+            if (err) return next(err);
+         });
 
 });
