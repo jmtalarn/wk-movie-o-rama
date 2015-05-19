@@ -50,7 +50,7 @@ router.post('/login', function(req, res) {
 					res.json({
 						success: true,
 						message: 'Enjoy your token!',
-						token: token
+						token: profile_token.token
 					});
 				});
 
