@@ -1,0 +1,24 @@
+{
+  "name": "wk-movie-o-rama",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jmtalarn/wk-movie-o-rama",
+  "authors": [
+    "Joan Maria Talarn <jmtalarn@gmail.com>"
+  ],
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "node.js",
+    "mongoose"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
