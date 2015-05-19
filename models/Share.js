@@ -6,7 +6,7 @@ var ShareSchema = new mongoose.Schema({
   to:{ type: ObjectId, ref: 'Profile'},
   movie:{ type: ObjectId, ref: 'Movie'},
   message: String,
-  date: {type: Date, default: Date.now},
+  date: Date,
 
 });
 

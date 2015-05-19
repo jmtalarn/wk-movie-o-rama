@@ -4,7 +4,9 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Profile = require('../models/Profile.js');
 
-/* GET /movies listing. */
+var image_contentType = 'image/png';
+
+/* GET /profiles listing. */
 router.get('/', function(req, res, next) {
   Profile.find(function(err, profiles) {
       if (err) return next(err);
@@ -34,5 +36,11 @@ router.get('/:id', function(req, res, next) {
     res.json(result);
   });
 });
-
+router.get('/:id/avatar', function(req, res, next) {
+ Profile.findById(req.params.id, function (err, p) {
+          if (err) return next(err);
+          res.contentType(image_contentType);
+          res.send(p.image);
+        });
+});
 module.exports = router;

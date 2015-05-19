@@ -7,7 +7,7 @@ var Profile = require('../models/Profile.js');
 var Like = require('../models/Like.js');
 var Auth = require('../routes/auth.js');
 
-router.get('/movie/:id', Auth.ensureAuthorized, function(req, res, next) {
+router.post('/movie/:id', Auth.ensureAuthorized, function(req, res, next) {
       Movie.findById(req.params.id, function(err, movie) {
         if (err) return next(err);
         //new Like

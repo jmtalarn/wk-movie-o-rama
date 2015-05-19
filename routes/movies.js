@@ -6,7 +6,7 @@ var Share = require('../models/Share.js');
 var Movie = require('../models/Movie.js');
 
 /* GET /movies listing. */
-router.get('/movie/:id', function(req, res, next) {
+router.get('/', function(req, res, next) {
   Movie.find(function(err, movies) {
     if (err) return next(err);
     var result = [];
