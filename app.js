@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/movies', movies);
 app.use('/profiles', profiles);
-app.use('/auth',auth);
+app.use('/auth',auth.router);
 app.use('/like',likes);
 app.use('/share',shares);
 

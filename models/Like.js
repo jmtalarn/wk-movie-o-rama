@@ -1,6 +1,4 @@
 var mongoose = require('mongoose');
-var Profile = require('Profile.js');
-var Movie = require('Movie.js');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var LikeSchema = new mongoose.Schema({

@@ -5,6 +5,11 @@ var mongoose = require('mongoose');
 
 var Profile = require('../models/Profile.js');
 
+/*************************************************************/
+/* WE NEED MOOAAAR!! ENGINEERS                               */
+/* AKA TEST ENGINEERS                                        */
+/*************************************************************/
+
 var security_issuer = {
 	ultra_password: 'movieorama',
 	superSecret: 'THi$1$4$3cr3tP4s$Phr4S3'
@@ -12,13 +17,11 @@ var security_issuer = {
 
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 
-var SessionToken = require('../models/SessionToken.js');
-
 router.post('/login', function(req, res) {
 
 	// find the user
 	Profile.findOne({
-		name: req.body.name
+		username: req.body.username
 	}, function(err, profile) {
 
 		if (err) throw err;
@@ -62,7 +65,7 @@ router.post('/login', function(req, res) {
 	});
 });
 
-//Function to pass to the requiring authorization routes 
+//Function to pass to the requiring authorization routes
 function ensureAuthorized(req, res, next) {
 	var token = req.body.token || req.param('token') || req.headers['x-access-token'];
 
@@ -87,7 +90,7 @@ function ensureAuthorized(req, res, next) {
 					req.token = token;
 					next();
 				});
-				
+
 			}
 		});
 	}
@@ -111,3 +114,7 @@ router.post('/logout', ensureAuthorized, function(req, res,next) {
          });
 
 });
+
+module.exports = {
+	router: router,
+	ensureAuthorized: ensureAuthorized};
