@@ -5,6 +5,7 @@ var ProfileSchema = new mongoose.Schema({
   //_id: ObjectId,
   username: String,
   image: Buffer,
+  token: String,
   likes: [ { type: ObjectId, ref: 'Like'}],
   shares: [{ type: ObjectId, ref: 'Share'}],
 });

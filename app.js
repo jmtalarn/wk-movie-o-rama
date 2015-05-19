@@ -30,12 +30,16 @@ mongoose.connect('mongodb://localhost/wk-movie-o-rama', function(err) {
 var routes = require('./routes/index');
 var movies = require('./routes/movies');
 var profiles = require('./routes/profiles');
+var auth = require('./routes/auth');
+var shares = require('./routes/shares');
+var likes = require('./routes/likes');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -48,6 +52,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/movies', movies);
 app.use('/profiles', profiles);
+app.use('/auth',auth);
+app.use('/like',likes);
+app.use('/share',shares);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

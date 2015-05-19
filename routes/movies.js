@@ -2,13 +2,13 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Movie = require('../models/Movie.js');
+var Share = require('../models/Share.js');
 
 /* GET /movies listing. */
-router.get('/', function(req, res, next) {
+router.get('/movie/:id', function(req, res, next) {
   Movie.find(function(err, movies) {
     if (err) return next(err);
-    result = [];
+    var result = [];
     movies.forEach(function(m) {
       result.push({
         id: m._id,
@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   Movie.findById(req.params.id, function(err, movie) {
     if (err) return next(err);
-    result = {
+    var result = {
       id: movie._id,
       title: movie.title,
       description: movie.description,
