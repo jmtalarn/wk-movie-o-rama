@@ -1,6 +1,6 @@
 # wk-movie-o-rama
 
-Node.js and Express.js app. Example of a RESTful API with secured method with token. 
+Node.js and Express.js app. Example of a RESTful API with secured methods with token. 
 
 ##API Methods and URLS
 
