@@ -106,6 +106,9 @@ function ensureAuthorized(req, res, next) {
 	}
 
 };
+router.get('/check', ensureAuthorized, function(req, res,next) {
+		res.json(req.profile);
+});
 
 router.post('/logout', ensureAuthorized, function(req, res,next) {
 	req.profile.token = "";

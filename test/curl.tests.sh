@@ -1,2 +1,2 @@
-curl localhost:3000/movies
-curl localhost:3000/profiles
+curl localhost:3000/api/movies
+curl localhost:3000/api/profiles

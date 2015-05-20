@@ -50,11 +50,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/movies', movies);
-app.use('/profiles', profiles);
-app.use('/auth',auth.router);
-app.use('/like',likes);
-app.use('/share',shares);
+var api_base_url = "/api";
+app.use( api_base_url+'/movies', movies);
+app.use( api_base_url+'/profiles', profiles);
+app.use( api_base_url+'/auth',auth.router);
+app.use( api_base_url+'/like',likes);
+app.use( api_base_url+'/share',shares);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

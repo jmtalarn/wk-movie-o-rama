@@ -35,7 +35,7 @@ describe('Routing', function() {
       // POST on /api/profiles and we want to send some info
       // We do this using the request object, requiring supertest!
       request(url)
-        .post('/auth/login')
+        .post('/api/auth/login')
         .send(profile)
         // end handles the response
         .end(function(err, res) {

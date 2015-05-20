@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-  </body>
+<html lang="en" ng-app="wk-movie-o-rama">
+
+<head>
+  <title>{{title}}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="/components/angularjs/angular.min.js"></script>
+  <script src="/components/angularjs/angular.min.js"></script>
+  <script src="/components/jquery/dist/jquery.js"></script>
+  <script src="/components/foundation/js/foundation.min.js"></script>
+  <link rel="stylesheet" href="/components/foundation/css/foundation.min.css">
+  <link rel="stylesheet" href="/components/fontawesome/css/font-awesome.min.css">
+
+  <script src="/components/modernizr/modernizr.js"></script>
+</head>
+
+<body>
+  <div class="row">
+    <div class="large-12 columns">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1 class="app-name"><a href="#"><i class="fa fa-ticket"></i>wk-movie-o-rama</a></h1>
+          </li>
+          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+          <li class="toggle-topbar menu-icon">
+            <a href="#">
+              <span>Menu</span>
+            </a>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+
+          <!-- Left Nav Section -->
+
+        </section>
+      </nav>
+      {{{body}}}
+      <script type="text/javascript" src="/javascript/main.js" />
+    </div>
+  </div>
+</body>
+
 </html>
