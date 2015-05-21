@@ -4,8 +4,7 @@
 <head>
   <title>{{title}}</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <script src="/components/angularjs/angular.min.js"></script>
-  <script src="/components/angularjs/angular.min.js"></script>
+  <script src="/components/angular/angular.min.js"></script>
   <script src="/components/jquery/dist/jquery.js"></script>
   <script src="/components/foundation/js/foundation.min.js"></script>
   <link rel="stylesheet" href="/components/foundation/css/foundation.min.css">
@@ -31,13 +30,17 @@
         </ul>
         <section class="top-bar-section">
           <!-- Right Nav Section -->
+           <ul class="right">
+                <li ><login-link></login-link></li>
+            </ul>
 
           <!-- Left Nav Section -->
 
         </section>
       </nav>
       {{{body}}}
-      <script type="text/javascript" src="/javascript/main.js" />
+      <script type="text/javascript" src="/javascripts/auth-wkmor.js" ></script>
+      <script type="text/javascript" src="/javascripts/main.js" ></script>
     </div>
   </div>
 </body>
