@@ -30,8 +30,12 @@ Start wk-movie-o-rama on a Node.js
 Some calls to urls with curl
 * `/mocha`
 In order to run mocha tests on /test folder like "api.integration.tests.js"
+* `gulp sass` `gulp sass:watch`
+In order to compile sass files
+*  `gulp bower`
+In order to install bower components
 
 ##TODOS
 * Make Angular.js app work
-* Add task automatization with gulp
-* Make the css with sass
+* ~~Add task automatization with gulp~~
+* ~~Make the css with sass~~

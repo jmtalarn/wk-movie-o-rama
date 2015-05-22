@@ -16,3 +16,8 @@ gulp.task('sass', function () {
 gulp.task('sass:watch', function () {
  gulp.watch('./sass/**/*.scss', ['sass']);
 });
+
+gulp.task('bower', function() {
+  return bower()
+    .pipe(gulp.dest('public/components'))
+});

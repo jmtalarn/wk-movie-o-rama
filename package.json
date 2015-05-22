@@ -24,6 +24,7 @@
     "should-http": "0.0.3",
     "gulp-sass": "~2.0.1",
     "gulp-sourcemaps": "~1.5.2",
-    "gulp": "~3.8.11"
+    "gulp": "~3.8.11",
+    "gulp-bower": "0.0.10"
   }
 }
