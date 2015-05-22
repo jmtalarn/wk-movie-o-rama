@@ -1,10 +1,8 @@
-(function() {
-  var app = angular.module('wk-movie-o-rama', ['auth-wkmor']);
+(function(angular) {
+ var app = angular.module('wk-movie-o-rama', ['auth-wkmor']);
 
   //app.config(function($routeProvider, $locationProvider, $httpProvider) {
-  app.config(function($httpProvider) {
-    $httpProvider.responseInterceptors.push('httpInterceptor');
-
+  app.config(['$locationProvider',function($locationProvider) {
 
     // $routeProvider
     //   .when('/', {
@@ -19,12 +17,13 @@
     //     redirectTo: '/'
     //   });
 
-    // $locationProvider.html5Mode(true);
-  });
-  app.run(function(api) {
-    api.init();
-  });
+    $locationProvider.html5Mode(true);
+  }]);
+//  app.run(function(api) {
+//    api.init();
+//  });
 
 
 
-})();
+
+})(window.angular);

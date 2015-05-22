@@ -1,7 +1,47 @@
-  //app.controller('auth', function($scope, $location, $cookieStore, authorization, api) {
-  angular.module('auth-wkmor', ['ngStorage']).controller('auth', function($scope, $localStorage, authorization, api) {
+(function(angular) {
+
+var auth_wkmor = angular.module('auth-wkmor', ['ngStorage']);
+
+auth_wkmor.config(['$httpProvider' ,function($httpProvider) {
+
+   $httpProvider.interceptors.push('httpInterceptor');
+
+
+  }]);
+  
+  auth_wkmor.factory('api', ['$http', '$localStorage', function($http, $localStorage) {
+    return {
+      init: function(token) {
+        $http.defaults.headers.common['X-Access-Token'] = token || $localStorage.token;
+      }
+    };
+  }]);
+  auth_wkmor.factory('authorization', ['$http', function($http) {
+    var urlBase = '/api/auth/';
+
+    return {
+      login: function(credentials) {
+        $http.post(urlBase + 'login', credentials).
+        success(function(data, status, headers, config) {
+          return (data);
+        }).
+        error(function(data, status, headers, config) {
+          return (data);
+        });
+
+      },
+      logout: function() {
+        return $http.post(urlBase + 'logout');
+      },
+      check: function() {
+        return $http.get(urlBase + 'check');
+      }
+
+    };
+  }]);
+  auth_wkmor.controller('auth', ['$scope', '$location', '$localStorage', 'authorization', 'api', function($scope, $location, $localStorage, authorization, api) {
     $scope.logged = false;
-    
+
     $scope.login = function() {
       var credentials = {
         username: this.username,
@@ -15,8 +55,8 @@
             var token = data.token;
             $scope.logged = true;
             api.init(token);
-            $localStorage.token = res.token;
-              //$location.path('/');
+            $localStorage.token = data.token;
+            //$location.path('/');
           }
         }
         else {
@@ -43,68 +83,47 @@
           return data;
         }
       };
-      authorization.logout().success(success).error(error);
-    }
-  });
-
-  angular.module('auth-wkmor', []).factory('authorization', function($http, config) {
-    var urlBase = '/api/auth/';
-
-    return {
-      login: function(credentials) {
-        $http.post(urlBase + 'login', credentials).
-        success(function(data, status, headers, config) {
-          return (data);
-        }).
-        error(function(data, status, headers, config) {
-          return (data);
-        });
-
-      },
-      logout: function() {
-        return $http.post(urlBase + 'logout');
-      },
-      check: function() {
-        return $http.get(urlBase + 'check');
-      }
-
-    };
-  });
-  angular.module('auth-wkmor', []).factory('httpInterceptor', function httpInterceptor($q, $window, $location) {
-    return function(promise) {
-      var success = function(response) {
-        return response;
+      var error = function(data) {
+        return data;
       };
 
-      var error = function(response) {
+      authorization.logout().success(success).error(error);
+    }
+  }]);
+
+  //angular.module('auth-wkmor', []).factory('authorization', function($http, config) {
+
+  auth_wkmor.factory('httpInterceptor', ['$q', '$window', '$location', function httpInterceptor($q, $window, $location) {
+    return {
+      response: function(response) {
+        // do something on success
+        return response;
+      },
+      responseError: function(response) {
+        // do something on error
         if (response.status === 401) {
           $location.url('/login');
         }
 
         return $q.reject(response);
-      };
-
-      return promise.then(success, error);
-    };
-  });
-  angular.module('auth-wkmor', ['ngStorage']).factory('api', function($http, $localStorage) {
-    return {
-      init: function(token) {
-        $http.defaults.headers.common['X-Access-Token'] = token || $localStorage.token;
       }
     };
-  });
 
-  angular.module('auth-wkmor', ['auth']).directive('loginLink', function(auth) {
-    return {
+  }]);
+
+
+
+  auth_wkmor.directive('loginLink', ['auth', function(auth) {
+   return {
       restrict: 'E',
-      templateUrl: 'ng-view/login-link.html',
-      controller:  function() {
-        this.logged = auth.logged;
-        this.logout = function(){
+      templateURL: '/ng-view/login-link.html',
+      controller: function($scope) {
+        $scope.logged = auth.logged;
+        $scope.logout = function() {
           auth.logout();
-        }
+        };
       },
       controllerAs: 'loginlink'
     };
-  });
+  }]);
+})(window.angular);
