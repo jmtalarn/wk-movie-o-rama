@@ -116,13 +116,13 @@ auth_wkmor.config(['$httpProvider' ,function($httpProvider) {
   auth_wkmor.directive('loginLink', ['auth', function(auth) {
    return {
       restrict: 'E',
-      templateURL: '/ng-view/login-link.html',
-      controller: function($scope) {
+      templateURL: 'ng-view/login-link.html',
+      controller: ['$scope',auth, function($scope,auth) {
         $scope.logged = auth.logged;
         $scope.logout = function() {
           auth.logout();
         };
-      },
+      }],
       controllerAs: 'loginlink'
     };
   }]);
