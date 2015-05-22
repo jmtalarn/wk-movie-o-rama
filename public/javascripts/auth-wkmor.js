@@ -8,7 +8,7 @@ auth_wkmor.config(['$httpProvider' ,function($httpProvider) {
 
 
   }]);
-  
+
   auth_wkmor.factory('api', ['$http', '$localStorage', function($http, $localStorage) {
     return {
       init: function(token) {
@@ -112,18 +112,34 @@ auth_wkmor.config(['$httpProvider' ,function($httpProvider) {
   }]);
 
 
-
-  auth_wkmor.directive('loginLink', ['auth', function(auth) {
+  auth_wkmor.directive('loginLink', function() {
    return {
       restrict: 'E',
-      templateURL: 'ng-view/login-link.html',
-      controller: ['$scope',auth, function($scope,auth) {
-        $scope.logged = auth.logged;
-        $scope.logout = function() {
-          auth.logout();
-        };
-      }],
-      controllerAs: 'loginlink'
+      templateUrl: '/ng-view/login-link.html',
+      controller: 'auth',
+      controllerAs: 'loginLink',
+       //['$scope',auth, function($scope,auth) {
+      //   $scope.logged = auth.logged;
+      //   $scope.logout = function() {
+      //     auth.logout();
+      //   };
+      // }],
+      // controllerAs: 'loginlink'
     };
-  }]);
+  });
+
+
+  // auth_wkmor.directive('loginLink', ['auth', function(auth) {
+  //  return {
+  //     restrict: 'E',
+  //     templateURL: 'ng-view/login-link.html',
+  //     controller: ['$scope',auth, function($scope,auth) {
+  //       $scope.logged = auth.logged;
+  //       $scope.logout = function() {
+  //         auth.logout();
+  //       };
+  //     }],
+  //     controllerAs: 'loginlink'
+  //   };
+  // }]);
 })(window.angular);
