@@ -1,27 +1,29 @@
 (function(angular) {
- var app = angular.module('wk-movie-o-rama', ['auth-wkmor']);
+  var app = angular.module('wk-movie-o-rama', ['auth-wkmor', 'profiles-wkmor','ngRoute']);
 
-  //app.config(function($routeProvider, $locationProvider, $httpProvider) {
-  app.config(['$locationProvider',function($locationProvider) {
 
-    // $routeProvider
-    //   .when('/', {
-    //     templateUrl: 'views/ng/dashboard.html',
-    //     controller: 'dashboard'
-    //   })
-    //   .when('/login', {
-    //     templateUrl: 'views/ng/auth.html',
-    //     controller: 'auth'
-    //   })
-    //   .otherwise({
-    //     redirectTo: '/'
-    //   });
+  app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+
+    $routeProvider
+      .when('/', {
+        templateUrl: '/ng-view/index.html',
+        controller: ['$scope', function($scope) {
+          $scope.title = "wk-movie-o-rama"
+        }],
+      })
+      .when('/login', {
+        templateUrl: '/ng-view/tpl-login.html',
+      })
+      .otherwise({
+        redirectTo: '/',
+      });
 
     $locationProvider.html5Mode(true);
+
   }]);
-//  app.run(function(api) {
-//    api.init();
-//  });
+  //  app.run(function(api) {
+  //    api.init();
+  //  });
 
 
 

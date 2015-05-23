@@ -5,9 +5,10 @@
   <title>{{title}}</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 
-  <base href="/">  
-  
+  <base href="/">
+
   <script src="/components/angular/angular.min.js"></script>
+  <script src="/components/angular-route/angular-route.min.js"></script>
   <script src="/components/ngstorage/ngStorage.min.js"></script>
   <script src="/components/jquery/dist/jquery.js"></script>
   <script src="/components/foundation/js/foundation.min.js"></script>
@@ -42,8 +43,11 @@
 
         </section>
       </nav>
+      <div ng-view>
       {{{body}}}
+      </div>
       <script type="text/javascript" src="/javascripts/auth-wkmor.js" ></script>
+      <script type="text/javascript" src="/javascripts/profiles-wkmor.js" ></script>
       <script type="text/javascript" src="/javascripts/main.js" ></script>
     </div>
   </div>
