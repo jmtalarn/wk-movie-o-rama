@@ -8,15 +8,14 @@
 
     return {
       get: function() {
-        if (promise) {
-          return promise;
-        } else {
-          promise = $http.get(urlBase);
-          return promise;
-        }
-
+        $http.get(urlBase).
+        success(function(data, status, headers, config) {
+          return (data);
+        }).
+        error(function(data, status, headers, config) {
+          return (data);
+        });
       },
-
     };
   }]);
 
@@ -25,10 +24,17 @@
     return {
       restrict: 'E',
       templateUrl: '/ng-view/profiles-list.html',
+      scope: true,
       controller: ['$scope', 'profiles', function($scope, profiles) {
         $scope.profiles = profiles.get();
       }],
       controllerAs: 'profilesList',
+      link: function(scope){
+        var unwatch =  $scope.$watch('profiles', function(v) {
+                     scope.profiles = v;
+                     unwatch(); //Remove the watch
+                });
+      }
       //['$scope',auth, function($scope,auth) {
       //   $scope.logged = auth.logged;
       //   $scope.logout = function() {

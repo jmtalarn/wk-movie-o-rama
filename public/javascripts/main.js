@@ -5,18 +5,18 @@
   app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
 
     $routeProvider
-      .when('/', {
+      .when('/app', {
         templateUrl: '/ng-view/index.html',
         controller: ['$scope', function($scope) {
           $scope.title = "wk-movie-o-rama"
         }],
       })
-      .when('/login', {
+      .when('/app/login', {
         templateUrl: '/ng-view/tpl-login.html',
       })
-      .otherwise({
-        redirectTo: '/',
-      });
+        .otherwise({
+          redirectTo: 'app',
+       });
 
     $locationProvider.html5Mode(true);
 
