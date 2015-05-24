@@ -1,3 +1,5 @@
+@import 'shadows';
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -14,4 +16,7 @@ h1.app-name > a > i {
 }
 .hello .icon {
   text-align: center;
+}
+.profile-login{
+  @include card(1);
 }
