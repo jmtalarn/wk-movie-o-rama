@@ -1,5 +1,7 @@
 @import 'shadows';
 
+$hovering-color: rgba(0,0,0, 0.4);
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -19,4 +21,19 @@ h1.app-name > a > i {
 }
 .profile-login{
   @include card(1);
+  height: 6em;
+  .profile-avatar{
+      display: inline-block;
+      width: 3em;
+      height: 5em;
+
+  }
+  .profile-name {
+    padding: 1em;
+  }
+
+  &:hover { cursor: hand; cursor: pointer; background-color: $hovering-color; }
+  &:target{
+    .profile-avatar { width: 6em; height: 10em;}
+  }
 }

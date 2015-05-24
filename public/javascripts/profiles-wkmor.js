@@ -1,6 +1,6 @@
 (function(angular) {
 
-  var profiles_wkmor = angular.module('profiles-wkmor', []);
+  var profiles_wkmor = angular.module('profiles-wkmor', ['auth-wkmor']);
 
   profiles_wkmor.factory('profiles', ['$http', '$timeout', '$q', function($http, $timeout, $q) {
     var urlBase = '/api/profiles/';
@@ -25,13 +25,14 @@
     return results;
   }]);
 
-  profiles_wkmor.directive('profilesList', function() {
+  profiles_wkmor.directive('profilesLogin', function() {
     return {
       restrict: 'E',
-      templateUrl: '/ng-view/profiles-list.html',
+      templateUrl: '/ng-view/profiles-login.html',
       scope: true,
-      controller: ['$scope', '$element', '$attrs', '$transclude', '$http', '$routeParams', 'profiles',
-        function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles) {
+      controller: ['$scope', '$element', '$attrs', '$transclude', '$http', '$routeParams', 'profiles','auth',
+
+        function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles, auth ) {
           $scope.results = [];
           profiles.get().then(
             function(res) {
@@ -41,14 +42,27 @@
               console.error(err);
             }
           );
-
-
-          $scope.text = "Lorem ipsum";
+          $scope.login = function(username) {
+            auth.credentials.username(username);
+            auth.login();
+          };
         }
       ],
-      controllerAs: 'profilesList',
+      controllerAs: 'profilesLogin',
 
     };
   });
+  profiles_wkmor.directive('profileAvatar', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        var url = attrs.profileAvatar;
+        element.css({
+          'background-image': 'url(' + url + ')',
+          'background-size': 'cover'
+        });
+      }
+    };
+  })
 
 })(window.angular);

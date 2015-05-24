@@ -56,7 +56,7 @@ auth_wkmor.config(['$httpProvider' ,function($httpProvider) {
             $scope.logged = true;
             api.init(token);
             $localStorage.token = data.token;
-            //$location.path('/');
+            $location.path('/app/dashboard');
           }
         }
         else {
@@ -102,7 +102,7 @@ auth_wkmor.config(['$httpProvider' ,function($httpProvider) {
       responseError: function(response) {
         // do something on error
         if (response.status === 401) {
-          $location.url('/login');
+          $location.url('/app/login');
         }
 
         return $q.reject(response);
@@ -129,17 +129,4 @@ auth_wkmor.config(['$httpProvider' ,function($httpProvider) {
   });
 
 
-  // auth_wkmor.directive('loginLink', ['auth', function(auth) {
-  //  return {
-  //     restrict: 'E',
-  //     templateURL: 'ng-view/login-link.html',
-  //     controller: ['$scope',auth, function($scope,auth) {
-  //       $scope.logged = auth.logged;
-  //       $scope.logout = function() {
-  //         auth.logout();
-  //       };
-  //     }],
-  //     controllerAs: 'loginlink'
-  //   };
-  // }]);
 })(window.angular);
