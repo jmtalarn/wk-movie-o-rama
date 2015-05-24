@@ -2,46 +2,52 @@
 
   var profiles_wkmor = angular.module('profiles-wkmor', []);
 
-  profiles_wkmor.factory('profiles', ['$http', function($http) {
+  profiles_wkmor.factory('profiles', ['$http', '$timeout', '$q', function($http, $timeout, $q) {
     var urlBase = '/api/profiles/';
-    var promise = null;
+    var results = {};
 
-    return {
-      get: function() {
-        $http.get(urlBase).
-        success(function(data, status, headers, config) {
-          return (data);
-        }).
-        error(function(data, status, headers, config) {
-          return (data);
-        });
-      },
-    };
+    function _get() {
+      var d = $q.defer();
+      $timeout(function() {
+        d.resolve(
+          $http.get(urlBase).success(function(data, status, headers, config) {
+            return (data);
+          }).error(function(data, status, headers, config) {
+            return (data);
+          })
+        );
+
+      }, 5000);
+
+      return d.promise;
+    }
+    results.get = _get;
+    return results;
   }]);
-
 
   profiles_wkmor.directive('profilesList', function() {
     return {
       restrict: 'E',
       templateUrl: '/ng-view/profiles-list.html',
       scope: true,
-      controller: ['$scope', 'profiles', function($scope, profiles) {
-        $scope.profiles = profiles.get();
-      }],
+      controller: ['$scope', '$element', '$attrs', '$transclude', '$http', '$routeParams', 'profiles',
+        function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles) {
+          $scope.results = [];
+          profiles.get().then(
+            function(res) {
+              $scope.results = res.data;
+            },
+            function(err) {
+              console.error(err);
+            }
+          );
+
+
+          $scope.text = "Lorem ipsum";
+        }
+      ],
       controllerAs: 'profilesList',
-      link: function(scope){
-        var unwatch =  $scope.$watch('profiles', function(v) {
-                     scope.profiles = v;
-                     unwatch(); //Remove the watch
-                });
-      }
-      //['$scope',auth, function($scope,auth) {
-      //   $scope.logged = auth.logged;
-      //   $scope.logout = function() {
-      //     auth.logout();
-      //   };
-      // }],
-      // controllerAs: 'loginlink'
+
     };
   });
 

@@ -2,8 +2,9 @@
   var app = angular.module('wk-movie-o-rama', ['auth-wkmor', 'profiles-wkmor','ngRoute']);
 
 
-  app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-
+  app.config(['$locationProvider', '$routeProvider','$httpProvider', function($locationProvider, $routeProvider, $httpProvider) {
+    $httpProvider.useApplyAsync(true);
+    
     $routeProvider
       .when('/app', {
         templateUrl: '/ng-view/index.html',

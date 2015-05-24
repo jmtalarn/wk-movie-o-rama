@@ -1,4 +1,5 @@
-<div class="user" ng-repeat="profile in profiles">
+{{text}}
+<div class="user" ng-repeat="profile in results">
   <h3>{{profile.username}}</h3>
   <img ng-src="/api/profiles/{{profile.id}}/avatar" />
 </div>
