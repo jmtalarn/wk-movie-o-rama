@@ -1,2 +1,0 @@
-<a href="/app/login"  ng-hide="loginLink.logged">Login</a>
-<a href ng-click="loginLink.logout()" ng-show="loginLink.logged">Logout</a>

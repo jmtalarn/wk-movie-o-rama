@@ -1,16 +1,17 @@
 (function(angular) {
 
-    var auth_wkmor = angular.module('auth-wkmor', ['ngStorage']);
+    var auth_wkmor = angular.module('auth-wkmor', ['LocalStorageModule']);
 
     auth_wkmor.config(['$httpProvider', function($httpProvider) {
 
       $httpProvider.interceptors.push('httpInterceptor');
 
     }]);
-    auth_wkmor.factory('api', ['$http', '$localStorage', function($http, $localStorage) {
+    auth_wkmor.factory('api', ['$http', 'localStorageService', function($http, localStorageService) {
       return {
         init: function(token) {
-          $http.defaults.headers.common['X-Access-Token'] = token || $localStorage.token;
+          $http.defaults.headers.common['X-Access-Token'] = token || localStorageService.get('token');
+          console.dir($http.defaults.headers.common);
         }
       };
     }]);
@@ -22,6 +23,7 @@
           return $http.post(urlBase + 'login', credentials);
         },
         logout: function() {
+          console.dir($http.defaults.headers.common);
           return $http.post(urlBase + 'logout');
         },
         check: function() {
@@ -30,10 +32,10 @@
 
       };
     }]);
-    auth_wkmor.controller('auth', ['$scope', '$location', '$localStorage', 'authorization', 'api', function($scope, $location, $localStorage, authorization, api) {
+    auth_wkmor.controller('auth', ['$scope', '$window', 'localStorageService', 'authorization', 'api', function($scope, $window, localStorageService, authorization, api) {
       //$scope.logged = false;
       $scope.isLogged  = function(){
-        return ($localStorage.token? true: false);
+        return (localStorageService.get('token')? true: false);
       };
       $scope.login = function(username) {
         var credentials = {
@@ -47,8 +49,9 @@
             if (data.token) {
               var token = data.token;
               api.init(token);
-              $localStorage.token = data.token;
-              $location.path('/app/dashboard/').replace();
+              localStorageService.remove('token');
+              localStorageService.set('token',token);
+              $window.location.href = '/app/dashboard';
             }
           }
           else {
@@ -66,8 +69,8 @@
         var success = function(data) {
           if (data.success) {
             if (data.token) {
-              $localStorage.remove('token');
-              $location.path('/');
+              localStorageService.remove('token');
+              $window.location.href = '/';
             }
           }
           else {
@@ -77,8 +80,8 @@
         var error = function(data) {
           return data;
         };
-
-        authorization.logout().success(success).error(error);
+        api.init();
+        authorization.logout({}).success(success).error(error);
       };
     }]);
 
@@ -105,7 +108,6 @@
     auth_wkmor.directive('loginLink', function() {
       return {
         restrict: 'A',
-        scope: false,
         //templateUrl: '/directives/login-link.html',
         link: function(scope, element, attrs) {
           if (scope.isLogged()){
@@ -118,7 +120,7 @@
             element.attr("href","/app/login");
             element.html("Login");
           }
-          
+
         },
         controller: 'auth'
       };
