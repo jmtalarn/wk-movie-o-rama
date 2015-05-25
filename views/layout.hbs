@@ -18,10 +18,9 @@
   <script src="/components/modernizr/modernizr.js"></script>
 </head>
 
-<body>
-  <div class="row">
-    <div class="large-12 columns">
-      <nav class="top-bar" data-topbar role="navigation">
+<body >
+  <header>
+   <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
           <li class="name">
             <h1 class="app-name"><a href="#"><i class="fa fa-ticket"></i>wk-movie-o-rama</a></h1>
@@ -36,21 +35,26 @@
         <section class="top-bar-section">
           <!-- Right Nav Section -->
            <ul class="right">
-                <li ><login-link></login-link></li>
+                <li></li>
             </ul>
 
           <!-- Left Nav Section -->
 
         </section>
       </nav>
+</header>
+  <div class="row">
+    <div class="large-12 columns app content">
+     
 
       {{{body}}}
 
-      <script type="text/javascript" src="/javascripts/auth-wkmor.js" ></script>
-      <script type="text/javascript" src="/javascripts/profiles-wkmor.js" ></script>
-      <script type="text/javascript" src="/javascripts/main.js" ></script>
+
     </div>
   </div>
+        <script type="text/javascript" src="/javascripts/auth-wkmor.js" ></script>
+      <script type="text/javascript" src="/javascripts/profiles-wkmor.js" ></script>
+      <script type="text/javascript" src="/javascripts/main.js" ></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 (function(angular) {
 
-  var profiles_wkmor = angular.module('profiles-wkmor', ['auth-wkmor']);
+  var profiles_wkmor = angular.module('profiles-wkmor', []);
 
   profiles_wkmor.factory('profiles', ['$http', '$timeout', '$q', function($http, $timeout, $q) {
     var urlBase = '/api/profiles/';
@@ -28,24 +28,23 @@
   profiles_wkmor.directive('profilesLogin', function() {
     return {
       restrict: 'E',
-      templateUrl: '/ng-view/profiles-login.html',
+      templateUrl: '/directives/profiles-login.html',
       scope: true,
-      controller: ['$scope', '$element', '$attrs', '$transclude', '$http', '$routeParams', 'profiles','auth',
+      controller: ['$scope', '$element', '$attrs', '$transclude', '$http', '$routeParams', 'profiles',
 
-        function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles, auth ) {
+        function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles ) {
+          $scope.loading = true;
           $scope.results = [];
           profiles.get().then(
             function(res) {
               $scope.results = res.data;
+              $scope.loading = false;
             },
             function(err) {
+              $scope.loading = false;
               console.error(err);
             }
           );
-          $scope.login = function(username) {
-            auth.credentials.username(username);
-            auth.login();
-          };
         }
       ],
       controllerAs: 'profilesLogin',
