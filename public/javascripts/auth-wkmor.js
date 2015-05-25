@@ -7,9 +7,6 @@
       $httpProvider.interceptors.push('httpInterceptor');
 
     }]);
-auth_wkmor.factory('loggedFactory',function() {
-  return {isLogged: false };
-});
     auth_wkmor.factory('api', ['$http', '$localStorage', function($http, $localStorage) {
       return {
         init: function(token) {
@@ -33,10 +30,10 @@ auth_wkmor.factory('loggedFactory',function() {
 
       };
     }]);
-    auth_wkmor.controller('auth', ['$scope', '$location', '$localStorage', 'authorization', 'api','loggedFactory', function($scope, $location, $localStorage, authorization, api, loggedFactory) {
+    auth_wkmor.controller('auth', ['$scope', '$location', '$localStorage', 'authorization', 'api', function($scope, $location, $localStorage, authorization, api) {
       //$scope.logged = false;
       $scope.isLogged  = function(){
-        return loggedFactory.isLogged;
+        return ($localStorage.token? true: false);
       };
       $scope.login = function(username) {
         var credentials = {
@@ -49,7 +46,6 @@ auth_wkmor.factory('loggedFactory',function() {
           if (data.success) {
             if (data.token) {
               var token = data.token;
-              loggedFactory.islogged = true;
               api.init(token);
               $localStorage.token = data.token;
               $location.path('/app/dashboard/').replace();
@@ -70,7 +66,6 @@ auth_wkmor.factory('loggedFactory',function() {
         var success = function(data) {
           if (data.success) {
             if (data.token) {
-              loggedFactory.islogged = false;
               $localStorage.remove('token');
               $location.path('/');
             }
