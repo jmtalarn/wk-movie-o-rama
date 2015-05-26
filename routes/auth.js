@@ -68,12 +68,8 @@ router.post('/login', function(req, res) {
 //Function to pass to the requiring authorization routes
 function ensureAuthorized(req, res, next) {
 	var token = req.body.token || req.param('token') || req.headers['X-Access-Token'];
-	console.dir(req);
-	console.dir(req.headers);
-	console.dir(token);
 	// decode token
 	if (token) {
-		console.dir(token);
 		// verifies secret and checks exp
 		jwt.verify(token, security_issuer.superSecret, function(err, decoded) {
 			if (err) {
@@ -108,16 +104,12 @@ function ensureAuthorized(req, res, next) {
 	}
 
 };
-router.get('/check', ensureAuthorized, function(req, res,next) {
+router.get('/check', ensureAuthorized, function(req, res) {
 		res.json(req.profile);
 });
 
-router.post('/logout', ensureAuthorized, function(req, res,next) {
+router.post('/logout', ensureAuthorized, function(req, res) {
 	req.profile.token = "";
-	console.log("*************************"):
-	console.dir(req);
-	console.log("*************************"):
-	console.dir(res);
 	req.profile.save(function(err, p) {
             if (err) return next(err);
          });

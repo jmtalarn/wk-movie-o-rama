@@ -7,14 +7,14 @@
       $httpProvider.interceptors.push('httpInterceptor');
 
     }]);
-    auth_wkmor.factory('api', ['$http', 'localStorageService', function($http, localStorageService) {
-      return {
-        init: function(token) {
-          $http.defaults.headers.common['X-Access-Token'] = token || localStorageService.get('token');
-          console.dir($http.defaults.headers.common);
-        }
-      };
-    }]);
+    // auth_wkmor.factory('api', ['$http', 'localStorageService', function($http, localStorageService) {
+    //   return {
+    //     init: function(token) {
+    //       $http.defaults.headers.common['X-Access-Token'] = token || localStorageService.get('token');
+    //       console.dir($http.defaults.headers.common);
+    //     }
+    //   };
+    // }]);
     auth_wkmor.factory('authorization', ['$http', function($http) {
       var urlBase = '/api/auth/';
 
@@ -23,7 +23,6 @@
           return $http.post(urlBase + 'login', credentials);
         },
         logout: function() {
-          console.dir($http.defaults.headers.common);
           return $http.post(urlBase + 'logout');
         },
         check: function() {
@@ -32,7 +31,7 @@
 
       };
     }]);
-    auth_wkmor.controller('auth', ['$scope', '$window', 'localStorageService', 'authorization', 'api', function($scope, $window, localStorageService, authorization, api) {
+    auth_wkmor.controller('auth', ['$scope', '$window', 'localStorageService', 'authorization',  function($scope, $window, localStorageService, authorization) {
       //$scope.logged = false;
       $scope.isLogged  = function(){
         return (localStorageService.get('token')? true: false);
@@ -48,7 +47,6 @@
           if (data.success) {
             if (data.token) {
               var token = data.token;
-              api.init(token);
               localStorageService.remove('token');
               localStorageService.set('token',token);
               $window.location.href = '/app/dashboard';
@@ -80,15 +78,20 @@
         var error = function(data) {
           return data;
         };
-        api.init();
-        authorization.logout({}).success(success).error(error);
+        //api.init();
+        authorization.logout().success(success).error(error);
       };
     }]);
 
-    //angular.module('auth-wkmor', []).factory('authorization', function($http, config) {
-
-    auth_wkmor.factory('httpInterceptor', ['$q', '$window', '$location', function httpInterceptor($q, $window, $location) {
+    auth_wkmor.factory('httpInterceptor', ['$q', '$window', '$location','localStorageService', function httpInterceptor($q, $window, $location,localStorageService) {
       return {
+        request: function(config) {
+          config.headers = config.headers || {};
+          config.headers['X-Access-Token']=localStorageService.get('token');
+          //localStorageService.get('token')? true: false
+          //config.headers.Authorization = 'xxxx-xxxx';
+          return config;
+        },
         response: function(response) {
           // do something on success
           return response;
@@ -108,7 +111,6 @@
     auth_wkmor.directive('loginLink', function() {
       return {
         restrict: 'A',
-        //templateUrl: '/directives/login-link.html',
         link: function(scope, element, attrs) {
           if (scope.isLogged()){
            var callback = function() {
