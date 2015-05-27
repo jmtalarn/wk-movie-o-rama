@@ -45,7 +45,7 @@ router.post('/login', function(req, res) {
 
 				// if user is found and password is right
 				// create a token
-				profile.token = jwt.sign(profile, security_issuer.superSecret, {
+				profile.token = jwt.sign({username: profile.username}, security_issuer.superSecret, {
 					expiresInMinutes: 20 // expires in 20 minutes
 				});
 				profile.save(function(err, profile_token) {
@@ -67,12 +67,14 @@ router.post('/login', function(req, res) {
 
 //Function to pass to the requiring authorization routes
 function ensureAuthorized(req, res, next) {
-	var token = req.body.token || req.param('token') || req.headers['X-Access-Token'];
+	var token = req.body.token || req.params.token || req.headers['x-access-token'];
 	// decode token
+
 	if (token) {
 		// verifies secret and checks exp
-		jwt.verify(token, security_issuer.superSecret, function(err, decoded) {
+		jwt.verify(token, security_issuer.superSecret,function(err, decoded) {
 			if (err) {
+
 				return res.json({
 					success: false,
 					message: 'Failed to authenticate token.'
@@ -109,11 +111,12 @@ router.get('/check', ensureAuthorized, function(req, res) {
 });
 
 router.post('/logout', ensureAuthorized, function(req, res) {
-	req.profile.token = "";
-	req.profile.save(function(err, p) {
-            if (err) return next(err);
-         });
-
+	//req.profile.token = "";
+	console.log("USER LOGGED OUT!");
+	res.json({
+		success: true,
+		message: 'User was unauthorized. Token removed.'
+	});
 });
 
 module.exports = {

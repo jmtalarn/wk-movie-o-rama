@@ -66,12 +66,9 @@
       $scope.logout = function() {
         var success = function(data) {
           if (data.success) {
-            if (data.token) {
               localStorageService.remove('token');
               $window.location.href = '/';
-            }
-          }
-          else {
+          } else {
             return data;
           }
         };
@@ -86,8 +83,17 @@
     auth_wkmor.factory('httpInterceptor', ['$q', '$window', '$location','localStorageService', function httpInterceptor($q, $window, $location,localStorageService) {
       return {
         request: function(config) {
-          config.headers = config.headers || {};
-          config.headers['X-Access-Token']=localStorageService.get('token');
+          //config.headers = config.headers || {};
+          if (localStorageService.get("token")){
+            config.headers["X-Access-Token"]=localStorageService.get("token");
+            //console.dir(config.headers["X-Access-Token"]);
+          }
+
+          //if (localStorageService.get('token')){
+          //  config.headers.Authorization = localStorageService.get('token');
+          //}else{
+          //  delete config.headers.Authorization;
+          //}
           //localStorageService.get('token')? true: false
           //config.headers.Authorization = 'xxxx-xxxx';
           return config;
