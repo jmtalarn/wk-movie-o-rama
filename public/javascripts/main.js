@@ -1,5 +1,5 @@
 (function(angular) {
-  var app = angular.module('wk-movie-o-rama', [ 'profiles-wkmor', 'ngRoute', 'auth-wkmor']);
+  var app = angular.module('wk-movie-o-rama', [ 'profiles-wkmor', 'ngRoute', 'auth-wkmor','dashboard-wkmor']);
 
 
   app.config(['$locationProvider', '$routeProvider', '$httpProvider', function($locationProvider, $routeProvider, $httpProvider) {
