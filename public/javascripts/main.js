@@ -1,10 +1,9 @@
 (function(angular) {
   var app = angular.module('wk-movie-o-rama', [ 'profiles-wkmor', 'ngRoute', 'auth-wkmor','dashboard-wkmor']);
 
-
   app.config(['$locationProvider', '$routeProvider', '$httpProvider', function($locationProvider, $routeProvider, $httpProvider) {
     $httpProvider.useApplyAsync(true);
-    
+
     $routeProvider
       .when('/app', {
         templateUrl: '/ng-view/index.html',
@@ -29,7 +28,7 @@
       })
       .when('/app/dashboard/profiles', {
         templateUrl: '/ng-view/dashboard/profiles.html',
-      })      
+      })
       // .when('/app/login#:id', {
       //   templateUrl: '/ng-view/tpl-login.html',
       // })

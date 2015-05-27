@@ -123,10 +123,10 @@
               scope.logout();
             };
             element.bind('click', callback);
-            element.html("Logout");
+            element.html("Logout <i class=\"fa fa-sign-out\"></i>");
           }else{
             element.attr("href","/app/login");
-            element.html("Login");
+            element.html("Login <i class=\"fa fa-sign-in\"></i>");
           }
 
         },
