@@ -1,0 +1,13 @@
+
+  
+<div id="spinner" class="row" ng-show="loading">
+  <div class="small-2 small-centered columns">
+    <i class="fa fa-spinner fa-pulse fa-4x"></i>
+  </div>
+</div>
+<div slick>
+
+  <div class="movie" movie-cover="/api/movies/{{movie.id}}/cover" ng-repeat="movie in results">
+    {{movie.title}}
+  </div>
+</slick>

@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Share = require('../models/Share.js');
 var Movie = require('../models/Movie.js');
+
+var image_contentType = 'image/jpeg';
 
 /* GET /movies listing. */
 router.get('/', function(req, res, next) {
@@ -38,7 +39,13 @@ router.get('/:id', function(req, res, next) {
     res.json(result);
   });
 });
-
+router.get('/:id/cover', function(req, res, next) {
+ Movie.findById(req.params.id, function (err, p) {
+          if (err) return next(err);
+          res.contentType(image_contentType);
+          res.send(p.image);
+        });
+});
 
 
 module.exports = router;
