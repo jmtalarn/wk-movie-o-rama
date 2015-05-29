@@ -1,0 +1,43 @@
+
+  <div class="medium-2 hide-for-small  columns">
+    <dashboard-menu></dashboard-menu>
+  </div>
+  <div class="medium-8 end columns" ng-controller="movieController as ctrlr">
+    <div id="spinner" class="row" ng-show="loading">
+      <div class="small-2 small-centered columns">
+        <i class="fa fa-spinner fa-pulse fa-4x"></i>
+      </div>
+    </div>
+    <div class="row" ng-hide="loading">
+      <div class="small-12 columns">
+        <h4>{{movie.title}}</h4>
+      </div>
+    </div>
+    <div class="row" ng-hide="loading">
+      <div class="small-4 columns">
+          <div class="movie large" movie-cover="/api/movies/{{movie.id}}/cover"></div>
+      </div>
+      <div class="small-8 columns" >
+        <p>{{movie.description}}</p>
+
+        <ul class="accordion" data-accordion>
+          <li class="accordion-navigation">
+            <!--a href="#shares"><i class="fa fa-heart"></i>{{movie.shares.length}} shares</a-->
+            <a ng-click="scrollTo('shares')" ><i class="fa fa-heart"></i>{{movie.shares.length}} shares</a>
+            <div id="shares" class="content">
+              Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+          </li>
+          <li class="accordion-navigation">
+            <!--a href="#likes"><i class="fa fa-thumbs-up"></i>{{movie.likes.length}} likes</a-->
+            <a ng-click="scrollTo('likes')"><i class="fa fa-thumbs-up"></i>{{movie.likes.length}} likes</a>
+            <div id="likes" class="content">
+              Panel 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>

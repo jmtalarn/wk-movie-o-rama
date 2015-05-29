@@ -1,6 +1,11 @@
 @import 'shadows';
+
+$row-width: rem-calc(100%);
+
+@import '../public/components/foundation/scss/foundation.scss';
+
 body {
-  padding: 50px;
+  
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -49,7 +54,7 @@ h1.app-name > a > i {
 .movie {
   height: 30em;
   width: 50%;
-  
+
   .bottom-box {  }
 }
 .profile.other {
@@ -64,8 +69,13 @@ h1.app-name > a > i {
     padding: 0.2em;
   }
 }
+.movie.large{
+  width: 100%;
+}
 .movie,
 .profile.other {
+  cursor: hand; cursor: pointer;
+
   @include card(1);
   position: relative;
   margin: 0 auto;
@@ -78,7 +88,7 @@ h1.app-name > a > i {
     }
   }
   .bottom-box {
-   
+
     position: absolute;
     bottom: 0;
     width: 100%;

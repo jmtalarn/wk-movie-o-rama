@@ -1,18 +1,23 @@
-
-  
 <div id="spinner" class="row" ng-show="loading">
   <div class="small-2 small-centered columns">
     <i class="fa fa-spinner fa-pulse fa-4x"></i>
   </div>
 </div>
-
-<div slick>
-  <div  ng-repeat="movie in results">
-    <div class="movie" movie-cover="/api/movies/{{movie.id}}/cover">
-      <div class="bottom-box">
-      <h5>{{movie.title}} <span class="info right"> <span class="mini-box"><i class="fa fa-heart"></i>{{movie.shares.length}}</span><span class="mini-box"><i class="fa fa-thumbs-up"></i>{{movie.likes.length}}</span></span></h5>
+<div class="row">
+  <div class="small-8 small-centered columns">
+    <div slick ng-hide="loading">
+      <div ng-repeat="movie in results">
+        <div class="movie" movie-cover="/api/movies/{{movie.id}}/cover" ng-click="go(movie.id)">
+          <div class="bottom-box">
+            <h5>{{movie.title}}
+              <span class="info right">
+                <span class="mini-box"><i class="fa fa-heart"></i>{{movie.shares.length}}</span>
+                <span class="mini-box"><i class="fa fa-thumbs-up"></i>{{movie.likes.length}}</span>
+              </span>
+            </h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
