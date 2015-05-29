@@ -40,10 +40,10 @@ router.get('/:id', function(req, res, next) {
   });
 });
 router.get('/:id/cover', function(req, res, next) {
- Movie.findById(req.params.id, function (err, p) {
+ Movie.findById(req.params.id, function (err, m) {
           if (err) return next(err);
           res.contentType(image_contentType);
-          res.send(p.image);
+          res.send(m.cover);
         });
 });
 

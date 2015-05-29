@@ -1,7 +1,4 @@
 @import 'shadows';
-
-
-
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -19,32 +16,63 @@ h1.app-name > a > i {
 .hello .icon {
   text-align: center;
 }
-.profile-login{
+.profile-login {
   @include card(1);
   //height: 6em;
-  .profile-avatar{
-      display: inline-block;
-      width: 3em;
-      height: 5em;
-
+  .profile-avatar {
+    display: inline-block;
+    width: 3em;
+    height: 5em;
   }
   .profile-name {
     padding: 1em;
   }
-
-  &:hover { 
-      cursor: hand; 
-      cursor: pointer; 
-      @include card(2); 
-      height: 10.5em;
-      transition: box-shadow 100ms linear, height 1s ease; 
-      
-      .profile-avatar { width: 6em; height: 10em; transition: width 1200ms ease,  height 1200ms ease; }
+  &:hover {
+    cursor: hand;
+    cursor: pointer;
+    @include card(3);
+    height: 10.5em;
+    transition: box-shadow 100ms linear, height 1s ease;
+    .profile-avatar {
+      width: 6em;
+      height: 10em;
+      transition: width 1200ms ease, height 1200ms ease;
+    }
   }
-
 }
-.app.content{
+.app.content {
   padding-top: 2em;
 }
-
-
+.movie {
+  @include card(1);
+  width: 50%;
+  margin: 0 auto;
+  height: 30em;
+  margin-bottom: 1em;
+  &:hover {
+    @include card(3);
+    .bottom-box{
+       background-color: #008CBA !important;
+       transition: background-color 300ms ease,  box-shadow 300ms ease;
+    }
+  }
+  .bottom-box{
+  
+    bottom: 16px;
+    position: absolute;
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    display: block;
+    width: 20em;
+    h5{
+      color: white;
+      text-shadow: 1px 1px 1px #FCFCFC;
+      
+      .mini-box{
+        margin-right: 1em;
+      }
+    }
+  
+  }
+}

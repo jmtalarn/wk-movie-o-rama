@@ -7,14 +7,7 @@
       $httpProvider.interceptors.push('httpInterceptor');
 
     }]);
-    // auth_wkmor.factory('api', ['$http', 'localStorageService', function($http, localStorageService) {
-    //   return {
-    //     init: function(token) {
-    //       $http.defaults.headers.common['X-Access-Token'] = token || localStorageService.get('token');
-    //       console.dir($http.defaults.headers.common);
-    //     }
-    //   };
-    // }]);
+
     auth_wkmor.factory('authorization', ['$http', function($http) {
       var urlBase = '/api/auth/';
 
@@ -83,19 +76,10 @@
     auth_wkmor.factory('httpInterceptor', ['$q', '$window', '$location','localStorageService', function httpInterceptor($q, $window, $location,localStorageService) {
       return {
         request: function(config) {
-          //config.headers = config.headers || {};
           if (localStorageService.get("token")){
             config.headers["X-Access-Token"]=localStorageService.get("token");
-            //console.dir(config.headers["X-Access-Token"]);
           }
 
-          //if (localStorageService.get('token')){
-          //  config.headers.Authorization = localStorageService.get('token');
-          //}else{
-          //  delete config.headers.Authorization;
-          //}
-          //localStorageService.get('token')? true: false
-          //config.headers.Authorization = 'xxxx-xxxx';
           return config;
         },
         response: function(response) {
