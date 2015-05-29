@@ -3,12 +3,15 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 a {
   color: #00b7ff;
 }
+
 h1.app-name > a > i {
   padding-right: 1em;
 }
+
 .hello {
   height: 20em;
   padding-top: 5em;
@@ -44,35 +47,50 @@ h1.app-name > a > i {
   padding-top: 2em;
 }
 .movie {
-  @include card(1);
-  width: 50%;
-  margin: 0 auto;
   height: 30em;
+  width: 50%;
+  
+  .bottom-box {  }
+}
+.profile.other {
+  height: 10em;
+  position: relative;
+  .avatar{
+      width: 5em;
+      height: 100%;
+  }
+  h5{ font-size: 0.8em;}
+  .bottom-box {
+    padding: 0.2em;
+  }
+}
+.movie,
+.profile.other {
+  @include card(1);
+  position: relative;
+  margin: 0 auto;
   margin-bottom: 1em;
   &:hover {
     @include card(3);
-    .bottom-box{
-       background-color: #008CBA !important;
-       transition: background-color 300ms ease,  box-shadow 300ms ease;
+    .bottom-box {
+      background-color: #008CBA !important;
+      transition: background-color 300ms ease, box-shadow 300ms ease;
     }
   }
-  .bottom-box{
-  
-    bottom: 16px;
+  .bottom-box {
+   
     position: absolute;
-    padding: 1em;
+    bottom: 0;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    
     display: block;
-    width: 20em;
-    h5{
+    h5 {
+      padding: 1em;
       color: white;
       text-shadow: 1px 1px 1px #FCFCFC;
-      
-      .mini-box{
+      .mini-box {
         margin-right: 1em;
       }
     }
-  
   }
 }

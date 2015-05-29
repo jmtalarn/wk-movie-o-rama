@@ -51,6 +51,32 @@
 
     };
   });
+    profiles_wkmor.directive('otherProfiles', function() {
+    return {
+      restrict: 'E',
+      templateUrl: '/directives/other-profiles.html',
+      scope: true,
+      controller: ['$scope', '$element', '$attrs', '$transclude', '$http', '$routeParams', 'profiles',
+
+        function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles ) {
+          $scope.loading = true;
+          $scope.results = [];
+          profiles.get().then(
+            function(res) {
+              $scope.results = res.data;
+              $scope.loading = false;
+            },
+            function(err) {
+              $scope.loading = false;
+              console.error(err);
+            }
+          );
+        }
+      ],
+      controllerAs: 'otherProfiles',
+
+    };
+  });
   profiles_wkmor.directive('profileAvatar', function() {
     return {
       restrict: 'A',

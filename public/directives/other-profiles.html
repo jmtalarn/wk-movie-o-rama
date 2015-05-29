@@ -1,0 +1,20 @@
+<div id="spinner" class="row" ng-show="loading">
+  <div class="small-2 small-centered columns">
+    <i class="fa fa-spinner fa-pulse fa-4x"></i>
+  </div>
+</div>
+<ul class="small-block-grid-3 ">
+  <li ng-repeat="profile in results">
+    <div class="profile other">
+      <div class="avatar left" profile-avatar="/api/profiles/{{profile.id}}/avatar">
+      </div>
+      <div class="bottom-box">
+        <h5>
+        {{profile.username}}
+        <span class="info right"> <span class="mini-box"><i class="fa fa-heart"></i>{{profile.shares.length}}</span><span class="mini-box"><i class="fa fa-thumbs-up"></i>{{profile.likes.length}}</span></span>
+        </h5>
+      </div>
+    </div>
+
+  </li>
+</ul>
