@@ -19,7 +19,7 @@
       }, 5000);
 
       return d.promise;
-    };
+    }
 
     function _get(id) {
       var d = $q.defer();
@@ -35,7 +35,8 @@
       }, 5000);
 
       return d.promise;
-    };
+    }
+    
     results.list = _list;
     results.get = _get;
     return results;
@@ -138,7 +139,7 @@
 
         });
       }
-    }
+    };
   });
 
 })(window.angular);

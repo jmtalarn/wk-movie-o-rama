@@ -15,27 +15,29 @@
         templateUrl: '/ng-view/login.html',
       })
       .when('/app/dashboard', {
-        templateUrl: '/ng-view/dashboard/index.html',
+        templateUrl: '/ng-view/dashboard/profile.html',
+        controller: 'meController'
+      })
+      .when('/app/profiles/:id', {
+        templateUrl: '/ng-view/dashboard/profile.html',
+        controller: 'profileController'
       })
       .when('/app/dashboard/movies', {
         templateUrl: '/ng-view/dashboard/movies.html',
       })
       .when('/app/dashboard/movie/:id', {
         templateUrl: '/ng-view/dashboard/movie.html',
-        controller: 'ScrollToHashController',
+        controller: 'SharesLikesAccordionController'
       })
-      .when('/app/dashboard/myshares', {
-        templateUrl: '/ng-view/dashboard/myshares.html',
-      })
-      .when('/app/dashboard/mylikes', {
-        templateUrl: '/ng-view/dashboard/mylikes.html',
-      })
+      // .when('/app/dashboard/myshares', {
+      //   templateUrl: '/ng-view/dashboard/myshares.html',
+      // })
+      // .when('/app/dashboard/mylikes', {
+      //   templateUrl: '/ng-view/dashboard/mylikes.html',
+      // })
       .when('/app/dashboard/profiles', {
         templateUrl: '/ng-view/dashboard/profiles.html',
       })
-      // .when('/app/login#:id', {
-      //   templateUrl: '/ng-view/tpl-login.html',
-      // })
       .otherwise({
         redirectTo: 'app',
       });
@@ -48,13 +50,20 @@
   //    api.init();
   //  });
 
-  app.controller('ScrollToHashController', ['$scope', '$location', '$anchorScroll','$timeout', function($scope, $location, $anchorScroll, $timeout) {
-    $scope.scrollTo = function(id) {
-      $timeout(function() {
-        $location.hash(id);
-        $anchorScroll();
-      });
-    }
+  app.controller('SharesLikesAccordionController', ['$scope', function($scope) {
+    $scope.accordionToggle = { 
+        shares: false, 
+        likes: false,
+      toggleShares: function(){
+        this.shares = !this.shares;
+        
+      },
+      toggleLikes: function(){ 
+        this.likes = !this.likes;
+        
+      }
+    };
+
   }]);
 
 
