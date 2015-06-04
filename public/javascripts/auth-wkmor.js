@@ -62,6 +62,10 @@
               localStorageService.remove('token');
               $window.location.href = '/';
           } else {
+            if (data.messagge.indexOf("jwt expired")!=-1){
+              localStorageService.remove('token');
+              $window.location.href = '/';
+            }
             return data;
           }
         };
