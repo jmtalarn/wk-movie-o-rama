@@ -16,7 +16,7 @@
       })
       .when('/app/dashboard', {
         templateUrl: '/ng-view/dashboard/profile.html',
-        controller: 'meController'
+        controller: 'meController',
       })
       .when('/app/profiles/:id', {
         templateUrl: '/ng-view/dashboard/profile.html',

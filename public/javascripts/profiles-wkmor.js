@@ -4,6 +4,7 @@
 
   profiles_wkmor.factory('profiles', ['$http', '$timeout', '$q', function($http, $timeout, $q) {
     var urlBase = '/api/profiles/';
+    var authUrlBase = '/api/auth/';
     var results = {};
 
     function _list() {
@@ -42,7 +43,7 @@
       var d = $q.defer();
       $timeout(function() {
         d.resolve(
-          $http.get(urlBase + "/check").success(function(data, status, headers, config) {
+          $http.get(authUrlBase + "check").success(function(data, status, headers, config) {
             return (data);
           }).error(function(data, status, headers, config) {
             return (data);
@@ -58,9 +59,9 @@
     results.me = _me;
     return results;
   }]);
-  profiles_wkmor.controller('profileController', ['$scope', '$element', '$attrs', '$transclude', '$http', '$routeParams', 'profiles',
+  profiles_wkmor.controller('profileController', ['$scope', '$http', '$routeParams', 'profiles',
 
-    function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles) {
+    function($scope, $http, $routeParams, profiles) {
       $scope.loading = true;
       //$scope.movie = {};
 
@@ -76,9 +77,9 @@
       );
     }
   ]);
-    profiles_wkmor.controller('meController', ['$scope', '$element', '$attrs', '$transclude', '$http', 'profiles',
+    profiles_wkmor.controller('meController', ['$scope', '$http', 'profiles',
 
-    function($scope, $element, $attrs, $transclude, $http, profiles) {
+    function($scope, $http, profiles) {
       $scope.loading = true;
       //$scope.movie = {};
 
@@ -159,7 +160,7 @@
         });
       }
     };
-  })
+  });
   
 
 })(window.angular);

@@ -77,7 +77,7 @@ function ensureAuthorized(req, res, next) {
 
 				return res.json({
 					success: false,
-					message: 'Failed to authenticate token.'
+					message: 'Failed to authenticate token. '+ err.message
 				});
 			}
 			else {
