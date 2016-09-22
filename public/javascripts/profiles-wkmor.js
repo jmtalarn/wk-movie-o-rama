@@ -22,7 +22,7 @@
 
       return d.promise;
     }
-    
+
     function _get(id) {
       var d = $q.defer();
       $timeout(function() {
@@ -38,7 +38,7 @@
 
       return d.promise;
     }
-    
+
     function _me() {
       var d = $q.defer();
       $timeout(function() {
@@ -105,7 +105,7 @@
         function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles ) {
           $scope.loading = true;
           $scope.results = [];
-          profiles.get().then(
+          profiles.list().then(
             function(res) {
               $scope.results = res.data;
               $scope.loading = false;
@@ -131,7 +131,7 @@
         function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles ) {
           $scope.loading = true;
           $scope.results = [];
-          profiles.get().then(
+          profiles.list().then(
             function(res) {
               $scope.results = res.data;
               $scope.loading = false;
@@ -152,7 +152,7 @@
       restrict: 'A',
       link: function(scope, element, attrs) {
         attrs.$observe('profileAvatar', function(url) {
-        
+
         element.css({
           'background-image': 'url(' + url + ')',
           'background-size': 'cover'
@@ -161,6 +161,6 @@
       }
     };
   });
-  
+
 
 })(window.angular);
