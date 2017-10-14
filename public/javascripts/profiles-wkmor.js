@@ -105,7 +105,7 @@
         function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles ) {
           $scope.loading = true;
           $scope.results = [];
-          profiles.get().then(
+          profiles.list().then(
             function(res) {
               $scope.results = res.data;
               $scope.loading = false;
@@ -131,7 +131,7 @@
         function($scope, $element, $attrs, $transclude, $http, $routeParams, profiles ) {
           $scope.loading = true;
           $scope.results = [];
-          profiles.get().then(
+          profiles.list().then(
             function(res) {
               $scope.results = res.data;
               $scope.loading = false;
