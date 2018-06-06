@@ -18,7 +18,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/wk-movie-o-rama', function(err) {
+mongoose.connect('mongodb://localhost:27027/wk-movie-o-rama', function(err) {
     if(err) {
         console.log('connection error', err);
     } else {
@@ -88,5 +88,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
+console.log("Express server listening on port " + app.get('port'));
+console.log("Routes", app._router.stack );
 module.exports = app;
