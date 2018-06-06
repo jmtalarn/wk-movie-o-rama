@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.2",
+    "mongobox": "0.0.1",
+    "mongoose": "^5.1.4",
+    "morgan": "^1.9.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "serve-favicon": "^2.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
