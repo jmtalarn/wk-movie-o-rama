@@ -5,11 +5,6 @@ var mongoose = require('mongoose');
 
 var Profile = require('../models/Profile.js');
 
-/*************************************************************/
-/* WE NEED MOOAAAR!! ENGINEERS                               */
-/* AKA TEST ENGINEERS                                        */
-/*************************************************************/
-
 var security_issuer = {
 	ultra_password: 'movieorama',
 	superSecret: 'THi$1$4$3cr3tP4s$Phr4S3'

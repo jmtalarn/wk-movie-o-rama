@@ -2,7 +2,7 @@ var MongoBox = require('mongobox').MongoBox;
 
 var options = {
   port: 27027,
-  databasePath: './data/db',
+  databasePath: './api/data/db',
   mongodBinary: '/Users/esl-joanta/mongodb-osx-x86_64-3.6.5/bin/mongod'
 };
 var mongobox = new MongoBox(options);
@@ -29,7 +29,7 @@ function initData(){
 
   console.log("Creating constants...");
   // img path
-  var dataPath = './data/';
+  var dataPath = './api/data/';
   var contentTypes = {
     movie: 'image/jpeg',
     profile: 'image/png'

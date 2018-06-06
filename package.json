@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "cookie-parser": "^1.4.3",
+    "body-parser": "^1.18.3",
+    "debug": "^3.1.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.2",
     "mongobox": "0.0.1",
