@@ -5,17 +5,22 @@ var options = {
   databasePath: './api/data/db',
   mongodBinary: '/Users/esl-joanta/mongodb-osx-x86_64-3.6.5/bin/mongod'
 };
-var mongobox = new MongoBox(options);
 
-mongobox.start(function (err) {
-  if (err) return console.error('Could not start the database: %s', err);
+function startMongoInstance(){
+  
+  var mongobox = new MongoBox(options);
 
-  return initData();
-  //  mongobox.stop(function (err, code) {
-  //    if (err) return console.error('Could not stop: %s', err);
-  //    console.log('Stopped with code %s', code);
-  //  });
- });
+  mongobox.start(function (err) {
+    if (err) return console.error('Could not start the database: %s', err);
+
+    return initData();
+    //  mongobox.stop(function (err, code) {
+    //    if (err) return console.error('Could not stop: %s', err);
+    //    console.log('Stopped with code %s', code);
+    //  });
+  });
+}
+
 
 function initData(){
   /**
@@ -95,7 +100,7 @@ function initData(){
     movies.forEach(function(m) {
       m.save(function(err, m) {
         if (err) return console.error(err);
-        console.dir(m);
+        //console.dir(m);
       });
     });
     console.log("Movies added!");
@@ -111,7 +116,7 @@ function initData(){
     profiles.forEach(function(p) {
       p.save(function(err, p) {
         if (err) return console.error(err);
-        console.dir(p);
+        //console.dir(p);
       });
     });
     console.log("Profiles added!")
@@ -119,3 +124,5 @@ function initData(){
 
   });
 }
+
+module.exports = startMongoInstance;

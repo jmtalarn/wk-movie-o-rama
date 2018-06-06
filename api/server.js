@@ -1,7 +1,9 @@
+var mongoInstance = require('./data/init.mongo');
+
 var app = require('./app');
 var debug = require('debug')('wk-movie-o-rama:server');
 var http = require('http');
-
+mongoInstance();
 /**
  * Get port from environment and store in Express.
  */
