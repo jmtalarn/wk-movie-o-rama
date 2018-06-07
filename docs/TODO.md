@@ -23,3 +23,21 @@ On the project root folder
 This will run _concurrently_ the two scripts above
 
 
+# Design components
+## For the whole app
+### If not logged in
+A choose the profile screen
+### If logged in
+ - A *left sidebar* area, where
+    - you see the logged user
+    - the list of actions to do
+    - See all the movies
+    - Movies shared with me 
+    - Logout action
+ - A *main area*, where you'll see the main content
+## Views
+    - Movies list
+    - Movie details
+    - Other users profiles
+
+
