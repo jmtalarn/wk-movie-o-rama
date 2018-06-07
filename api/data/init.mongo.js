@@ -88,7 +88,16 @@ function initData(){
     new Profile({
       username: 'Bart.Simpson',
       image: fs.readFileSync(dataPath + 'Bart.png'),
-    })
+    }),
+    new Profile({
+      username: 'Gavin.Belson',
+      image: fs.readFileSync(dataPath + 'Gavin.png'),
+    }),
+    new Profile({
+      username: 'Erlich.Bachman',
+      image: fs.readFileSync(dataPath + 'Erlich.png'),
+    }),    
+
   ];
 
   console.log("Removing movies...");
