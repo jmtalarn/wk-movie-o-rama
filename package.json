@@ -16,9 +16,13 @@
     "serve-favicon": "^2.5.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"node api/server\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3001/",
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
