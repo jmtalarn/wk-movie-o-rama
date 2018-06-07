@@ -48,7 +48,10 @@ A choose the profile screen
 - Share a movie
 
 # Think about components containers
-1. We need to create the Main container and the routes to show each of the views
-2. We should protect the routes and actions
+- [X] We need to create the Main container and the routes to show each of the views
+- [X] We should protect the routes and actions
+- [ ] Start to use Redux to manage the authenticated user state
+ 
+
 
 
