@@ -50,8 +50,10 @@ This will run _concurrently_ the two scripts above
 # Think about components containers
 - [X] We need to create the Main container and the routes to show each of the views
 - [X] We should protect the routes and actions
-- [ ] Start to use Redux to manage the authenticated user state
- 
+- [X] Start to use Redux to manage the authenticated user state
+- [ ] Create the containers component to bind the state provided by redux with the view components 
+- [ ] Implement the login view component
+- [ ] TBD Implement actions and views for the specifications
 
 
 
