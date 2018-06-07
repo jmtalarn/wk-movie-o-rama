@@ -1,23 +1,50 @@
-import * as ACTION from './action-types';
+import * as ActionTypes from '../actions';
+const jwtDecode = require('jwt-decode');
 
+function checkTokenExpiry() {
+	let jwt = localStorage.getItem('id_token');
+	if (jwt) {
+		let jwtExp = jwtDecode(jwt).exp;
+		let expiryDate = new Date(0);
+		expiryDate.setUTCSeconds(jwtExp);
 
+		if (new Date() < expiryDate) {
+			return true;
+		}
+	}
+	return false;
+}
 
-const initialState = {
-	auth: {}
-};
+function getProfile() {
+	return JSON.parse(localStorage.getItem('profile'));
+}
 
-const authReducer = (state = initialState, action) => {
+function auth(state = {
+	isAuthenticated: checkTokenExpiry(),
+	profile: getProfile(),
+	error: ''
+}, action) {
 	switch (action.type) {
-		case ACTION.LOGIN:
-			{
-				return Object.assign({}, ...action.auth);
-			}
-		case ACTION.LOGOUT:
-			{
-				return Object.assign({}, ...action.auth);
-			}
+		case ActionTypes.LOGIN_SUCCESS:
+			return Object.assign({}, state, {
+				isAuthenticated: true,
+				profile: action.profile,
+				error: ''
+			});
+		case ActionTypes.LOGIN_ERROR:
+			return Object.assign({}, state, {
+				isAuthenticated: false,
+				profile: null,
+				error: action.error
+			});
+		case ActionTypes.LOGOUT_SUCCESS:
+			return Object.assign({}, state, {
+				isAuthenticated: false,
+				profile: null
+			});
 		default:
 			return state;
 	}
-};
+}
+
 export default authReducer;

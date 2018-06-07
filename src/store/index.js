@@ -7,7 +7,7 @@ import authReducer from './auth/reducers';
 // redux-cli-logger enables logging in CLI, so in tests with test environment variable defined will print out things on the screen
 const loggerMiddleware = process.env.NODE_ENV === 'test' ? createCLILogger({}) : createLogger();
 
-const rootReducer = combineReducers({ auth: potatoReducer, tomato: tomatoReducer });
+const rootReducer = combineReducers({ auth: authReducer });
 
 
 const store = createStore(
