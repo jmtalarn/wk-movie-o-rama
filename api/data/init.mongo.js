@@ -76,7 +76,22 @@ function initData(){
       title: 'The Artist',
       description: 'A silent movie star meets a young dancer, but the arrival of talking pictures sends their careers in opposite directions.',
       cover: fs.readFileSync(dataPath + 'TheArtist.jpg')
-    })
+    }),
+    new Movie({
+      title: 'Bumblebee',
+      description: 'On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken.',
+      cover: fs.readFileSync(dataPath + 'Bumblebee.jpg'),
+    }),
+    new Movie({
+      title: 'Guardians of the Galaxy',
+      description: 'A group of intergalactic criminals are forced to work together to stop a fanatical warrior from taking control of the universe.',
+      cover: fs.readFileSync(dataPath + 'GuardiansOfTheGalaxy.jpg'),
+    }),
+    new Movie({
+      title: 'Jurassic World: The fallen kingdom',
+      description: 'When the island\'s dormant volcano begins roaring to life, Owen and Claire mount a campaign to rescue the remaining dinosaurs from this extinction - level event.',
+      cover: fs.readFileSync(dataPath + 'JurassicWorldFallenKingdom.jpg'),
+    }),
   ];
   console.log("Loading Profile Schema...");
   var Profile = require('../models/Profile.js');
