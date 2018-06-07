@@ -3,7 +3,7 @@ import {
 	Route,
 	Redirect,
 } from 'react-router-dom'
-import FakeAuth from './FakeAuth';
+import FakeAuth from './auth/FakeAuth';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
 	<Route {...rest} render={(props) => (

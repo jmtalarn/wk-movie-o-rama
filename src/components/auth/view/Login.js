@@ -1,5 +1,5 @@
 import React from 'react';
-import FakeAuth from './FakeAuth';
+import FakeAuth from '../FakeAuth';
 import {
 	Redirect,
 } from 'react-router-dom'

@@ -1,5 +1,5 @@
 import * as ACTION from './action-types';
-import Auth  from '../../components/Auth';
+import Auth  from '../../components/auth/Auth';
 
 // @TODO: Check this https://www.sitepoint.com/redux-authentication-auth0/
 

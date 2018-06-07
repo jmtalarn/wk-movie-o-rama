@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import About from './components/About';
 import PrivateRoute from './components/PrivateRoute';
-import LogoutLink from './components/Logout'
-import Home from './components/Home'
-import Login from './components/Login'
+import LogoutLink from './components/auth/view/Logout';
+import Home from './components/Home';
+import Login from './components/auth/view/Login';
 import {
   BrowserRouter as Router,
   Route,
   Link,
-} from 'react-router-dom'
+} from 'react-router-dom';
 import './App.css';
 
 

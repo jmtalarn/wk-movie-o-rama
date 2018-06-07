@@ -3,7 +3,7 @@ import {
 	Link,
 	withRouter,
 } from 'react-router-dom';
-import FakeAuth from './FakeAuth';
+import FakeAuth from '../FakeAuth';
 
 const LogoutLink = withRouter(({ history }) => (
 	FakeAuth.isAuthenticated ? (
