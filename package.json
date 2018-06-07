@@ -23,7 +23,8 @@
     "serve-favicon": "^2.5.0"
   },
   "scripts": {
-    "start": "concurrently \"node api/server\" \"react-scripts start\"",
+    "start": "MONGO_BINARY=/opt/mongodb-linux-x86_64-ubuntu1604-3.6.5/bin/mongod concurrently \"node api/server\" \"react-scripts start\"",
+
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

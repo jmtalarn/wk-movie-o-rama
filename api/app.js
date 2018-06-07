@@ -17,7 +17,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27027/wk-movie-o-rama', function(err) {
+mongoose.connect('mongodb://localhost:'+ ( process.env.MONGO_PORT || '27027') +'/wk-movie-o-rama', function(err) {
     if(err) {
         console.log('connection error', err);
     } else {
@@ -67,7 +67,7 @@ app.use(function(req, res, next) {
     res.json({
       message: err.message,
       error: err
-    })
+    });
     // res.render('error', {
     //   message: err.message,
     //   error: err

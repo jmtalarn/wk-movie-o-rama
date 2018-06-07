@@ -21,7 +21,8 @@ This will start only the React App development server
 On the project root folder
     npm start
 This will run _concurrently_ the two scripts above
-
+## Environment variables
+You should use environment variables to set the Mongo DB port, Mongo DB binary location and the port for the server. These are set in the ```start``` of ```npm scripts``` section in ```package.json```
 
 # Design components
 ## For the whole app
