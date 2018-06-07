@@ -1,7 +1,7 @@
 # TODO for wk-movie-o-rama as React App
 
 + [X] Make API run
-+ [ ] Design the components
++ [X] Design the components
 + [ ] Think about components containers
 + [ ] Auth in React
 + [ ] Combine React router and Auth
@@ -36,8 +36,19 @@ A choose the profile screen
     - Logout action
  - A *main area*, where you'll see the main content
 ## Views
-    - Movies list
-    - Movie details
-    - Other users profiles
+- Movies list
+- Movie details
+- Other users profiles
+## Actions
+- See Movies List
+- See Movie details
+- See movies shared with me
+- See user profiles
+- Like a movie
+- Share a movie
+
+# Think about components containers
+1. We need to create the Main container and the routes to show each of the views
+2. We should protect the routes and actions
 
 
