@@ -21,25 +21,18 @@ function loginError(err) {
 	};
 }
 
-export function login() {
-	const lock = new Auth0Lock('AUTH0_CLIENT_ID', 'AUTH0_DOMAIN');
-	return dispatch => {
-		lock.show((err, profile, token) => {
-			if (err) {
-				return dispatch(loginError(err));
-			}
-			localStorage.setItem('profile', JSON.stringify(profile));
-			localStorage.setItem('id_token', token);
-			return dispatch(loginSuccess(profile));
-		});
-	};
+export function login(credentials) {
+
+	return Auth.login(credentials)
+		.then(response => response.json())
+		.then(json => dispatch(loginSuccess(json)))
+		.catch(error => dispatch(loginError(err)));
 }
 
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 function logoutSuccess(profile) {
 	return {
-		type: LOGOUT_SUCCESS
+		type: ACTION.LOGOUT_SUCCESS
 	};
 }
 
