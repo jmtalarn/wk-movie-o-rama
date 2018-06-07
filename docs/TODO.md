@@ -25,21 +25,21 @@ This will run _concurrently_ the two scripts above
 
 # Design components
 ## For the whole app
-### If not logged in
-A choose the profile screen
-### If logged in
  - A *left sidebar* area, where
-    - you see the logged user
+    - you see the logged user if logged in
     - the list of actions to do
     - See all the movies
-    - Movies shared with me 
-    - Logout action
+    - Movies shared with me if logged in
+    - Logout link if logged in / Login link if not logged in
  - A *main area*, where you'll see the main content
+ 
 ## Views
 - Movies list
 - Movie details
 - Other users profiles
 ## Actions
+- Login
+- Logout
 - See Movies List
 - See Movie details
 - See movies shared with me
