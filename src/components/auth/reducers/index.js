@@ -1,4 +1,4 @@
-import * as ActionTypes from '../actions';
+import * as ActionTypes from '../actions/types';
 const jwtDecode = require('jwt-decode');
 
 function checkTokenExpiry() {
@@ -19,7 +19,7 @@ function getProfile() {
 	return JSON.parse(localStorage.getItem('profile'));
 }
 
-function auth(state = {
+function authReducer(state = {
 	isAuthenticated: checkTokenExpiry(),
 	profile: getProfile(),
 	error: ''

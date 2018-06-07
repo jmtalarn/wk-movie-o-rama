@@ -1,5 +1,5 @@
-import * as ACTION from './action-types';
-import Auth  from '../../components/auth/Auth';
+import * as ACTION from './types';
+import Auth  from '../Auth';
 
 // @TODO: Check this https://www.sitepoint.com/redux-authentication-auth0/
 
@@ -23,10 +23,12 @@ function loginError(err) {
 
 export function login(credentials) {
 
-	return Auth.login(credentials)
+	return dispatch=> {
+		Auth.login(credentials)
 		.then(response => response.json())
 		.then(json => dispatch(loginSuccess(json)))
-		.catch(error => dispatch(loginError(err)));
+		.catch(error => dispatch(loginError(error)));
+	};
 }
 
 

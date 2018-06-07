@@ -18,7 +18,6 @@ class Auth {
 	check() {
 		return fetch(this.baseUrl + 'check');
 	}
-}
 
 };
 

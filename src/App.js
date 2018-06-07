@@ -5,6 +5,7 @@ import PrivateRoute from './components/PrivateRoute';
 import LogoutLink from './components/auth/view/Logout';
 import Home from './components/Home';
 import Login from './components/auth/view/Login';
+import AuthContainer from './components/auth/container/AuthContainer';
 import {
   BrowserRouter as Router,
   Route,
@@ -34,7 +35,7 @@ class App extends Component {
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
-                <li><LogoutLink /></li>
+                <li><AuthContainer /></li>
               </ul>
 
               <hr />
