@@ -1,5 +1,5 @@
 import React from 'react';
-import fakeAuth from './Auth';
+import FakeAuth from './FakeAuth';
 import {
 	Redirect,
 } from 'react-router-dom'
@@ -9,7 +9,7 @@ class Login extends React.Component {
 		redirectToReferrer: false
 	}
 	login = () => {
-		fakeAuth.authenticate(() => {
+		FakeAuth.authenticate(() => {
 			this.setState(() => ({
 				redirectToReferrer: true
 			}))

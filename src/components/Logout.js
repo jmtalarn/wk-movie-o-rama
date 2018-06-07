@@ -2,18 +2,18 @@ import React from 'react';
 import {
 	Link,
 	withRouter,
-} from 'react-router-dom'
-import fakeAuth from './Auth';
+} from 'react-router-dom';
+import FakeAuth from './FakeAuth';
 
 const LogoutLink = withRouter(({ history }) => (
-	fakeAuth.isAuthenticated ? (
+	FakeAuth.isAuthenticated ? (
 
 		<Link to="/" onClick={() => {
-			fakeAuth.signout(() => history.push('/'))
+			FakeAuth.signout(() => history.push('/'));
 		}}>Log out</Link>
 	) : (
 			<Link to="/login" > Login</Link >
 		)
-))
+));
 
 export default LogoutLink;
