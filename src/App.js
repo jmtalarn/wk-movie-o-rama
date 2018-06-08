@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import About from './components/About';
 import PrivateRoute from './components/PrivateRoute';
-import LogoutLink from './components/auth/view/Logout';
 import Home from './components/Home';
 import Login from './components/auth/view/Login';
 import AuthContainer from './components/auth/container/AuthContainer';

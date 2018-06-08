@@ -1,11 +1,8 @@
 // components/Auth.js
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 export default class Auth extends Component {
-	constructor(props) {
-		super(props);
-	}
 
 	credentials = {
 		username: "Bart.Simpson",
@@ -15,7 +12,7 @@ export default class Auth extends Component {
 	logoutButton = () => (<button className="" onClick={this.props.logout}>Logout</button>);
 
 	render() {
-		const { login, logout, isAuthenticated, profile } = this.props;
+		const {  isAuthenticated } = this.props;
 		return (
 			<div>
 				{!isAuthenticated ? (
