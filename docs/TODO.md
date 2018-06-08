@@ -54,9 +54,10 @@ You should use environment variables to set the Mongo DB port, Mongo DB binary l
 - [X] Start to use Redux to manage the authenticated user state
 - [ ] Create the containers component to bind the state provided by redux with the view components 
 - [ ] Implement the login view component
-	- [ ] Get the available profiles and its images to show the login page
-	- [ ] Create an async action
-	- [ ] Create the reducer
+	- [X] Get the available profiles ...
+	- [ ] and its images to show the login page
+	- [X] Create an async action
+	- [X] Create the reducer
 
 - [ ] TBD Implement actions and views for the specifications
 
