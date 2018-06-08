@@ -3,10 +3,11 @@ import logo from './logo.svg';
 import About from './components/About';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Home';
-import Login from './components/auth/view/Login';
+import Login from './components/auth/view/LoginView';
 import AuthContainer from './components/auth/container/AuthContainer';
 import {
   BrowserRouter as Router,
+  Switch,
   Route,
   Link,
 } from 'react-router-dom';
@@ -38,10 +39,11 @@ class App extends Component {
               </ul>
 
               <hr />
-
-              <Route exact path="/" component={Home} />
-              <Route path="/login" component={Login} />
-              <PrivateRoute path="/about" component={About} />
+			<Switch>
+				<Route path="/login" component={Login} />
+				<PrivateRoute path="/about" component={About} />
+				<Route exact path="/" component={Home} />
+			</Switch>
             </div>
 
           </div>
