@@ -5,7 +5,7 @@ import Auth  from '../Auth';
 
 //import { CALL_API } from '../middleware/api'
 
-
+const auth = new Auth();
 
 function loginSuccess(profile) {
 	return {
@@ -24,7 +24,7 @@ function loginError(err) {
 export function login(credentials) {
 
 	return dispatch=> {
-		Auth.login(credentials)
+		auth.login(credentials)
 		.then(response => response.json())
 		.then(json => dispatch(loginSuccess(json)))
 		.catch(error => dispatch(loginError(error)));

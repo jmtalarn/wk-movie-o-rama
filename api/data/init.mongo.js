@@ -151,5 +151,5 @@ function startMongoInstance(){
 	}
 
 }
-startMongoInstance();
-//module.exports = startMongoInstance;
+//startMongoInstance();
+module.exports = startMongoInstance;
