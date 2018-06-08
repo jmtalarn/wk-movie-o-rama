@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import About from './components/About';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Home';
-import Login from './components/login/view/LoginView';
+import LoginProfilesContainer from './components/login/container/LoginProfilesContainer';
 import AuthContainer from './components/auth/container/AuthContainer';
 import {
   BrowserRouter as Router,
@@ -40,7 +40,7 @@ class App extends Component {
 
               <hr />
 			<Switch>
-				<Route path="/login" component={Login} />
+				<Route path="/login" component={LoginProfilesContainer} />
 				<PrivateRoute path="/about" component={About} />
 				<Route exact path="/" component={Home} />
 			</Switch>

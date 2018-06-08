@@ -1,25 +1,4 @@
 import * as ACTION from './types';
-import Auth  from '../Auth';
-
-// @TODO: Check this https://www.sitepoint.com/redux-authentication-auth0/
-
-//import { CALL_API } from '../middleware/api'
-
-const auth = new Auth();
-
-function loginSuccess(profile) {
-	return {
-		type: ACTION.LOGIN_SUCCESS,
-		profile,
-	};
-}
-
-function loginError(err) {
-	return {
-		type: ACTION.LOGIN_ERROR,
-		err,
-	};
-}
 
 const API_URL = '/api/profiles';
 

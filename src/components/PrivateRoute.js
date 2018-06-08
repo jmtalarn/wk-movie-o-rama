@@ -6,10 +6,6 @@ import {
 import { connect } from 'react-redux';
 
 class PrivateRouteComponent extends React.Component{
-	constructor(props){
-		super(props);
-		console.log(props);
-	}
 
 	render(){
 		return (
