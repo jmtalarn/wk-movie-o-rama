@@ -14,6 +14,14 @@ class LoginProfiles extends React.Component {
 			{ profiles.map(profile=>(
 				<li>
 					<h3>{profile.username}</h3>
+					<img src={`/api/profiles/${profile.id}/avatar`}
+						style={
+								{
+									width: '2rem',
+									height: '2rem'
+								}
+							}
+					/>
 					<button>Log in</button>
 				</li>
 				)) }
