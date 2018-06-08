@@ -12,9 +12,7 @@ function startMongoInstance(){
   var mongobox = new MongoBox(options);
 
   mongobox.start(function (err) {
-	console.log(err);
     if (err) return console.error('Could not start the database: %s', err);
-	console.log("HELLO");
     return initData();
     //  mongobox.stop(function (err, code) {
     //    if (err) return console.error('Could not stop: %s', err);

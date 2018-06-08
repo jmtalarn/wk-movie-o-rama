@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import About from './components/About';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Home';
-import Login from './components/auth/view/LoginView';
+import Login from './components/login/view/LoginView';
 import AuthContainer from './components/auth/container/AuthContainer';
 import {
   BrowserRouter as Router,
