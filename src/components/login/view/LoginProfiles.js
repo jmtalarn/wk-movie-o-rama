@@ -1,5 +1,7 @@
 import React from 'react';
-
+import {
+	Redirect,
+} from 'react-router-dom';
 
 class LoginProfiles extends React.Component {
 	componentWillMount() {
@@ -12,7 +14,7 @@ class LoginProfiles extends React.Component {
 		return(
 			<ul>
 			{ profiles.map(profile=>(
-				<li>
+					<li key={profile.username}>
 					<h3>{profile.username}</h3>
 					<img src={`/api/profiles/${profile.id}/avatar`}
 						style={
@@ -39,8 +41,15 @@ class LoginProfiles extends React.Component {
 
 		return(
 			error?
-			this.renderError(error):
-			this.renderProfiles(profiles)
+			this.renderError(error):(
+				this.props.auth.isAuthenticated?
+					<Redirect to={{
+						pathname: '/',
+						state: { from: this.props.path }
+						}}
+					/>:
+					this.renderProfiles(profiles)
+				)
 		);
 	}
 }
