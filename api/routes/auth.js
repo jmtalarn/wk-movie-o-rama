@@ -12,7 +12,7 @@ var security_issuer = {
 
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 
-router.post('/login', function(req, res) {
+router.post('/login', function (req, res) {
 
 	// find the user
 	Profile.findOne({
@@ -22,6 +22,7 @@ router.post('/login', function(req, res) {
 		if (err) throw err;
 
 		if (!profile) {
+			res.status(401); //Unauthorized
 			res.json({
 				success: false,
 				message: 'Authentication failed. User not found.'
@@ -40,9 +41,10 @@ router.post('/login', function(req, res) {
 
 				// if user is found and password is right
 				// create a token
-				profile.token = jwt.sign({username: profile.username}, security_issuer.superSecret, {
-					expiresInMinutes: 20 // expires in 20 minutes
-				});
+				profile.token = jwt.sign(
+					{username: profile.username},
+					security_issuer.superSecret,
+					{	expiresIn: 20 }); // expires in 20 minutes
 				profile.save(function(err, profile_token) {
 					if (err) throw err;
 					res.json({

@@ -7,11 +7,13 @@ const LoginProfilesState = function (state) {
 	console.log("Container state", state);
 	const { login, auth } = state;
 	const { profiles = [], error } = login;
+
 	return {
 		auth,
 		profiles,
 		error,
 	};
+
 };
 const LoginProfilesDispatch = function (dispatch) {
 	return {
@@ -19,7 +21,7 @@ const LoginProfilesDispatch = function (dispatch) {
 			dispatch(actions.getLoginProfiles());
 		},
 		loginProfile: (profile)=>{
-			dispatch(login(profile.username, 'movieorama'));
+			dispatch(login({ username: profile.username, password: 'movieorama'}));
 		}
 	};
 };

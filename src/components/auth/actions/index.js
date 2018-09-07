@@ -14,10 +14,10 @@ function loginSuccess(profile) {
 	};
 }
 
-function loginError(err) {
+function loginError(error) {
 	return {
 		type: ACTION.LOGIN_ERROR,
-		err,
+		error,
 	};
 }
 
@@ -25,9 +25,15 @@ export function login(credentials) {
 
 	return dispatch=> {
 		auth.login(credentials)
-		.then(response => response.json())
-		.then(json => dispatch(loginSuccess(json)))
-		.catch(error => dispatch(loginError(error)));
+			.then(response =>{
+				if (response.ok) {
+					return response.json();
+				} else {
+					throw new Error(`${response.status} - ${response.statusText}`);
+				}
+			})
+			.then(json => dispatch(loginSuccess(json)))
+			.catch(error => dispatch(loginError(error)));
 	};
 }
 

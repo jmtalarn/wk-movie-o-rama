@@ -5,12 +5,15 @@ class Auth {
 	}
 
 	login(credentials) {
-		//credentials
-		//
-		//username: username,
-		//	//token: this.token
+		console.log({credentials});
 		//password: 'movieorama'
-		return fetch(this.baseUrl + 'login', { method: 'POST', body: JSON.stringify(credentials)});
+		return fetch(this.baseUrl + 'login',
+			{
+				method: 'POST',
+				headers: {	"Content-Type": "application/json; charset=utf-8"},
+				body: JSON.stringify(credentials)
+			}
+		);
 	}
 	logout() {
 		return fetch(this.baseUrl + 'logout');

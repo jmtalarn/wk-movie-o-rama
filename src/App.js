@@ -4,6 +4,7 @@ import About from './components/About';
 import PrivateRoute from './components/PrivateRoute';
 import PrivateComponent from './components/PrivateComponent';
 import Home from './components/Home';
+import Profile from './components/profile';
 import LoginProfilesContainer from './components/login/container/LoginProfilesContainer';
 import AuthContainer from './components/auth/container/AuthContainer';
 import {
@@ -45,6 +46,7 @@ class App extends Component {
 			<Switch>
 				<Route path="/login" component={LoginProfilesContainer} />
 				<PrivateRoute path="/about" component={About} />
+				<PrivateRoute path="/profile" component={Profile} />
 				<Route exact path="/" component={Home} />
 			</Switch>
             </div>
