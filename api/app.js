@@ -8,7 +8,13 @@
 // # Test API (in other terminal tab)
 // curl localhost:3000/todos
 // # => []%
-
+const mongoOptions = {
+	port: process.env.MONGO_PORT || 27027,
+	address: process.env.MONGO_ADDRESS || 'mongodb://localhost',
+	database: 'wk-movie-o-rama',
+	//databasePath: './api/data/db',
+	//mongodBinary: process.env.MONGO_BINARY || '/Users/esl-joanta/mongodb-osx-x86_64-3.6.5/bin/mongod'
+};
 
 var express = require('express');
 
@@ -17,7 +23,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:'+ ( process.env.MONGO_PORT || '27027') +'/wk-movie-o-rama', function(err) {
+mongoose.connect(`${mongoOptions.address}:${mongoOptions.port}/${mongoOptions.database}`, function(err) {
     if(err) {
         console.log('connection error', err);
     } else {
