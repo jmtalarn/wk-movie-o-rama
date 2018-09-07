@@ -22,11 +22,14 @@ class LoginProfiles extends React.Component {
 								}
 							}
 					/>
-					<button>Log in</button>
+					<button onClick={this.onClickLogin.bind(this,profile)}>Log in</button>
 				</li>
 				)) }
 			</ul>
 			);
+	}
+	onClickLogin(profile){
+		this.props.loginProfile(profile);
 	}
 	render() {
 		const {

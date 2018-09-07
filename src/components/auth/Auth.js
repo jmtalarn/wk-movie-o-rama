@@ -1,6 +1,6 @@
 class Auth {
 
-	constructor(baseUrl='/api/auth'){
+	constructor(baseUrl='/api/auth/'){
 		this.baseUrl = baseUrl;
 	}
 

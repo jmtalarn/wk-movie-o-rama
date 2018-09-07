@@ -1,5 +1,6 @@
 import LoginProfiles from '../view/LoginProfiles';
 import * as actions from '../actions';
+import { login } from '../../auth/actions';
 import { connect } from 'react-redux';
 
 const LoginProfilesState = function (state) {
@@ -15,6 +16,9 @@ const LoginProfilesDispatch = function (dispatch) {
 	return {
 		getLoginProfiles: () => {
 			dispatch(actions.getLoginProfiles());
+		},
+		loginProfile: (profile)=>{
+			dispatch(login(profile.username, 'movieorama'));
 		}
 	};
 };

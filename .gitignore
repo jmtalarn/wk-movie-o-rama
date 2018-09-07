@@ -38,3 +38,5 @@ data/*.ns
 data/*.0
 data/mongod.lock
 api/data/db/*
+
+.history
