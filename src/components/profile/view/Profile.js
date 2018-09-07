@@ -8,14 +8,28 @@ class Profile extends React.Component {
 		this.props.getProfile();
 	}
 
-
-	render() {
+	renderProfile(){
 		const {
 			profile
 		} = this.props;
-		console.log({profile});
+		return(
+			profile?
+				<p>
+					{profile.info.username}
+					{profile.info.likes}
+					{profile.info.shares}
+					{profile.info.images}
+				</p>:
+				null
+		);
+	}
+	render() {
 		return (
-			<h1>Profile page</h1>
+			<div>
+				<h1>Profile page</h1>
+				{this.renderProfile()}
+			</div>
+
 		);
 	}
 }

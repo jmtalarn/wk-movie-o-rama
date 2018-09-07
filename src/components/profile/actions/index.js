@@ -5,7 +5,6 @@ const auth = new Auth();
 
 
 function getProfileSuccess(profile) {
-	console.log({profile});
 	return {
 		type: ACTION.PROFILE_SUCCESS,
 		profile,

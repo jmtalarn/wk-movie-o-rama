@@ -4,7 +4,6 @@ function loginReducer(state = {
 	profiles: [],
 	error: ''
 }, action) {
-	console.log("LOGIN REDUCER", action);
 	switch (action.type) {
 		case ActionTypes.LOGIN_PROFILES_RECEIVED:
 			return Object.assign({}, state, {
