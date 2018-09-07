@@ -8,6 +8,7 @@ import Auth  from '../Auth';
 const auth = new Auth();
 
 function loginSuccess(profile) {
+	localStorage.setItem('id_token', profile.token);
 	return {
 		type: ACTION.LOGIN_SUCCESS,
 		profile,
@@ -15,6 +16,7 @@ function loginSuccess(profile) {
 }
 
 function loginError(error) {
+	localStorage.removeItem('id_token');
 	return {
 		type: ACTION.LOGIN_ERROR,
 		error,
@@ -46,8 +48,6 @@ function logoutSuccess(profile) {
 
 export function logout() {
 	return dispatch => {
-		localStorage.removeItem('id_token');
-		localStorage.removeItem('profile');
 		return dispatch(logoutSuccess());
 	};
 }

@@ -16,10 +16,10 @@ class Auth {
 		);
 	}
 	logout() {
-		return fetch(this.baseUrl + 'logout');
+		return fetch(this.baseUrl + 'logout', { method: 'POST', headers: { "x-access-token": localStorage.getItem('id_token') } });
 	}
 	check() {
-		return fetch(this.baseUrl + 'check');
+		return fetch(this.baseUrl + 'check', { headers: { "x-access-token": localStorage.getItem('id_token') } });
 	}
 
 };

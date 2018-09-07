@@ -1,5 +1,5 @@
 import Profile from '../view/Profile';
-
+import { getProfile } from '../actions';
 import { connect } from 'react-redux';
 
 const ProfilesState = function (state) {
@@ -10,7 +10,13 @@ const ProfilesState = function (state) {
 		auth,
 	};
 };
-const ProfileDispatch = {};
+const ProfileDispatch = function (dispatch) {
+	return {
+		getProfile: () => {
+			dispatch(getProfile());
+		},
+	};
+};
 var ProfileContainer = connect(
 	ProfilesState,
 	ProfileDispatch

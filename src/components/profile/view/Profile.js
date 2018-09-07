@@ -4,6 +4,11 @@ import {
 } from 'react-router-dom';
 
 class Profile extends React.Component {
+	componentWillMount(){
+		this.props.getProfile();
+	}
+
+
 	render() {
 		const {
 			profile
