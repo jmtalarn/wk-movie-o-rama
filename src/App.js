@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import About from './components/About';
 import PrivateRoute from './components/PrivateRoute';
+import PrivateComponent from './components/PrivateComponent';
 import Home from './components/Home';
 import LoginProfilesContainer from './components/login/container/LoginProfilesContainer';
 import AuthContainer from './components/auth/container/AuthContainer';
@@ -35,6 +36,8 @@ class App extends Component {
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
+				<PrivateComponent><li><Link to="/profile">Profile</Link></li></PrivateComponent>
+				<PrivateComponent><li><Link to="/movies">Movies</Link></li></PrivateComponent>
                 <li><AuthContainer /></li>
               </ul>
 
