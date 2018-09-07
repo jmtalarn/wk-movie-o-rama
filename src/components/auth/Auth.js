@@ -5,7 +5,6 @@ class Auth {
 	}
 
 	login(credentials) {
-		console.log({credentials});
 		//password: 'movieorama'
 		return fetch(this.baseUrl + 'login',
 			{
