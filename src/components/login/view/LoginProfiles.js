@@ -17,6 +17,7 @@ class LoginProfiles extends React.Component {
 					<li key={profile.username}>
 					<h3>{profile.username}</h3>
 					<img src={`/api/profiles/${profile.id}/avatar`}
+					alt={`${profile.username} avatar to identify the user to select visually`}
 						style={
 								{
 									width: '2rem',
