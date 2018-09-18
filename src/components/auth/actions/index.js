@@ -9,6 +9,7 @@ const auth = new Auth();
 
 function loginSuccess(profile) {
 	localStorage.setItem('id_token', profile.token);
+	localStorage.setItem('id_profile', profile.id);
 	return {
 		type: ACTION.LOGIN_SUCCESS,
 		profile,
@@ -17,6 +18,7 @@ function loginSuccess(profile) {
 
 function loginError(error) {
 	localStorage.removeItem('id_token');
+	localStorage.removeItem('id_profile');
 	return {
 		type: ACTION.LOGIN_ERROR,
 		error,
@@ -41,6 +43,8 @@ export function login(credentials) {
 
 
 function logoutSuccess(profile) {
+	localStorage.removeItem('id_token');
+	localStorage.removeItem('id_profile');
 	return {
 		type: ACTION.LOGOUT_SUCCESS
 	};

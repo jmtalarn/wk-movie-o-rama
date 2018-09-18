@@ -20,6 +20,12 @@ class Auth {
 	check() {
 		return fetch(this.baseUrl + 'check', { headers: { "x-access-token": localStorage.getItem('id_token') } });
 	}
+	fetch(url){
+		return fetch(url, { headers: { "x-access-token": localStorage.getItem('id_token') } });
+	}
+	getProfileId(){
+		return localStorage.getItem('id_profile');
+	}
 
 };
 
