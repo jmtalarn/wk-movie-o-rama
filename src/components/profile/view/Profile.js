@@ -18,8 +18,6 @@ class Profile extends React.Component {
 				<p>
 					{profile.info.username}
 					<img src={`api/profiles/${profile.info._id}/avatar`} />
-					{profile.info.likes}
-					{profile.info.shares}
 				</p>:
 				null
 		);
