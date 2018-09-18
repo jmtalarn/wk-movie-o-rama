@@ -79,9 +79,10 @@ function ensureAuthorized(req, res, next) {
 			}
 			else {
 				// if everything is good, save to request for use in other routes
-				var query = Profile.where({ token: req.token });
-			     query.findOne(function(err, profile) {
-                    	if (err) throw err;
+				var query = Profile.where({ token });
+
+				query.findOne(function(err, profile) {
+                   	if (err) throw err;
 					req.profile = profile;
 					req.decoded = decoded;
 					req.token = token;
@@ -108,7 +109,7 @@ router.get('/check', ensureAuthorized, function(req, res) {
 });
 
 router.post('/logout', ensureAuthorized, function(req, res) {
-	//req.profile.token = "";
+	req.profile.token = "";
 	console.log("USER LOGGED OUT!");
 	res.json({
 		success: true,
