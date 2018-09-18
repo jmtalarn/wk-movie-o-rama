@@ -11,13 +11,15 @@ the shared movie and also a short message (if included).
 
 ## Define and implement using Node.js:
 As a user I can:
-- [ ] See a list of movies showing their cover image
-- [ ] See a detailed page of a movie
+- [X] See a list of movies showing their cover image
+- [X] See a detailed page of a movie
 - [ ] Like a movie
 - [ ] Share a movie with some other user including a message
 - [ ] Recieve a movie via sharing with a message written from another user
 - [ ] A user can visit any other user's profile
-- [ ] Login with (at least) 2 different users to see the shared movies
+- [-] Login with (at least) 2 different users to see the shared movies
+	- [X] Login with (at least) 2 different users
+	- [ ] to see the sared movies
 
 ## Extra Balls (any of them are mandatory):
 - [ ] In a movie detail page you can also view a list with another movies liked from another

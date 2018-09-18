@@ -2,10 +2,10 @@
 
 + [X] Make API run
 + [X] Design the components
-+ [ ] Think about components containers
-+ [ ] Auth in React
-+ [ ] Combine React router and Auth
-+ [ ] Combine React router, Auth and Redux
++ [X] Think about components containers
++ [X] Auth in React
++ [X] Combine React router and Auth
++ [X] Combine React router, Auth and Redux
 
 
 # Run the project
