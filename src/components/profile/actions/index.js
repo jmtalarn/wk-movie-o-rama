@@ -3,7 +3,7 @@ import Auth  from '../../auth/Auth';
 
 const auth = new Auth();
 
-const uri = 'api/profile';
+const uri = 'api/profiles';
 
 function getProfileSuccess(profile) {
 	return {
@@ -18,7 +18,7 @@ function getProfileError(error) {
 	};
 }
 export function getProfile() {
-
+	console.log("getProfile", auth.getProfileId());
 	return dispatch=> {
 		auth.fetch(`${uri}/${auth.getProfileId()}`)
 			.then(response =>{

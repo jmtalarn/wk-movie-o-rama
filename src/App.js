@@ -5,6 +5,8 @@ import PrivateRoute from './components/PrivateRoute';
 import PrivateComponent from './components/PrivateComponent';
 import Home from './components/Home';
 import Profile from './components/profile';
+import Movies from './components/movies';
+import Movie from './components/movie';
 import LoginProfilesContainer from './components/login/container/LoginProfilesContainer';
 import AuthContainer from './components/auth/container/AuthContainer';
 import {
@@ -47,6 +49,8 @@ class App extends Component {
 				<Route path="/login" component={LoginProfilesContainer} />
 				<PrivateRoute path="/about" component={About} />
 				<PrivateRoute path="/profile" component={Profile} />
+				<PrivateRoute path="/movies" component={Movies} />
+				<PrivateRoute path="/movie/:id" component={Movie} />
 				<Route exact path="/" component={Home} />
 			</Switch>
             </div>

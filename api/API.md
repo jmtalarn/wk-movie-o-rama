@@ -6,7 +6,10 @@
 -   GET `/api/auth/check` Check if the user is logged and return the profile with the token
 -   GET `/api/movies` Returns all movies catalog
 -   GET `/api/movies/[:id]` Returns a movie
+-   GET `/api/movies/[:id]/cover` Return the movie poster
 -   GET `/api/profiles` Returns all profiles
 -   GET `/api/profiles/[:id]` Return a profile
+-   GET `/api/profiles/[:id]/avatar` Return the profile avatar
+
 -   POST `/api/share/movie/[:id]` Share a movie. It needs a message and a destination profile in the post form.
 -   POST `/api/like/movie/[:id]` Likes a movie.

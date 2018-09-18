@@ -3,11 +3,10 @@ import { getMovies } from '../actions';
 import { connect } from 'react-redux';
 
 const MoviesState = function (state) {
-	console.log("Container state", state);
-	const { Movies } = state;
-	console.log(state);
+	const { movies } = state;
+
 	return {
-		Movies,
+		movies,
 	};
 };
 const MoviesDispatch = function (dispatch) {
@@ -18,7 +17,7 @@ const MoviesDispatch = function (dispatch) {
 	};
 };
 var MoviesContainer = connect(
-	MoviessState,
+	MoviesState,
 	MoviesDispatch
 )(Movies);
 

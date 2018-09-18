@@ -1,7 +1,7 @@
 import React from 'react';
-import {
-	Redirect,
-} from 'react-router-dom';
+// import {
+// 	Redirect,
+// } from 'react-router-dom';
 
 class Profile extends React.Component {
 	componentWillMount(){
@@ -17,7 +17,10 @@ class Profile extends React.Component {
 			profile?
 				<p>
 					{profile.info.username}
-					<img src={`api/profiles/${profile.info._id}/avatar`} />
+					<img
+						alt={`The ${profile.info.username} avatar`}
+						src={`/api/profiles/${profile.info.id}/avatar`}
+					/>
 				</p>:
 				null
 		);
