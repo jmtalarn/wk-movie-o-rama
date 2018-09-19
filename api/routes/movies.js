@@ -3,6 +3,9 @@ var router = express.Router();
 
 var mongoose = require('mongoose');
 var Movie = require('../models/Movie.js');
+var Profile = require('../models/Profile.js');
+var Like = require('../models/Like.js');
+var Auth = require('../routes/auth.js');
 
 var image_contentType = 'image/jpeg';
 
@@ -46,6 +49,41 @@ router.get('/:id/cover', function(req, res, next) {
           res.send(m.cover);
         });
 });
+
+router.post('/:id/like', Auth.ensureAuthorized, function (req, res, next) {
+	Movie.findById(req.params.id, function (err, movie) {
+		if (err) return next(err);
+		//new Like
+		var like = new Like({
+			profile: req.profile.id,
+			movie: movie.id,
+		});
+		like.save(function (err, s) {
+			if (err) return next(err);
+
+			req.profile.likes.push(like);
+			req.profile.save(function (err, p) {
+				if (err) return next(err);
+			});
+			movie.likes.push(like);
+			movie.save(function (err, p) {
+				if (err) return next(err);
+			});
+			//res.json(movie.likes);
+			var result = {
+				id: movie._id,
+				title: movie.title,
+				description: movie.description,
+				shares: movie.shares,
+				likes: movie.likes,
+			};
+
+			res.json(result);
+		});
+	});
+});
+
+
 
 
 module.exports = router;

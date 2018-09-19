@@ -12,4 +12,4 @@
 -   GET `/api/profiles/[:id]/avatar` Return the profile avatar
 
 -   POST `/api/share/movie/[:id]` Share a movie. It needs a message and a destination profile in the post form.
--   POST `/api/like/movie/[:id]` Likes a movie.
+-   POST `/api/movie/[:id]/like` Likes a movie.

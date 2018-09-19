@@ -20,8 +20,9 @@ class Auth {
 	check() {
 		return fetch(this.baseUrl + 'check', { headers: { "x-access-token": localStorage.getItem('id_token') } });
 	}
-	fetch(url){
-		return fetch(url, { headers: { "x-access-token": localStorage.getItem('id_token') } });
+	fetch(url,parameters){
+		const newParameters = Object.assign({}, parameters, { headers: { "x-access-token": localStorage.getItem('id_token') } });
+		return fetch(url, newParameters);
 	}
 	getProfileId(){
 		return localStorage.getItem('id_profile');

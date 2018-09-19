@@ -18,7 +18,6 @@ function getProfileError(error) {
 	};
 }
 export function getProfile() {
-	console.log("getProfile", auth.getProfileId());
 	return dispatch=> {
 		auth.fetch(`${uri}/${auth.getProfileId()}`)
 			.then(response =>{

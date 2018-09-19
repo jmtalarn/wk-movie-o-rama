@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 const ProfilesState = function (state) {
 	console.log("Container state", state);
 	const { profile } = state;
-	console.log(state);
 	return {
 		profile,
 	};

@@ -4,7 +4,6 @@ function movieReducer(state = {
 	data: {},
 	error: ''
 }, action) {
-	console.log("movieReducer", action);
 	switch (action.type) {
 		case ActionTypes.MOVIE_SUCCESS:
 			return Object.assign({}, state, {

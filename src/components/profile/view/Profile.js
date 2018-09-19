@@ -12,7 +12,6 @@ class Profile extends React.Component {
 		const {
 			profile
 		} = this.props;
-		console.log({profile});
 		return(
 			profile?
 				<p>
