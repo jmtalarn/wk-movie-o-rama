@@ -11,5 +11,5 @@
 -   GET `/api/profiles/[:id]` Return a profile
 -   GET `/api/profiles/[:id]/avatar` Return the profile avatar
 
--   POST `/api/share/movie/[:id]` Share a movie. It needs a message and a destination profile in the post form.
--   POST `/api/movie/[:id]/like` Likes a movie.
+-   POST `/api/movies/[:id]/share` Share a movie. It needs a message and a destination profile in the post form.
+-   POST `/api/movies/[:id]/like` Likes a movie.

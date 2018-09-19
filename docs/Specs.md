@@ -13,7 +13,7 @@ the shared movie and also a short message (if included).
 As a user I can:
 - [X] See a list of movies showing their cover image
 - [X] See a detailed page of a movie
-- [ ] Like a movie
+- [X] Like a movie
 - [ ] Share a movie with some other user including a message
 - [ ] Recieve a movie via sharing with a message written from another user
 - [ ] A user can visit any other user's profile

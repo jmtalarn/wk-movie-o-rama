@@ -36,7 +36,6 @@ var routes = require('./routes/index');
 var movies = require('./routes/movies');
 var profiles = require('./routes/profiles');
 var auth = require('./routes/auth');
-var shares = require('./routes/shares');
 
 var app = express();
 
@@ -52,7 +51,6 @@ var api_base_url = "/api";
 app.use( api_base_url+'/movies', movies);
 app.use( api_base_url+'/profiles', profiles);
 app.use( api_base_url+'/auth',auth.router);
-app.use( api_base_url+'/share',shares);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
