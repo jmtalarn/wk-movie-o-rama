@@ -54,31 +54,48 @@ router.post('/:id/like', Auth.ensureAuthorized, function (req, res, next) {
 	Movie.findById(req.params.id, function (err, movie) {
 		if (err) return next(err);
 		//new Like
-		var like = new Like({
+		var like = {
 			profile: req.profile.id,
 			movie: movie.id,
-		});
-		like.save(function (err, s) {
-			if (err) return next(err);
+		};
 
-			req.profile.likes.push(like);
-			req.profile.save(function (err, p) {
-				if (err) return next(err);
-			});
-			movie.likes.push(like);
-			movie.save(function (err, p) {
-				if (err) return next(err);
-			});
-			//res.json(movie.likes);
-			var result = {
-				id: movie._id,
-				title: movie.title,
-				description: movie.description,
-				shares: movie.shares,
-				likes: movie.likes,
-			};
+		// Find the document
+		Like.find(like).exec(function (err, likes) {
+			if (!likes.length) {
+				const newLike = new Like(like);
+				newLike.save(function (err, s) {
+					if (err) return next(err);
+					req.profile.likes.push(newLike);
+					req.profile.save(function (err, p) {
+						if (err) return next(err);
+					});
+					movie.likes.push(newLike);
+					movie.save(function (err, p) {
+						if (err) return next(err);
+					});
+					//res.json(movie.likes);
+					var result = {
+						id: movie._id,
+						title: movie.title,
+						description: movie.description,
+						shares: movie.shares,
+						likes: movie.likes,
+					};
 
-			res.json(result);
+					res.json(result);
+				});
+			}else{
+				var result = {
+					id: movie._id,
+					title: movie.title,
+					description: movie.description,
+					shares: movie.shares,
+					likes: movie.likes,
+				};
+
+				res.json(result);
+			}
+
 		});
 	});
 });
