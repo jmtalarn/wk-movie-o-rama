@@ -1,5 +1,5 @@
 import * as ACTION from './types';
-import Auth  from '../../auth/Auth';
+import Auth from '../../auth/Auth';
 
 const auth = new Auth();
 
@@ -18,9 +18,9 @@ function getMovieError(error) {
 	};
 }
 export function getMovie(id) {
-	return dispatch=> {
+	return dispatch => {
 		auth.fetch(`${uri}/${id}`)
-			.then(response =>{
+			.then(response => {
 				if (response.ok) {
 					return response.json();
 				} else {
@@ -35,7 +35,23 @@ export function getMovie(id) {
 export function likeMovie(id) {
 
 	return dispatch => {
-		auth.fetch(`${uri}/${id}/like`, {method: 'POST'})
+		auth.fetch(`${uri}/${id}/like`, { method: 'POST' })
+			.then(response => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					throw new Error(`${response.status} - ${response.statusText}`);
+				}
+			})
+			.then(json => dispatch(getMovieSuccess(json)))
+			.catch(error => dispatch(getMovieError(error)));
+	};
+}
+
+export function shareMovie(id, message, user) {
+
+	return dispatch => {
+		auth.fetch(`${uri}/${id}/share`, { method: 'POST', body: JSON.stringify({ message, user }) })
 			.then(response => {
 				if (response.ok) {
 					return response.json();

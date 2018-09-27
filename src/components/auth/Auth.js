@@ -1,6 +1,6 @@
 class Auth {
 
-	constructor(baseUrl='/api/auth/'){
+	constructor(baseUrl = '/api/auth/') {
 		this.baseUrl = baseUrl;
 	}
 
@@ -9,7 +9,7 @@ class Auth {
 		return fetch(this.baseUrl + 'login',
 			{
 				method: 'POST',
-				headers: {	"Content-Type": "application/json; charset=utf-8"},
+				headers: { "Content-Type": "application/json; charset=utf-8" },
 				body: JSON.stringify(credentials)
 			}
 		);
@@ -20,11 +20,11 @@ class Auth {
 	check() {
 		return fetch(this.baseUrl + 'check', { headers: { "x-access-token": localStorage.getItem('id_token') } });
 	}
-	fetch(url,parameters){
+	fetch(url, parameters) {
 		const newParameters = Object.assign({}, parameters, { headers: { "x-access-token": localStorage.getItem('id_token') } });
 		return fetch(url, newParameters);
 	}
-	getProfileId(){
+	getProfileId() {
 		return localStorage.getItem('id_profile');
 	}
 

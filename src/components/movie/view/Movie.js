@@ -2,9 +2,7 @@ import React from 'react';
 // import {
 // 	Redirect,
 // } from 'react-router-dom';
-const MovieLike = (props) => {
-
-	const { movie, action } = props;
+const MovieLike = ({ movie, action }) => {
 
 	return (
 		<React.Fragment>
@@ -12,12 +10,71 @@ const MovieLike = (props) => {
 			<button onClick={action}> Like Movie </button>
 		</React.Fragment>
 	);
-}
-	;
+};
+
+const Autocomplete = ({ profiles, onChange }) => {
+
+	return (
+		<label>
+			To user
+			<input list="profiles" onInput={onChange} />
+			<datalist id="profiles">
+				{profiles.map((profile) => (
+					<option
+						key={profile.id}
+						value={profile.username}
+					>
+						{profile.id}
+					</option>)
+				)}
+			</datalist>
+		</label>
+	);
+};
+
+class MovieShare extends React.Component {
+
+
+	constructor(props) {
+		super(props);
+		this.state = { message: '' };
+	}
+	updateMessage(event) {
+		const message = event.target.value;
+		this.setState({ message });
+	}
+	submitMessage(event) {
+		const { action } = this.props;
+		event.preventDefault();
+		action(this.state);
+	}
+	updateUser(event) {
+		event.preventDefault();
+		console.log({ event.target.value });
+	}
+
+
+	render() {
+		const { movie, profiles } = this.props;
+		return (
+			<React.Fragment>
+				<p>{movie.shares ? movie.shares.length : '0'} shares </p>
+				<label>
+					Message
+					<input type="text" onChange={this.updateMessage.bind(this)}></input>
+				</label>
+				<Autocomplete profiles={profiles} onChange={this.updateUser} />
+				<button onClick={this.submitMessage.bind(this)}> Share Movie </button>
+			</React.Fragment>
+		);
+	}
+};
+
 class Movie extends React.Component {
 	constructor(props) {
 		super(props);
 		this.likeMovie = this.likeMovie.bind(this);
+		this.shareMovie = this.shareMovie.bind(this);
 	}
 	componentWillMount() {
 		const { id } = this.props;
@@ -27,8 +84,12 @@ class Movie extends React.Component {
 		const { id } = this.props;
 		this.props.likeMovie(id);
 	}
+	shareMovie(message, user) {
+		const { id } = this.props;
+		this.props.shareMovie(id, message, user);
+	}
 	renderMovie() {
-		const movie = this.props.movie.data;
+		const { movie: { data: movie }, profiles } = this.props;
 
 		return (
 			<article key={movie.id}>
@@ -39,6 +100,7 @@ class Movie extends React.Component {
 				<h3>{movie.title}</h3>
 				<p>{movie.description}</p>
 				<MovieLike movie={movie} action={this.likeMovie} />
+				<MovieShare movie={movie} action={this.shareMovie} profiles={profiles} />
 			</article>
 		);
 	}
