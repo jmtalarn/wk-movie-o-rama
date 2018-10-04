@@ -21,7 +21,17 @@ class Auth {
 		return fetch(this.baseUrl + 'check', { headers: { "x-access-token": localStorage.getItem('id_token') } });
 	}
 	fetch(url, parameters) {
-		const newParameters = Object.assign({}, parameters, { headers: { "x-access-token": localStorage.getItem('id_token') } });
+
+		const newParameters = Object.assign({},
+			parameters,
+			{
+				headers:
+				{
+					"x-access-token": localStorage.getItem('id_token'),
+					"Content-Type": "application/json; charset=utf-8"
+				}
+			});
+		console.log('Auth fetch', { parameters, newParameters });
 		return fetch(url, newParameters);
 	}
 	getProfileId() {

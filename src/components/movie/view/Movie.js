@@ -19,14 +19,18 @@ const Autocomplete = ({ profiles, onChange }) => {
 			To user
 			<input list="profiles" onInput={onChange} />
 			<datalist id="profiles">
-				{profiles.map((profile) => (
-					<option
-						key={profile.id}
-						value={profile.username}
-					>
-						{profile.id}
-					</option>)
-				)}
+				{
+					profiles.map((profile) =>
+						(
+							<option
+								key={profile.id}
+								value={profile.username}
+								data-user={profile.id}
+							/>
+
+						)
+					)
+				}
 			</datalist>
 		</label>
 	);
@@ -37,11 +41,12 @@ class MovieShare extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { message: '' };
+		this.state = { message: '', user: null };
 	}
 	updateMessage(event) {
 		const message = event.target.value;
-		this.setState({ message });
+
+		this.setState(Object.assign({}, this.state, { message }));
 	}
 	submitMessage(event) {
 		const { action } = this.props;
@@ -50,7 +55,11 @@ class MovieShare extends React.Component {
 	}
 	updateUser(event) {
 		event.preventDefault();
-		console.log({ event.target.value });
+		const user = this.props.profiles.find(profile => profile.username === event.target.value).id;
+		this.setState(
+			Object.assign({}, this.state, { user }
+			)
+		);
 	}
 
 
@@ -63,7 +72,7 @@ class MovieShare extends React.Component {
 					Message
 					<input type="text" onChange={this.updateMessage.bind(this)}></input>
 				</label>
-				<Autocomplete profiles={profiles} onChange={this.updateUser} />
+				<Autocomplete profiles={profiles} onChange={this.updateUser.bind(this)} />
 				<button onClick={this.submitMessage.bind(this)}> Share Movie </button>
 			</React.Fragment>
 		);
@@ -84,7 +93,7 @@ class Movie extends React.Component {
 		const { id } = this.props;
 		this.props.likeMovie(id);
 	}
-	shareMovie(message, user) {
+	shareMovie({ message, user }) {
 		const { id } = this.props;
 		this.props.shareMovie(id, message, user);
 	}

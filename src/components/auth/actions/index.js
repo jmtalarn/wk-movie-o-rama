@@ -9,6 +9,7 @@ const auth = new Auth();
 
 function loginSuccess(profile) {
 	localStorage.setItem('id_token', profile.token);
+
 	localStorage.setItem('id_profile', profile.id);
 	return {
 		type: ACTION.LOGIN_SUCCESS,

@@ -17,7 +17,7 @@ router.post('/login', function (req, res) {
 	// find the user
 	Profile.findOne({
 		username: req.body.username
-	}, function(err, profile) {
+	}, function (err, profile) {
 
 		if (err) throw err;
 
@@ -42,10 +42,10 @@ router.post('/login', function (req, res) {
 				// if user is found and password is right
 				// create a token
 				profile.token = jwt.sign(
-					{username: profile.username},
+					{ username: profile.username },
 					security_issuer.superSecret,
-					{	expiresIn: 20 }); // expires in 20 minutes
-				profile.save(function(err, profile_token) {
+					{ expiresIn: 20 }); // expires in 20 minutes
+				profile.save(function (err, profile_token) {
 					if (err) throw err;
 					res.json({
 						success: true,
@@ -65,25 +65,25 @@ router.post('/login', function (req, res) {
 
 //Function to pass to the requiring authorization routes
 function ensureAuthorized(req, res, next) {
-	var token = req.body.token || req.params.token || req.headers['x-access-token'];
+	var token = req.body.token || req.params.token || req.headers[ 'x-access-token' ];
 	// decode token
 
 	if (token) {
 		// verifies secret and checks exp
-		jwt.verify(token, security_issuer.superSecret,function(err, decoded) {
+		jwt.verify(token, security_issuer.superSecret, function (err, decoded) {
 			if (err) {
-
-				return res.json({
+				console.log(err);
+				return res.status(401).send({
 					success: false,
-					message: 'Failed to authenticate token. '+ err.message
+					message: 'Failed to authenticate token. ' + err.message
 				});
 			}
 			else {
 				// if everything is good, save to request for use in other routes
 				var query = Profile.where({ token });
 
-				query.findOne(function(err, profile) {
-                   	if (err) throw err;
+				query.findOne(function (err, profile) {
+					if (err) throw err;
 					req.profile = profile;
 					req.decoded = decoded;
 					req.token = token;
@@ -105,11 +105,11 @@ function ensureAuthorized(req, res, next) {
 	}
 
 };
-router.get('/check', ensureAuthorized, function(req, res) {
-		res.json(req.profile);
+router.get('/check', ensureAuthorized, function (req, res) {
+	res.json(req.profile);
 });
 
-router.post('/logout', ensureAuthorized, function(req, res) {
+router.post('/logout', ensureAuthorized, function (req, res) {
 	req.profile.token = "";
 	console.log("USER LOGGED OUT!");
 	res.json({
@@ -120,4 +120,5 @@ router.post('/logout', ensureAuthorized, function(req, res) {
 
 module.exports = {
 	router: router,
-	ensureAuthorized: ensureAuthorized};
+	ensureAuthorized: ensureAuthorized
+};

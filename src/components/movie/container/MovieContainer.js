@@ -8,7 +8,6 @@ const MovieState = function (state, props) {
 	const { id } = props;
 	const { login: { profiles = [] } } = state;
 
-	console.log({ state });
 	return {
 		id,
 		movie,

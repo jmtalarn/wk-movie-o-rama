@@ -49,7 +49,6 @@ export function likeMovie(id) {
 }
 
 export function shareMovie(id, message, user) {
-
 	return dispatch => {
 		auth.fetch(`${uri}/${id}/share`, { method: 'POST', body: JSON.stringify({ message, user }) })
 			.then(response => {
