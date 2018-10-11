@@ -23,12 +23,12 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-mongoose.connect(`${mongoOptions.address}:${mongoOptions.port}/${mongoOptions.database}`, function(err) {
-    if(err) {
-        console.log('connection error', err);
-    } else {
-        console.log('connection successful');
-    }
+mongoose.connect(`${mongoOptions.address}:${mongoOptions.port}/${mongoOptions.database}`, function (err) {
+	if (err) {
+		console.log('connection error', err);
+	} else {
+		console.log('connection successful');
+	}
 });
 
 
@@ -48,15 +48,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', routes);
 var api_base_url = "/api";
-app.use( api_base_url+'/movies', movies);
-app.use( api_base_url+'/profiles', profiles);
-app.use( api_base_url+'/auth',auth.router);
+app.use(api_base_url + '/movies', movies);
+app.use(api_base_url + '/profiles', profiles);
+app.use(api_base_url + '/auth', auth.router);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use(function (req, res, next) {
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
 // error handlers
@@ -64,18 +64,18 @@ app.use(function(req, res, next) {
 // // development error handler
 // // will print stacktrace
 // if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
 	console.error(err);
-    res.status(err.status || 500);
-    res.json({
-      message: err.message,
-      error: err
-    });
-    // res.render('error', {
-    //   message: err.message,
-    //   error: err
-    // });
-  });
+	res.status(err.status || res.status || 500);
+	res.json({
+		message: err.message,
+		error: err
+	});
+	// res.render('error', {
+	//   message: err.message,
+	//   error: err
+	// });
+});
 // }
 
 // // production error handler

@@ -17,7 +17,7 @@ router.get('/', function (req, res, next) {
 		var result = [];
 		movies.forEach(function (m) {
 			result.push({
-				id: m._id,
+				_id: m._id,
 				title: m.title,
 				description: m.description,
 				shares: m.shares,
@@ -32,15 +32,7 @@ router.get('/', function (req, res, next) {
 router.get('/:id', function (req, res, next) {
 	Movie.findById(req.params.id, function (err, movie) {
 		if (err) return next(err);
-		var result = {
-			id: movie._id,
-			title: movie.title,
-			description: movie.description,
-			shares: movie.shares,
-			likes: movie.likes,
-		};
-
-		res.json(result);
+		res.json(movie);
 	});
 });
 router.get('/:id/cover', function (req, res, next) {
@@ -57,7 +49,7 @@ router.post('/:id/like', Auth.ensureAuthorized, function (req, res, next) {
 		//new Like
 		var like = {
 			profile: req.profile.id,
-			movie: movie.id,
+			movie: movie._id,
 		};
 
 		// Find the document
@@ -74,27 +66,12 @@ router.post('/:id/like', Auth.ensureAuthorized, function (req, res, next) {
 					movie.save(function (err, p) {
 						if (err) return next(err);
 					});
-					//res.json(movie.likes);
-					var result = {
-						id: movie._id,
-						title: movie.title,
-						description: movie.description,
-						shares: movie.shares,
-						likes: movie.likes,
-					};
-
-					res.json(result);
+					//res.json(movie.likes)
+					res.json(movie);
 				});
 			} else {
-				var result = {
-					id: movie._id,
-					title: movie.title,
-					description: movie.description,
-					shares: movie.shares,
-					likes: movie.likes,
-				};
 
-				res.json(result);
+				res.json(movie);
 			}
 
 		});

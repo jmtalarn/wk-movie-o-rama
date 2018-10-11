@@ -1,7 +1,5 @@
 import React from 'react';
-// import {
-// 	Redirect,
-// } from 'react-router-dom';
+
 const MovieLike = ({ movie, action }) => {
 
 	return (
@@ -12,7 +10,7 @@ const MovieLike = ({ movie, action }) => {
 	);
 };
 
-const Autocomplete = ({ profiles, onChange }) => {
+const Autocomplete = ({ profiles, onChange, userSelected }) => {
 
 	return (
 		<label>
@@ -25,24 +23,27 @@ const Autocomplete = ({ profiles, onChange }) => {
 							<option
 								key={profile.id}
 								value={profile.username}
-								data-user={profile.id}
+								data-user={profile._id}
 							/>
 
 						)
 					)
 				}
 			</datalist>
+			{userSelected ? <span className="selected">✓</span> : null}
 		</label>
 	);
 };
 
 class MovieShare extends React.Component {
 
-
 	constructor(props) {
 		super(props);
 		this.state = { message: '', user: null };
+		this.validForm = this.validForm.bind(this);
+		this.submitMessage = this.submitMessage.bind(this);
 	}
+
 	updateMessage(event) {
 		const message = event.target.value;
 
@@ -52,14 +53,29 @@ class MovieShare extends React.Component {
 		const { action } = this.props;
 		event.preventDefault();
 		action(this.state);
+		this.setState({ message: '', user: null });
+
+		console.log('submitted message', this.state);
 	}
 	updateUser(event) {
 		event.preventDefault();
-		const user = this.props.profiles.find(profile => profile.username === event.target.value).id;
+		const userSelected = this.props.profiles.find(profile => profile.username === event.target.value);
+		const user = userSelected ? userSelected.id : null;
+
 		this.setState(
-			Object.assign({}, this.state, { user }
+			Object.assign(
+				{},
+				this.state,
+				{
+					user
+				}
 			)
 		);
+	}
+	validForm() {
+		console.log('validForm', Boolean(this.state.message) && Boolean(this.state.user));
+
+		return (Boolean(this.state.message) && Boolean(this.state.user));
 	}
 
 
@@ -72,8 +88,8 @@ class MovieShare extends React.Component {
 					Message
 					<input type="text" onChange={this.updateMessage.bind(this)}></input>
 				</label>
-				<Autocomplete profiles={profiles} onChange={this.updateUser.bind(this)} />
-				<button onClick={this.submitMessage.bind(this)}> Share Movie </button>
+				<Autocomplete profiles={profiles} onChange={this.updateUser.bind(this)} userSelected={Boolean(this.state.user)} />
+				<button onClick={this.submitMessage.bind(this)} disabled={!this.validForm()}> Share Movie </button>
 			</React.Fragment>
 		);
 	}
@@ -101,9 +117,9 @@ class Movie extends React.Component {
 		const { movie: { data: movie }, profiles } = this.props;
 
 		return (
-			<article key={movie.id}>
-				{movie.id ? <img
-					src={`/api/movies/${movie.id}/cover`}
+			<article key={movie._id}>
+				{movie._id ? <img
+					src={`/api/movies/${movie._id}/cover`}
 					alt={`This is the ${movie.title} cover`}
 				/> : null}
 				<h3>{movie.title}</h3>

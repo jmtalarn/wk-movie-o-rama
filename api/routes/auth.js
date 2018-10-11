@@ -44,7 +44,7 @@ router.post('/login', function (req, res) {
 				profile.token = jwt.sign(
 					{ username: profile.username },
 					security_issuer.superSecret,
-					{ expiresIn: 20 }); // expires in 20 minutes
+					{ expiresIn: 200 }); // expires in 20 minutes
 				profile.save(function (err, profile_token) {
 					if (err) throw err;
 					res.json({
