@@ -30,7 +30,7 @@ const Autocomplete = ({ profiles, onChange, userSelected }) => {
 					)
 				}
 			</datalist>
-			{userSelected ? <span className="selected">✓</span> : null}
+			{Boolean(userSelected) ? <span className="selected">✓</span> : null}
 		</label>
 	);
 };
@@ -53,9 +53,8 @@ class MovieShare extends React.Component {
 		const { action } = this.props;
 		event.preventDefault();
 		action(this.state);
-		this.setState({ message: '', user: null });
-
 		console.log('submitted message', this.state);
+		this.setState({ message: '', user: null });
 	}
 	updateUser(event) {
 		event.preventDefault();
@@ -86,9 +85,17 @@ class MovieShare extends React.Component {
 				<p>{movie.shares ? movie.shares.length : '0'} shares </p>
 				<label>
 					Message
-					<input type="text" onChange={this.updateMessage.bind(this)}></input>
+					<input
+						type="text"
+						onChange={this.updateMessage.bind(this)}
+						value={this.state.message}
+					/>
 				</label>
-				<Autocomplete profiles={profiles} onChange={this.updateUser.bind(this)} userSelected={Boolean(this.state.user)} />
+				<Autocomplete
+					profiles={profiles}
+					onChange={this.updateUser.bind(this)}
+					userSelected={Boolean(this.state.user)}
+				/>
 				<button onClick={this.submitMessage.bind(this)} disabled={!this.validForm()}> Share Movie </button>
 			</React.Fragment>
 		);
