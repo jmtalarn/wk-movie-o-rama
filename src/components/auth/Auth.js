@@ -31,7 +31,6 @@ class Auth {
 					"Content-Type": "application/json; charset=utf-8"
 				}
 			});
-		console.log('Auth fetch', { parameters, newParameters });
 		return fetch(url, newParameters);
 	}
 	getProfileId() {

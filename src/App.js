@@ -7,13 +7,14 @@ import Home from './components/Home';
 import Profile from './components/profile';
 import Movies from './components/movies';
 import Movie from './components/movie';
+import Error from './components/error';
 import LoginProfilesContainer from './components/login/container/LoginProfilesContainer';
 import AuthContainer from './components/auth/container/AuthContainer';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
 } from 'react-router-dom';
 import './App.css';
 
@@ -22,44 +23,45 @@ import './App.css';
 
 // @TODO Check https://tylermcginnis.com/react-router-protected-routes-authentication/
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
+	render() {
+		return (
+			<div className="App">
 
-        <Router>
-        <div>
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Welcome to React</h1>
-            </header>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
+				<Router>
+					<div>
+						<header className="App-header">
+							<img src={logo} className="App-logo" alt="logo" />
+							<h1 className="App-title">Welcome to React</h1>
+						</header>
+						<Error />
+						<p className="App-intro">
+							To get started, edit <code>src/App.js</code> and save to reload.
             </p>
-            <div>
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-				<PrivateComponent><li><Link to="/profile">Profile</Link></li></PrivateComponent>
-				<PrivateComponent><li><Link to="/movies">Movies</Link></li></PrivateComponent>
-                <li><AuthContainer /></li>
-              </ul>
+						<div>
+							<ul>
+								<li><Link to="/">Home</Link></li>
+								<li><Link to="/about">About</Link></li>
+								<PrivateComponent><li><Link to="/profile">Profile</Link></li></PrivateComponent>
+								<PrivateComponent><li><Link to="/movies">Movies</Link></li></PrivateComponent>
+								<li><AuthContainer /></li>
+							</ul>
 
-              <hr />
-			<Switch>
-				<Route path="/login" component={LoginProfilesContainer} />
-				<PrivateRoute path="/about" component={About} />
-				<PrivateRoute path="/profile" component={Profile} />
-				<PrivateRoute path="/movies" component={Movies} />
-				<PrivateRoute path="/movie/:id" component={Movie} />
-				<Route exact path="/" component={Home} />
-			</Switch>
-            </div>
+							<hr />
+							<Switch>
+								<Route path="/login" component={LoginProfilesContainer} />
+								<PrivateRoute path="/about" component={About} />
+								<PrivateRoute path="/profile" component={Profile} />
+								<PrivateRoute path="/movies" component={Movies} />
+								<PrivateRoute path="/movie/:id" component={Movie} />
+								<Route exact path="/" component={Home} />
+							</Switch>
+						</div>
 
-          </div>
-        </Router>
-      </div>
-    );
-  }
+					</div>
+				</Router>
+			</div>
+		);
+	}
 }
 
 

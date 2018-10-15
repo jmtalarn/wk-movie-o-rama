@@ -53,7 +53,6 @@ class MovieShare extends React.Component {
 		const { action } = this.props;
 		event.preventDefault();
 		action(this.state);
-		console.log('submitted message', this.state);
 		this.setState({ message: '', user: null });
 	}
 	updateUser(event) {
@@ -72,8 +71,6 @@ class MovieShare extends React.Component {
 		);
 	}
 	validForm() {
-		console.log('validForm', Boolean(this.state.message) && Boolean(this.state.user));
-
 		return (Boolean(this.state.message) && Boolean(this.state.user));
 	}
 
