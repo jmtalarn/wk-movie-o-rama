@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FontAwesome.init';
 import logo from './logo.svg';
 import About from './components/About';
 import PrivateRoute from './components/PrivateRoute';
