@@ -3,7 +3,7 @@ import {
 	Link
 } from 'react-router-dom';
 import React, { Component } from 'react';
-
+import './Auth.css'
 export default class Auth extends Component {
 
 	// credentials = {
@@ -11,16 +11,16 @@ export default class Auth extends Component {
 	// 	password: 'movieorama'
 	// }
 	loginLink = () => (<Link to="/login">Login</Link>);
-	logoutButton = () => (<button className="" onClick={this.props.logout}>Logout</button>);
+	logoutButton = () => (<button className="Auth-logout" onClick={this.props.logout}>Logout</button>);
 
 	render() {
-		const {  isAuthenticated } = this.props;
+		const { isAuthenticated } = this.props;
 		return (
 			<div>
 				{!isAuthenticated ? (
 					this.loginLink()
 				) : (
-					this.logoutButton()
+						this.logoutButton()
 					)}
 			</div>
 		);
