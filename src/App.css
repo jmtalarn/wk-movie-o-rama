@@ -1,28 +1,82 @@
+@import 'variables.css';
+
+html,
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+}
+
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+	background-color: #222;
+	padding: 20px;
+	color: white;
+	display: flex;
+	align-items: center;
+	height: 3rem;
 }
 
 .App-title {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+	font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }
+
+.App-main {
+	display: grid;
+	grid-template-columns: 15rem auto;
+	grid-gap: 10px;
+	height: calc(100vh - 5rem)
+}
+
+.App-navigation {
+	background-color: var(--navigation-background-color);
+}
+
+.App-navigation ul {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+}
+
+.App-navigation li {
+	list-style: none;
+	list-style-type: none;
+	padding: 20px;
+	margin: 20px;
+	transition: all ease 500ms;
+	margin: 0;
+}
+
+.App-navigation li:hover {
+	background-color: rgba(255, 255, 255, 0.7);
+	cursor: pointer;
+}
+
+.App-navigation li a {
+	color: var(--white);
+	text-decoration: none;
+}
+
+.App-navigation li a:hover {}

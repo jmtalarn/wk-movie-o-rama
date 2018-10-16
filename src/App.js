@@ -31,22 +31,21 @@ class App extends Component {
 					<div>
 						<header className="App-header">
 							<img src={logo} className="App-logo" alt="logo" />
-							<h1 className="App-title">Welcome to React</h1>
+							<h1 className="App-title">Wk Movie-o-rama</h1>
 						</header>
 						<Error />
-						<p className="App-intro">
-							To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
-						<div>
-							<ul>
-								<li><Link to="/">Home</Link></li>
-								<li><Link to="/about">About</Link></li>
-								<PrivateComponent><li><Link to="/profile">Profile</Link></li></PrivateComponent>
-								<PrivateComponent><li><Link to="/movies">Movies</Link></li></PrivateComponent>
-								<li><AuthContainer /></li>
-							</ul>
+						<main class="App-main">
 
-							<hr />
+							<nav className="App-navigation">
+								<ul>
+									<li><Link to="/">Home</Link></li>
+									<li><Link to="/about">About</Link></li>
+									<PrivateComponent><li><Link to="/profile">Profile</Link></li></PrivateComponent>
+									<PrivateComponent><li><Link to="/movies">Movies</Link></li></PrivateComponent>
+									<li><AuthContainer /></li>
+								</ul>
+							</nav>
+
 							<Switch>
 								<Route path="/login" component={LoginProfilesContainer} />
 								<PrivateRoute path="/about" component={About} />
@@ -55,11 +54,10 @@ class App extends Component {
 								<PrivateRoute path="/movie/:id" component={Movie} />
 								<Route exact path="/" component={Home} />
 							</Switch>
-						</div>
-
+						</main>
 					</div>
 				</Router>
-			</div>
+			</div >
 		);
 	}
 }
