@@ -1,4 +1,5 @@
 import React from 'react';
+import './Movies.css';
 // import {
 // 	Redirect,
 // } from 'react-router-dom';
@@ -15,16 +16,11 @@ class Movies extends React.Component {
 
 		return (
 			movies.data.map((movie) => (
-				<article key={movie._id}>
+				<article className="movie" key={movie._id}>
 					<img
+						className="movie-cover"
 						src={`api/movies/${movie._id}/cover`}
 						alt={`This is the ${movie.title} cover`}
-						style={
-							{
-								width: '2rem',
-								height: '3.5rem'
-							}
-						}
 					/>
 					<h3><a href={`/movie/${movie._id}`}>{movie.title}</a></h3>
 					<p>{movie.description}</p>
@@ -37,7 +33,9 @@ class Movies extends React.Component {
 		return (
 			<div>
 				<h2>Movies page</h2>
-				{this.renderMovies()}
+				<div className="movie-gallery">
+					{this.renderMovies()}
+				</div>
 			</div>
 
 		);

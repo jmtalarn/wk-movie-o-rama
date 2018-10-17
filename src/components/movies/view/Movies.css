@@ -1,0 +1,8 @@
+.movie-gallery .movie {
+	box-shadow: 2px 2px 5px var(--shadow-color);
+}
+
+.movie-gallery .movie .movie-cover {
+	width: 8rem;
+	height: 10rem;
+}
