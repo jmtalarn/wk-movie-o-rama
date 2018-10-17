@@ -1,6 +1,7 @@
 .movie-article .movie-article-cover {
 	object-fit: cover;
 	width: 100%;
+	padding: 1rem;
 	max-width: 20rem;
 	align-self: center;
 	justify-self: center;
