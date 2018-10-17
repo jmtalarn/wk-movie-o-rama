@@ -22,8 +22,10 @@ class Movies extends React.Component {
 						src={`api/movies/${movie._id}/cover`}
 						alt={`This is the ${movie.title} cover`}
 					/>
-					<h3><a href={`/movie/${movie._id}`}>{movie.title}</a></h3>
-					<p>{movie.description}</p>
+					<h3 className="movie-title">
+						<a href={`/movie/${movie._id}`}>{movie.title}</a>
+					</h3>
+					<p className="movie-description">{movie.description}</p>
 				</article>
 			)
 			)

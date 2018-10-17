@@ -1,5 +1,28 @@
+.movie-gallery {
+	display: grid;
+	grid-gap: 10px;
+}
+
 .movie-gallery .movie {
 	box-shadow: 2px 2px 5px var(--shadow-color);
+	padding: 1rem;
+	display: grid;
+
+	grid-template-areas: "cover title"
+		"cover description "
+		"cover description";
+}
+
+.movie-gallery .movie .movie-cover {
+	grid-area: cover;
+}
+
+.movie-gallery .movie .movie-title {
+	grid-area: title;
+}
+
+.movie-gallery .movie .movie-description {
+	grid-area: description;
 }
 
 .movie-gallery .movie .movie-cover {
