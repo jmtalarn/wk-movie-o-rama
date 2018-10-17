@@ -1,0 +1,31 @@
+.profile-list {
+	margin-top: 1rem;
+	display: grid;
+	grid-gap: 5px;
+	grid-template-columns: auto-fit;
+}
+
+.login-button {
+	position: relative;
+	background-color: transparent;
+	width: 100%;
+	border-radius: 50%;
+	border: none;
+	transition: all ease-in 400ms;
+}
+
+.login-button:hover {
+	background-color: var(--highlight-color);
+	box-shadow: 2px 2px 2px var(--shadow-color);
+}
+
+.profile-username {
+	position: absolute;
+}
+
+.profile-avatar {
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+	border: 2px solid var(--shadow-color);
+}

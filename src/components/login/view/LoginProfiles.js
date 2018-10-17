@@ -2,6 +2,7 @@ import React from 'react';
 import {
 	Redirect,
 } from 'react-router-dom';
+import './LoginProfiles.css';
 
 class LoginProfiles extends React.Component {
 	componentWillMount() {
@@ -20,20 +21,21 @@ class LoginProfiles extends React.Component {
 		return (
 			<div className="LoginProfiles">
 				{this.renderError(error || auth.error)}
-				<ul>
+				<h2>Choose a profile to login</h2>
+				<ul className="profile-list">
 					{profiles.map(profile => (
 						<li key={profile.username}>
-							<h3>{profile.username}</h3>
-							<img src={`/api/profiles/${profile.id}/avatar`}
-								alt={`${profile.username} avatar to identify him/her visually`}
-								style={
-									{
-										width: '2rem',
-										height: '2rem'
-									}
-								}
-							/>
-							<button onClick={this.onClickLogin.bind(this, profile)}>Log in</button>
+							<button
+								className="login-button"
+								onClick={this.onClickLogin.bind(this, profile)}
+							>
+								<h3 className="profile-username">{profile.username}</h3>
+								<img
+									className="profile-avatar"
+									src={`/api/profiles/${profile.id}/avatar`}
+									alt={`${profile.username} avatar to identify him/her visually`}
+								/>
+							</button>
 						</li>
 					))}
 				</ul>
