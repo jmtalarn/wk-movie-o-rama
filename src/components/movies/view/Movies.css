@@ -2,6 +2,7 @@
 	display: grid;
 	grid-gap: 10px;
 	margin-top: 1rem;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 .movie-gallery .movie {
@@ -12,6 +13,8 @@
 	grid-template-areas: "cover title"
 		"cover description "
 		"cover description";
+
+	transition: background-color ease-in 400ms;
 }
 
 .movie-gallery .movie .movie-cover {
@@ -27,7 +30,11 @@
 	text-decoration: none;
 }
 
-.movie-gallery .movie .movie-title a:hover {
+.movie-gallery .movie:hover {
+	background-color: var(--highlight-color);
+}
+
+.movie-gallery .movie:hover .movie-title {
 	text-decoration: underline;
 }
 
