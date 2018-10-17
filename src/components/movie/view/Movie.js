@@ -21,7 +21,7 @@ const Autocomplete = ({ profiles, onChange, userSelected }) => {
 
 	return (
 		<label>
-			To user
+			<FontAwesomeIcon className="" icon="users" />
 			<input list="profiles" onInput={onChange} />
 			<datalist id="profiles">
 				{
@@ -88,8 +88,8 @@ class MovieShare extends React.Component {
 			<div className={`${className} share-box`}>
 				<div className="wrapper">
 					<label>
-						Message
-					<input
+						<FontAwesomeIcon className="" icon="comments" />
+						<input
 							type="text"
 							onChange={this.updateMessage.bind(this)}
 							value={this.state.message}
