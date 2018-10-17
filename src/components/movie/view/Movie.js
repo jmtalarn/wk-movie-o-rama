@@ -1,13 +1,19 @@
 import React from 'react';
 import './Movie.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const MovieLike = ({ movie, action }) => {
 
 	return (
-		<React.Fragment>
-			<p>{movie.likes ? movie.likes.length : '0'} likes </p>
-			<button onClick={action}> Like Movie </button>
-		</React.Fragment>
+		<div className="like-box">
+			<button
+				className="like-button"
+				onClick={action}
+			>
+				<FontAwesomeIcon icon="heart" />
+			</button>
+			{movie.likes ? movie.likes.length : '0'} likes
+		</div>
 	);
 };
 
