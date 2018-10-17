@@ -48,6 +48,9 @@
 
 }
 
+.movie-article .action-boxes .share-box .wrapper {
+	border: 1px dotted var(--shadow-color);
+}
 
 /* .movie-article .like-button,
 .movie-article .share-button {
