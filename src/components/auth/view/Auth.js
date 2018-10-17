@@ -16,7 +16,7 @@ export default class Auth extends Component {
 			to="/login"
 		>
 			<FontAwesomeIcon
-				className="Auth-menu-icon"
+				className="nav-menu-icon"
 				icon="sign-in-alt"
 			/>
 			Login
@@ -28,7 +28,7 @@ export default class Auth extends Component {
 			onClick={this.props.logout}
 		>
 			<FontAwesomeIcon
-				className="Auth-menu-icon"
+				className="nav-menu-icon"
 				icon="sign-out-alt"
 			/>
 			Logout

@@ -84,3 +84,7 @@ body {
 }
 
 .App-navigation li a:hover {}
+
+.App-navigation .nav-menu-icon {
+	margin-right: 1rem;
+}

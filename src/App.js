@@ -17,6 +17,7 @@ import {
 	Route,
 	Link,
 } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './App.css';
 
 
@@ -39,11 +40,49 @@ class App extends Component {
 
 							<nav className="App-navigation">
 								<ul>
-									<li><Link to="/">Home</Link></li>
-									<li><Link to="/about">About</Link></li>
-									<PrivateComponent><li><Link to="/profile">Profile</Link></li></PrivateComponent>
-									<PrivateComponent><li><Link to="/movies">Movies</Link></li></PrivateComponent>
-									<li><AuthContainer /></li>
+									<li>
+										<Link to="/">
+											<FontAwesomeIcon
+												className="nav-menu-icon"
+												icon="home"
+											/>
+											Home
+										</Link>
+									</li>
+									<li>
+										<Link to="/about">
+											<FontAwesomeIcon
+												className="nav-menu-icon"
+												icon="question-circle"
+											/>
+											About
+									</Link>
+									</li>
+									<PrivateComponent>
+										<li>
+											<Link to="/profile">
+												<FontAwesomeIcon
+													className="nav-menu-icon"
+													icon="user"
+												/>
+												Profile
+											</Link>
+										</li>
+									</PrivateComponent>
+									<PrivateComponent>
+										<li>
+											<Link to="/movies">
+												<FontAwesomeIcon
+													className="nav-menu-icon"
+													icon="film"
+												/>
+												Movies
+											</Link>
+										</li>
+									</PrivateComponent>
+									<li>
+										<AuthContainer />
+									</li>
 								</ul>
 							</nav>
 
