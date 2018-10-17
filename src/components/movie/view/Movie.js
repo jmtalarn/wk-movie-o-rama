@@ -82,7 +82,7 @@ class MovieShare extends React.Component {
 
 
 	render() {
-		const { movie, profiles } = this.props;
+		const { profiles } = this.props;
 		return (
 			<div className="share-box">
 				<div className="share-counter">
