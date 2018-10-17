@@ -18,8 +18,13 @@
 	justify-content: center;
 }
 
+.movie-article .movie-counters {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
 
-.movie-article .like-button,
+/* .movie-article .like-button,
 .movie-article .share-button {
 	border: none;
 	font-size: 2rem;
@@ -35,13 +40,9 @@
 
 .movie-article .like-button:hover .fa-heart {
 	filter: drop-shadow(1px 2px 2px var(--highlight-color)) drop-shadow(-2px -1px 2px var(--highlight-color));
-}
+} */
 
-.movie-article .movie-counters {
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-}
+
 
 /* .movie-article .share-counter .share-icon {
 	font-size: 2rem;
