@@ -24,6 +24,25 @@
 	justify-content: space-evenly;
 }
 
+.movie-article .share-box,
+.movie-article .like-box {
+	padding: 1rem;
+	display: block;
+}
+
+.movie-article .share-box button,
+.movie-article .like-box button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+}
+
+.movie-article .share-box button:hover,
+.movie-article .like-box button:hover {
+	background-color: var(--highlight-color);
+
+}
+
 /* .movie-article .like-button,
 .movie-article .share-button {
 	border: none;

@@ -11,6 +11,7 @@ const MovieLike = ({ movie, action }) => {
 				onClick={action}
 			>
 				<FontAwesomeIcon icon="heart" />
+				I like this movie too !
 			</button>
 		</div>
 	);
@@ -85,33 +86,26 @@ class MovieShare extends React.Component {
 		const { profiles } = this.props;
 		return (
 			<div className="share-box">
-				<div className="share-counter">
-					<button
-						className="share-button">
-						<FontAwesomeIcon className="share-icon" icon="share-alt" />
-					</button>
-				</div>
-				<div className="share-form">
-					<label>
-						Message
+				<label>
+					Message
 							<input
-							type="text"
-							onChange={this.updateMessage.bind(this)}
-							value={this.state.message}
-						/>
-					</label>
-					<Autocomplete
-						profiles={profiles}
-						onChange={this.updateUser.bind(this)}
-						userSelected={Boolean(this.state.user)}
+						type="text"
+						onChange={this.updateMessage.bind(this)}
+						value={this.state.message}
 					/>
-					<button
-						onClick={this.submitMessage.bind(this)} disabled={!this.validForm()}>
-						Share Movie
-						</button>
-				</div>
-
-
+				</label>
+				<Autocomplete
+					profiles={profiles}
+					onChange={this.updateUser.bind(this)}
+					userSelected={Boolean(this.state.user)}
+				/>
+				<button
+					onClick={this.submitMessage.bind(this)} disabled={!this.validForm()}
+					className="share-button"
+				>
+					<FontAwesomeIcon className="share-icon" icon="share-alt" />
+					Share Movie
+				</button>
 			</div>
 		);
 	}
