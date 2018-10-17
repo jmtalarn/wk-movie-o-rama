@@ -61,7 +61,26 @@ You should use environment variables to set the Mongo DB port, Mongo DB binary l
 	- [X] Add the login action per profile
 
 - [X] Implement actions and views for the specifications
-- [ ] Manage errors with state
+- [X] Manage errors with state
 - [ ] Display errors properly
+- [ ] Other profile view
+	- [ ] Select profile to view
+	- [ ] View other profile
+- [ ] Receiving notifications
+	- [ ] Implement notification system
+
+# Styling app
+- [ ] Styling app
+	- [X] Layout
+	- [-] Navigation
+		- [X] Content
+		- [ ] Icons
+	- [ ] Login profiles
+	- [ ] Movies gallery
+	- [ ] Movie
+		- [ ] Movie details
+		- [ ] Like a movie
+		- [ ] Share a movie
+	- [ ] Profile 
 
 
