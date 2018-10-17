@@ -1,4 +1,5 @@
 import React from 'react';
+import './Movie.css';
 
 const MovieLike = ({ movie, action }) => {
 
@@ -121,22 +122,37 @@ class Movie extends React.Component {
 		const { movie: { data: movie }, profiles } = this.props;
 
 		return (
-			<article key={movie._id}>
-				{movie._id ? <img
-					src={`/api/movies/${movie._id}/cover`}
-					alt={`This is the ${movie.title} cover`}
-				/> : null}
-				<h3>{movie.title}</h3>
-				<p>{movie.description}</p>
+			<article
+				key={movie._id}
+				className="movie-article"
+			>
+				<h2
+					className="movie-article-title"
+				>
+					{movie.title}
+				</h2>
+				<div
+					className="movie-article-content"
+				>
+					{movie._id ?
+						<img
+							className="movie-cover"
+							src={`/api/movies/${movie._id}/cover`}
+							alt={`This is the ${movie.title} cover`}
+						/>
+						: null
+					}
+
+					<p>{movie.description}</p>
+				</div>
 				<MovieLike movie={movie} action={this.likeMovie} />
 				<MovieShare movie={movie} action={this.shareMovie} profiles={profiles} />
-			</article>
+			</article >
 		);
 	}
 	render() {
 		return (
 			<div>
-				<h2>Movie page</h2>
 				{this.renderMovie()}
 			</div>
 

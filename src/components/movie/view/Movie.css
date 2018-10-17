@@ -1,0 +1,8 @@
+.movie-article .movie-article-cover {
+	width: 10rem;
+}
+
+.movie-article .movie-article-content {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}
