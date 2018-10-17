@@ -10,7 +10,9 @@
 .movie-article .movie-article-content {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	grid-gap: 1rem;
 }
+
 
 .movie-article .like-box {
 	display: flex;
@@ -24,24 +26,28 @@
 	justify-content: space-evenly;
 }
 
-.movie-article .share-box,
-.movie-article .like-box {
+.movie-article .action-boxes .box {
 	padding: 1rem;
 	display: block;
 }
 
-.movie-article .share-box button,
-.movie-article .like-box button {
+.movie-article .action-boxes .box button .icon {
+	margin-right: 1rem;
+}
+
+.movie-article .action-boxes button {
 	display: block;
 	width: 100%;
 	padding: 10px;
+	background: none;
+	transition: background-color ease-in 400ms;
 }
 
-.movie-article .share-box button:hover,
-.movie-article .like-box button:hover {
+.movie-article .action-boxes button:not(:disabled):hover {
 	background-color: var(--highlight-color);
 
 }
+
 
 /* .movie-article .like-button,
 .movie-article .share-button {

@@ -2,15 +2,15 @@ import React from 'react';
 import './Movie.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const MovieLike = ({ movie, action }) => {
+const MovieLike = ({ className, movie, action }) => {
 
 	return (
-		<div className="like-box">
+		<div className={`${className} like-box`}>
 			<button
 				className="like-button"
 				onClick={action}
 			>
-				<FontAwesomeIcon icon="heart" />
+				<FontAwesomeIcon className="icon" icon="heart" />
 				I like this movie too !
 			</button>
 		</div>
@@ -83,12 +83,12 @@ class MovieShare extends React.Component {
 
 
 	render() {
-		const { profiles } = this.props;
+		const { profiles, className } = this.props;
 		return (
-			<div className="share-box">
+			<div className={`${className} share-box`}>
 				<label>
 					Message
-							<input
+					<input
 						type="text"
 						onChange={this.updateMessage.bind(this)}
 						value={this.state.message}
@@ -103,7 +103,7 @@ class MovieShare extends React.Component {
 					onClick={this.submitMessage.bind(this)} disabled={!this.validForm()}
 					className="share-button"
 				>
-					<FontAwesomeIcon className="share-icon" icon="share-alt" />
+					<FontAwesomeIcon className="icon share-icon" icon="share-alt" />
 					Share Movie
 				</button>
 			</div>
@@ -170,8 +170,10 @@ class Movie extends React.Component {
 					</p>
 
 				</div>
-				<MovieLike movie={movie} action={this.likeMovie} />
-				<MovieShare movie={movie} action={this.shareMovie} profiles={profiles} />
+				<div className="action-boxes">
+					<MovieLike className="box" movie={movie} action={this.likeMovie} />
+					<MovieShare className="box" movie={movie} action={this.shareMovie} profiles={profiles} />
+				</div>
 			</article >
 		);
 	}
