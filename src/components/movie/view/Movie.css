@@ -59,6 +59,16 @@
 	justify-content: space-around;
 }
 
+.movie-article .action-boxes .share-box .share-box-form .share-box-form-message,
+.movie-article .action-boxes .share-box .share-box-form .share-box-form-user {
+	display: flex;
+	align-items: center;
+}
+
+.movie-article .action-boxes .share-box .share-box-form .share-box-form-user .selected {
+	color: var(--green);
+}
+
 .movie-article .action-boxes .share-box .share-box-form .share-box-form-message {
 	width: 70%;
 }

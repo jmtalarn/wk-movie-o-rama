@@ -20,7 +20,7 @@ const MovieLike = ({ className, movie, action }) => {
 const Autocomplete = ({ profiles, onChange, userSelected }) => {
 
 	return (
-		<label>
+		<label className="share-box-form-user">
 			<FontAwesomeIcon className="" icon="users" />
 			<input list="profiles" onInput={onChange} />
 			<datalist id="profiles">
