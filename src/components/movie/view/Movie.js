@@ -87,19 +87,21 @@ class MovieShare extends React.Component {
 		return (
 			<div className={`${className} share-box`}>
 				<div className="wrapper">
-					<label>
-						<FontAwesomeIcon className="" icon="comments" />
-						<input
-							type="text"
-							onChange={this.updateMessage.bind(this)}
-							value={this.state.message}
+					<div className="share-box-form">
+						<label className="share-box-form-message">
+							<FontAwesomeIcon className="" icon="comments" />
+							<input
+								type="text"
+								onChange={this.updateMessage.bind(this)}
+								value={this.state.message}
+							/>
+						</label>
+						<Autocomplete
+							profiles={profiles}
+							onChange={this.updateUser.bind(this)}
+							userSelected={Boolean(this.state.user)}
 						/>
-					</label>
-					<Autocomplete
-						profiles={profiles}
-						onChange={this.updateUser.bind(this)}
-						userSelected={Boolean(this.state.user)}
-					/>
+					</div>
 					<button
 						onClick={this.submitMessage.bind(this)}
 						disabled={!this.validForm()}
