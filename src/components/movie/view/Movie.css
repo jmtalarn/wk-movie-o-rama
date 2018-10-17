@@ -19,27 +19,31 @@
 }
 
 
-.movie-article .like-button {
+.movie-article .like-button,
+.movie-article .share-button {
 	border: none;
-	color: var(--like-color);
 	font-size: 2rem;
 }
 
+.movie-article .like-button {
+	color: var(--like-color);
+}
+
 .movie-article .like-button .fa-heart {
-	transition: filter ease-in 400ms;
+	transition: filter ease-in 200ms;
 }
 
 .movie-article .like-button:hover .fa-heart {
 	filter: drop-shadow(1px 2px 2px var(--highlight-color)) drop-shadow(-2px -1px 2px var(--highlight-color));
 }
 
-.movie-article .share-counter {
+.movie-article .movie-counters {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
 }
 
-.movie-article .share-counter .share-icon {
+/* .movie-article .share-counter .share-icon {
 	font-size: 2rem;
 	margin: 1rem;
 }
@@ -50,4 +54,4 @@
 
 .movie-article .share-button:hover .fa-share-alt {
 	filter: drop-shadow(1px 2px 2px var(--highlight-color)) drop-shadow(-2px -1px 2px var(--highlight-color));
-}
+} */

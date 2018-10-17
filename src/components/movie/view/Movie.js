@@ -12,7 +12,6 @@ const MovieLike = ({ movie, action }) => {
 			>
 				<FontAwesomeIcon icon="heart" />
 			</button>
-			{movie.likes ? movie.likes.length : '0'} likes
 		</div>
 	);
 };
@@ -87,12 +86,15 @@ class MovieShare extends React.Component {
 		return (
 			<div className="share-box">
 				<div className="share-counter">
-					<FontAwesomeIcon className="share-icon" icon="share-alt" />{movie.shares ? movie.shares.length : '0'} shares
+					<button
+						className="share-button">
+						<FontAwesomeIcon className="share-icon" icon="share-alt" />
+					</button>
 				</div>
 				<div className="share-form">
 					<label>
 						Message
-					<input
+							<input
 							type="text"
 							onChange={this.updateMessage.bind(this)}
 							value={this.state.message}
@@ -104,11 +106,11 @@ class MovieShare extends React.Component {
 						userSelected={Boolean(this.state.user)}
 					/>
 					<button
-						className="share-button"
 						onClick={this.submitMessage.bind(this)} disabled={!this.validForm()}>
-						<FontAwesomeIcon className="share-icon" icon="share-alt" /> Share Movie
-					</button>
+						Share Movie
+						</button>
 				</div>
+
 
 			</div>
 		);
@@ -150,15 +152,29 @@ class Movie extends React.Component {
 					className="movie-article-content"
 				>
 					{movie._id ?
-						<img
-							className="movie-article-cover"
-							src={`/api/movies/${movie._id}/cover`}
-							alt={`This is the ${movie.title} cover`}
-						/>
+						<div>
+							<img
+								className="movie-article-cover"
+								src={`/api/movies/${movie._id}/cover`}
+								alt={`This is the ${movie.title} cover`}
+							/>
+							<div className="movie-counters">
+								<div className="movie-counters-shares">
+									<FontAwesomeIcon className="share-icon" icon="share-alt" /> {movie.shares ? movie.shares.length : '0'} shares
+								</div>
+								<div className="movie-counters-likes">
+									<FontAwesomeIcon className="like-icon" icon="heart" /> {movie.likes ? movie.likes.length : '0'} likes
+								</div>
+							</div>
+						</div>
 						: null
 					}
 
-					<p>{movie.description}</p>
+					<p>
+						{movie.description}
+
+					</p>
+
 				</div>
 				<MovieLike movie={movie} action={this.likeMovie} />
 				<MovieShare movie={movie} action={this.shareMovie} profiles={profiles} />
