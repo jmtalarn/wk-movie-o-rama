@@ -85,23 +85,32 @@ class MovieShare extends React.Component {
 	render() {
 		const { movie, profiles } = this.props;
 		return (
-			<React.Fragment>
-				<p>{movie.shares ? movie.shares.length : '0'} shares </p>
-				<label>
-					Message
+			<div className="share-box">
+				<div className="share-counter">
+					<FontAwesomeIcon className="share-icon" icon="share-alt" />{movie.shares ? movie.shares.length : '0'} shares
+				</div>
+				<div className="share-form">
+					<label>
+						Message
 					<input
-						type="text"
-						onChange={this.updateMessage.bind(this)}
-						value={this.state.message}
+							type="text"
+							onChange={this.updateMessage.bind(this)}
+							value={this.state.message}
+						/>
+					</label>
+					<Autocomplete
+						profiles={profiles}
+						onChange={this.updateUser.bind(this)}
+						userSelected={Boolean(this.state.user)}
 					/>
-				</label>
-				<Autocomplete
-					profiles={profiles}
-					onChange={this.updateUser.bind(this)}
-					userSelected={Boolean(this.state.user)}
-				/>
-				<button onClick={this.submitMessage.bind(this)} disabled={!this.validForm()}> Share Movie </button>
-			</React.Fragment>
+					<button
+						className="share-button"
+						onClick={this.submitMessage.bind(this)} disabled={!this.validForm()}>
+						<FontAwesomeIcon className="share-icon" icon="share-alt" /> Share Movie
+					</button>
+				</div>
+
+			</div>
 		);
 	}
 };

@@ -18,6 +18,7 @@
 	justify-content: center;
 }
 
+
 .movie-article .like-button {
 	border: none;
 	color: var(--like-color);
@@ -29,5 +30,24 @@
 }
 
 .movie-article .like-button:hover .fa-heart {
+	filter: drop-shadow(1px 2px 2px var(--highlight-color)) drop-shadow(-2px -1px 2px var(--highlight-color));
+}
+
+.movie-article .share-counter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.movie-article .share-counter .share-icon {
+	font-size: 2rem;
+	margin: 1rem;
+}
+
+.movie-article .share-button .fa-share-alt {
+	transition: filter ease-in 400ms;
+}
+
+.movie-article .share-button:hover .fa-share-alt {
 	filter: drop-shadow(1px 2px 2px var(--highlight-color)) drop-shadow(-2px -1px 2px var(--highlight-color));
 }
