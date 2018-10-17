@@ -6,13 +6,16 @@ const MovieLike = ({ className, movie, action }) => {
 
 	return (
 		<div className={`${className} like-box`}>
-			<button
-				className="like-button"
-				onClick={action}
-			>
-				<FontAwesomeIcon className="icon" icon="heart" />
-				I like this movie too !
+			<fieldset className="dotted-wrapper">
+				<legend className="wrapper-legend">Like</legend>
+				<button
+					className="like-button"
+					onClick={action}
+				>
+					<FontAwesomeIcon className="icon" icon="heart" />
+					I like this movie too !
 			</button>
+			</fieldset>
 		</div>
 	);
 };
@@ -21,7 +24,7 @@ const Autocomplete = ({ profiles, onChange, userSelected }) => {
 
 	return (
 		<label className="share-box-form-user">
-			<FontAwesomeIcon className="" icon="users" />
+			<FontAwesomeIcon className="icon" icon="users" />
 			<input list="profiles" onInput={onChange} />
 			<datalist id="profiles">
 				{
@@ -86,10 +89,11 @@ class MovieShare extends React.Component {
 		const { profiles, className } = this.props;
 		return (
 			<div className={`${className} share-box`}>
-				<div className="wrapper">
+				<fieldset className="dotted-wrapper">
+					<legend className="wrapper-legend">Share</legend>
 					<div className="share-box-form">
 						<label className="share-box-form-message">
-							<FontAwesomeIcon className="" icon="comments" />
+							<FontAwesomeIcon className="icon" icon="comments" />
 							<input
 								type="text"
 								onChange={this.updateMessage.bind(this)}
@@ -111,7 +115,7 @@ class MovieShare extends React.Component {
 						<FontAwesomeIcon className="icon share-icon" icon="share-alt" />
 						Share Movie
 					</button>
-				</div>
+				</fieldset>
 			</div>
 		);
 	}
@@ -169,17 +173,17 @@ class Movie extends React.Component {
 						</div>
 						: null
 					}
-
-					<p>
-						{movie.description}
-
-					</p>
-
+					<div>
+						<p>
+							{movie.description}
+						</p>
+						<div className="action-boxes">
+							<MovieLike className="box" movie={movie} action={this.likeMovie} />
+							<MovieShare className="box" movie={movie} action={this.shareMovie} profiles={profiles} />
+						</div>
+					</div>
 				</div>
-				<div className="action-boxes">
-					<MovieLike className="box" movie={movie} action={this.likeMovie} />
-					<MovieShare className="box" movie={movie} action={this.shareMovie} profiles={profiles} />
-				</div>
+
 			</article >
 		);
 	}
