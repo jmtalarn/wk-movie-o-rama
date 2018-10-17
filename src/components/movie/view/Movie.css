@@ -1,8 +1,12 @@
 .movie-article .movie-article-cover {
-	width: 10rem;
+	object-fit: cover;
+	width: 100%;
+	max-width: 20rem;
+	align-self: center;
+	justify-self: center;
 }
 
 .movie-article .movie-article-content {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 }

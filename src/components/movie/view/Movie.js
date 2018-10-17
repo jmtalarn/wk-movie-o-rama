@@ -136,7 +136,7 @@ class Movie extends React.Component {
 				>
 					{movie._id ?
 						<img
-							className="movie-cover"
+							className="movie-article-cover"
 							src={`/api/movies/${movie._id}/cover`}
 							alt={`This is the ${movie.title} cover`}
 						/>
