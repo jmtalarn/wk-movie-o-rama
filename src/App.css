@@ -91,7 +91,8 @@ body {
 	cursor: pointer;
 }
 
-.App-navigation li a {
+.App-navigation li a,
+.App-navigation li button {
 	color: var(--white);
 	text-decoration: none;
 	display: block;
