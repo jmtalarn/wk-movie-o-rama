@@ -85,15 +85,16 @@ class App extends Component {
 									</li>
 								</ul>
 							</nav>
-
-							<Switch>
-								<Route path="/login" component={LoginProfilesContainer} />
-								<PrivateRoute path="/about" component={About} />
-								<PrivateRoute path="/profile" component={Profile} />
-								<PrivateRoute path="/movies" component={Movies} />
-								<PrivateRoute path="/movie/:id" component={Movie} />
-								<Route exact path="/" component={Home} />
-							</Switch>
+							<div className="App-content">
+								<Switch>
+									<Route path="/login" component={LoginProfilesContainer} />
+									<PrivateRoute path="/about" component={About} />
+									<PrivateRoute path="/profile" component={Profile} />
+									<PrivateRoute path="/movies" component={Movies} />
+									<PrivateRoute path="/movie/:id" component={Movie} />
+									<Route exact path="/" component={Home} />
+								</Switch>
+							</div>
 						</main>
 					</div>
 				</Router>

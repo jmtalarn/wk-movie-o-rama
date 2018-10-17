@@ -49,8 +49,11 @@ body {
 .App-main {
 	display: grid;
 	grid-template-columns: 15rem auto;
-	grid-gap: 10px;
 	height: calc(100vh - 5rem)
+}
+
+.App-content {
+	padding: 1rem;
 }
 
 .App-navigation {
