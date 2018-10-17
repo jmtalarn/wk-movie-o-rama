@@ -136,7 +136,7 @@ class Movie extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Movie page</h1>
+				<h2>Movie page</h2>
 				{this.renderMovie()}
 			</div>
 

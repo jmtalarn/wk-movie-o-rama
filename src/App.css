@@ -56,6 +56,17 @@ body {
 	padding: 1rem;
 }
 
+.App-content h2 {
+	font-weight: bold;
+}
+
+.App-content p {
+	font-family: 'Source Serif Pro', 'Times New Roman', Times, serif;
+	padding: 1rem;
+	line-height: 1.5rem;
+	text-align: left;
+}
+
 .App-navigation {
 	background-color: var(--navigation-background-color);
 }

@@ -36,7 +36,7 @@ class Movies extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Movies page</h1>
+				<h2>Movies page</h2>
 				{this.renderMovies()}
 			</div>
 
