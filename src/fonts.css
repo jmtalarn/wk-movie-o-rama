@@ -1,27 +1,27 @@
 @font-face {
 	font-family: "Montserrat";
-	src: url("fonts/Montserrat-Regular.ttf");
+	src: url("./fonts/Montserrat-Regular.ttf");
 }
 
 @font-face {
 	font-family: "Montserrat";
-	src: url("fonts/Montserrat-ExtraBold.ttf");
+	src: url("./fonts/Montserrat-ExtraBold.ttf");
 	font-weight: bold;
 }
 
 @font-face {
 	font-family: "Montserrat";
-	src: url("fonts/Montserrat-Thin.ttf");
+	src: url("./fonts/Montserrat-Thin.ttf");
 	font-weight: 200;
 }
 
 @font-face {
 	font-family: "Source Serif Pro";
-	src: url("fonts/SourceSerifPro-Regular.ttf");
+	src: url("./fonts/SourceSerifPro-Regular.ttf");
 }
 
 @font-face {
 	font-family: "Source Serif Pro";
-	src: url("fonts/SourceSerifPro-Bold.ttf");
+	src: url("./fonts/SourceSerifPro-Bold.ttf");
 	font-weight: bold;
 }

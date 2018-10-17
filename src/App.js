@@ -35,7 +35,7 @@ class App extends Component {
 							<h1 className="App-title">Wk Movie-o-rama</h1>
 						</header>
 						<Error />
-						<main class="App-main">
+						<main className="App-main">
 
 							<nav className="App-navigation">
 								<ul>
