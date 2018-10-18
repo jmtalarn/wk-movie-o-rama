@@ -24,7 +24,8 @@ class LoginProfiles extends React.Component {
 				<h2>Choose a profile to login</h2>
 				<ul className="profile-list">
 					{profiles.map(profile => (
-						<li key={profile.username}>
+						<li key={profile.username} className="profile">
+
 							<button
 								className="login-button"
 								onClick={this.onClickLogin.bind(this, profile)}
