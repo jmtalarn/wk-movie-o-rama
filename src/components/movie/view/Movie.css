@@ -1,7 +1,6 @@
 .movie-article .movie-article-cover {
 	object-fit: cover;
 	width: 100%;
-	padding: 1rem;
 	max-width: 20rem;
 	align-self: center;
 	justify-self: center;
@@ -88,35 +87,8 @@
 	margin-right: .5rem;
 }
 
-/* .movie-article .like-button,
-.movie-article .share-button {
-	border: none;
-	font-size: 2rem;
+@media screen and (min-width:495px) {
+	.movie-article .movie-article-cover {
+		padding: 1rem;
+	}
 }
-
-.movie-article .like-button {
-	color: var(--like-color);
-}
-
-.movie-article .like-button .fa-heart {
-	transition: filter ease-in 200ms;
-}
-
-.movie-article .like-button:hover .fa-heart {
-	filter: drop-shadow(1px 2px 2px var(--highlight-color)) drop-shadow(-2px -1px 2px var(--highlight-color));
-} */
-
-
-
-/* .movie-article .share-counter .share-icon {
-	font-size: 2rem;
-	margin: 1rem;
-}
-
-.movie-article .share-button .fa-share-alt {
-	transition: filter ease-in 400ms;
-}
-
-.movie-article .share-button:hover .fa-share-alt {
-	filter: drop-shadow(1px 2px 2px var(--highlight-color)) drop-shadow(-2px -1px 2px var(--highlight-color));
-} */
