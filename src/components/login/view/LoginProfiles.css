@@ -11,13 +11,13 @@
 	flex-direction: row-reverse;
 	align-items: center;
 	padding: 5px;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	background: none;
 	transition: background-color ease-in 400ms;
 }
 
 .profile-username {
-	font-size: 1rem;
+	font-size: .6rem;
 }
 
 .login-button:hover {
