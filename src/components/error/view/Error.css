@@ -1,0 +1,15 @@
+.errors-box {
+	background-color: white;
+	width: 80%;
+	color: red;
+	position: absolute;
+	top: 1rem;
+	left: 10%;
+	border: 2px dashed red;
+}
+
+.errors-box .error {
+	padding: 1rem;
+	margin: .5rem;
+	border: 2px dotted red;
+}
