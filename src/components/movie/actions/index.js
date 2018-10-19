@@ -46,9 +46,9 @@ export function likeMovie(id) {
 					return response.json();
 				} else {
 					const message = `${response.status} - ${response.statusText}`;
-					response.json()
+					return response.json()
 						.then(json => {
-							throw new Error(`${message}\njson.message`);
+							throw new Error(`${message}: ${json.message}`);
 						});
 				}
 			})
@@ -65,9 +65,9 @@ export function shareMovie(id, message, user) {
 					return response.json();
 				} else {
 					const message = `${response.status} - ${response.statusText}`;
-					response.json()
+					return response.json()
 						.then(json => {
-							throw new Error(`${message}\njson.message`);
+							throw new Error(`${message}: ${json.message}`);
 						});
 				}
 			})
@@ -75,6 +75,3 @@ export function shareMovie(id, message, user) {
 			.catch(error => { console.log(error); return dispatch(getMovieError(error)); });
 	};
 }
-
-
-

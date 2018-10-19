@@ -7,10 +7,33 @@
 	left: 10%;
 	box-shadow: 4px 4px 5px var(--shadow-color);
 	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .errors-box .error {
 	padding: 1rem;
 	margin: .5rem;
-	border: 1px dashed red;
+	font-size: 1rem;
+	border: 1px dashed var(--red);
+	background: none;
+	width: 60%;
+
+	transition: background-color ease-in 400ms, color ease-in 400ms;
+}
+
+.errors-box .error .icon {
+	color: var(--red);
+	margin-right: 1rem;
+	visibility: hidden;
+}
+
+.errors-box .error:hover {
+	color: var(--red);
+	background-color: var(--highlight-error-color);
+}
+
+.errors-box .error:hover .icon {
+	visibility: visible;
 }

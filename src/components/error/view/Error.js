@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Error.css';
 
 
@@ -13,7 +14,18 @@ class Error extends React.Component {
 			error.length ?
 				<div className="errors-box"
 				>
-					{error.map(er => (<div className="error">{er.message}</div>))}
+					<h2>Some errors have occurred :</h2>
+					{error.map((er, idx) => (
+						<button
+							className="error"
+							onClick={() => this.props.dismissError(idx)}
+							title="Click to dismiss the error..."
+						>
+							<FontAwesomeIcon className="icon" icon="trash-alt" />
+							{er.message}
+						</button>
+					))}
+
 				</div>
 				: null
 

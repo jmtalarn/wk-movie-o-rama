@@ -3,6 +3,8 @@
 	--shadow-color: rgb(66, 66, 66);
 	--highlight-color: rgba(0, 204, 255, 0.5);
 	--like-color: rgb(235, 108, 108);
+	--red: #FF0000;
+	--highlight-error-color: #ff00003a;
 	--white: #FFFFFF;
 	--green: rgb(104, 250, 160);
 
