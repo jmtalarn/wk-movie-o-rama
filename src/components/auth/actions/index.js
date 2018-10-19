@@ -1,4 +1,5 @@
 import * as ACTION from './types';
+import { ERROR } from '../../error/actions/types';
 import Auth from '../Auth';
 
 // @TODO: Check this https://www.sitepoint.com/redux-authentication-auth0/
@@ -21,7 +22,7 @@ function loginError(error) {
 	localStorage.removeItem('id_token');
 	localStorage.removeItem('id_profile');
 	return {
-		type: ACTION.LOGIN_ERROR,
+		type: ERROR,
 		error,
 	};
 }

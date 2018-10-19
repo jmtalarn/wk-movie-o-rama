@@ -1,4 +1,5 @@
 import * as ACTION from './types';
+import { ERROR } from '../../error/actions/types';
 import Auth from '../../auth/Auth';
 
 const auth = new Auth();
@@ -13,7 +14,7 @@ function getMovieSuccess(movies) {
 }
 function getMovieError(error) {
 	return {
-		type: ACTION.MOVIE_ERROR,
+		type: ERROR,
 		error,
 	};
 }

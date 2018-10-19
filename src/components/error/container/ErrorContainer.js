@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const ErrorState = function (state, props) {
 	const { error } = state;
-
+	console.log("ErrorState", error);
 	return {
 		error
 	};

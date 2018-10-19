@@ -1,5 +1,7 @@
 import * as ACTION from './types';
-import Auth  from '../../auth/Auth';
+import { ERROR } from '../../error/actions/types';
+
+import Auth from '../../auth/Auth';
 
 const auth = new Auth();
 
@@ -13,15 +15,15 @@ function getMoviesSuccess(movies) {
 }
 function getMoviesError(error) {
 	return {
-		type: ACTION.MOVIES_ERROR,
+		type: ERROR,
 		error,
 	};
 }
 export function getMovies() {
 
-	return dispatch=> {
+	return dispatch => {
 		auth.fetch(uri)
-			.then(response =>{
+			.then(response => {
 				if (response.ok) {
 					return response.json();
 				} else {

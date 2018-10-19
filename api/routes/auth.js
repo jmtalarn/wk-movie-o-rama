@@ -79,6 +79,7 @@ function ensureAuthorized(req, res, next) {
 				});
 			}
 			else {
+				console.log("NO ERROR VALIDATING TOKEN");
 				// if everything is good, save to request for use in other routes
 				var query = Profile.where({ token });
 

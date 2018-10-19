@@ -11,7 +11,7 @@ var Auth = require('../routes/auth.js');
 var image_contentType = 'image/jpeg';
 
 /* GET /movies listing. */
-router.get('/', function (req, res, next) {
+router.get('/', Auth.ensureAuthorized, function (req, res, next) {
 	Movie.find(function (err, movies) {
 		if (err) return next(err);
 		var result = [];
@@ -29,13 +29,13 @@ router.get('/', function (req, res, next) {
 	});
 });
 
-router.get('/:id', function (req, res, next) {
+router.get('/:id', Auth.ensureAuthorized, function (req, res, next) {
 	Movie.findById(req.params.id, function (err, movie) {
 		if (err) return next(err);
 		res.json(movie);
 	});
 });
-router.get('/:id/cover', function (req, res, next) {
+router.get('/:id/cover', Auth.ensureAuthorized, function (req, res, next) {
 	Movie.findById(req.params.id, function (err, m) {
 		if (err) return next(err);
 		res.contentType(image_contentType);

@@ -1,14 +1,15 @@
 import * as ACTION from './types';
+import { ERROR } from '../../error/actions/types';
 
 const API_URL = '/api/profiles';
 
 export function getLoginProfiles() {
 
-	return dispatch=> {
+	return dispatch => {
 		fetch(API_URL)
-		.then(response => response.json())
-		.then(json => dispatch(loginProfilesReceived(json)))
-		.catch(error => dispatch(loginProfilesError(error)));
+			.then(response => response.json())
+			.then(json => dispatch(loginProfilesReceived(json)))
+			.catch(error => dispatch(loginProfilesError(error)));
 	};
 }
 
@@ -21,7 +22,7 @@ export function loginProfilesReceived(profiles) {
 
 export function loginProfilesError(error) {
 	return {
-		type: ACTION.LOGIN_PROFILES_ERROR,
+		type: ERROR,
 		error,
 	};
 }
