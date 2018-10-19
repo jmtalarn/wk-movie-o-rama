@@ -9,7 +9,7 @@ export function getLoginProfiles() {
 		fetch(API_URL)
 			.then(response => response.json())
 			.then(json => dispatch(loginProfilesReceived(json)))
-			.catch(error => dispatch(loginProfilesError(error)));
+			.catch(error => { console.log(error); return dispatch(loginProfilesError(error)); });
 	};
 }
 

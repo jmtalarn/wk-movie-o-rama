@@ -5,11 +5,12 @@
 	position: absolute;
 	top: 1rem;
 	left: 10%;
-	border: 2px dashed red;
+	box-shadow: 4px 4px 5px var(--shadow-color);
+	padding: 1rem;
 }
 
 .errors-box .error {
 	padding: 1rem;
 	margin: .5rem;
-	border: 2px dotted red;
+	border: 1px dashed red;
 }

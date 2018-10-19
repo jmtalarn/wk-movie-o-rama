@@ -25,11 +25,15 @@ export function getProfile() {
 				if (response.ok) {
 					return response.json();
 				} else {
-					throw new Error(`${response.status} - ${response.statusText}`);
+					const message = `${response.status} - ${response.statusText}`;
+					response.json()
+						.then(json => {
+							throw new Error(`${message}\njson.message`);
+						});
 				}
 			})
 			.then(json => dispatch(getProfileSuccess(json)))
-			.catch(error => dispatch(getProfileError(error)));
+			.catch(error => { console.log(error); return dispatch(getProfileError(error)); });
 	};
 }
 

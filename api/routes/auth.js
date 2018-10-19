@@ -86,10 +86,17 @@ function ensureAuthorized(req, res, next) {
 
 				query.findOne(function (err, profile) {
 					if (err) throw err;
-					req.profile = profile;
-					req.decoded = decoded;
-					req.token = token;
-					next();
+					if (profile) {
+						req.profile = profile;
+						req.decoded = decoded;
+						req.token = token;
+						next();
+					} else {
+						return res.status(401).send({
+							success: false,
+							message: 'Not active user with token provided'
+						});
+					}
 				});
 
 			}

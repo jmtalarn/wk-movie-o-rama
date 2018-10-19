@@ -35,7 +35,7 @@ router.get('/:id', Auth.ensureAuthorized, function (req, res, next) {
 		res.json(movie);
 	});
 });
-router.get('/:id/cover', Auth.ensureAuthorized, function (req, res, next) {
+router.get('/:id/cover', function (req, res, next) {
 	Movie.findById(req.params.id, function (err, m) {
 		if (err) return next(err);
 		res.contentType(image_contentType);

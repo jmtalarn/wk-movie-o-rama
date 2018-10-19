@@ -25,11 +25,15 @@ export function getMovie(id) {
 				if (response.ok) {
 					return response.json();
 				} else {
-					throw new Error(`${response.status} - ${response.statusText}`);
+					const message = `${response.status} - ${response.statusText}`;
+					response.json()
+						.then(json => {
+							throw new Error(`${message}\njson.message`);
+						});
 				}
 			})
 			.then(json => dispatch(getMovieSuccess(json)))
-			.catch(error => dispatch(getMovieError(error)));
+			.catch(error => { console.log(error); return dispatch(getMovieError(error)); });
 	};
 }
 
@@ -41,11 +45,15 @@ export function likeMovie(id) {
 				if (response.ok) {
 					return response.json();
 				} else {
-					throw new Error(`${response.status} - ${response.statusText}`);
+					const message = `${response.status} - ${response.statusText}`;
+					response.json()
+						.then(json => {
+							throw new Error(`${message}\njson.message`);
+						});
 				}
 			})
 			.then(json => dispatch(getMovieSuccess(json)))
-			.catch(error => dispatch(getMovieError(error)));
+			.catch(error => { console.log(error); return dispatch(getMovieError(error)); });
 	};
 }
 
@@ -56,11 +64,15 @@ export function shareMovie(id, message, user) {
 				if (response.ok) {
 					return response.json();
 				} else {
-					throw new Error(`${response.status} - ${response.statusText}`);
+					const message = `${response.status} - ${response.statusText}`;
+					response.json()
+						.then(json => {
+							throw new Error(`${message}\njson.message`);
+						});
 				}
 			})
 			.then(json => dispatch(getMovieSuccess(json)))
-			.catch(error => dispatch(getMovieError(error)));
+			.catch(error => { console.log(error); return dispatch(getMovieError(error)); });
 	};
 }
 
