@@ -77,18 +77,10 @@
 	color: var(--green);
 }
 
-.movie-article .action-boxes .share-box .share-box-form .share-box-form-message {}
-
 .movie-article .action-boxes .share-box .share-box-form input {
 	width: 100%;
 }
 
 .movie-article .action-boxes .share-box .share-box-form .icon {
 	margin-right: .5rem;
-}
-
-@media screen and (min-width:495px) {
-	.movie-article .movie-article-cover {
-		padding: 1rem;
-	}
 }
