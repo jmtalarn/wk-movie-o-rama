@@ -3,7 +3,7 @@
 	height: 10rem;
 	border-radius: 50%;
 	border: 2px solid var(--shadow-color);
-
+	margin-bottom: 2rem;
 }
 
 .profile-view .profile-box {
@@ -11,6 +11,7 @@
 	margin: 0 auto;
 	flex-wrap: wrap;
 	justify-content: center;
+	max-width: 35rem;
 }
 
 .profile-view .profile-details .profile-username {
@@ -27,7 +28,6 @@
 
 @media screen and (min-width:495px) {
 	.profile-view .profile-box {
-		width: 50%;
 		justify-content: space-around;
 	}
 }
