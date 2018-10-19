@@ -1,0 +1,33 @@
+.profile-view .profile-avatar {
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+	border: 2px solid var(--shadow-color);
+
+}
+
+.profile-view .profile-box {
+	display: flex;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.profile-view .profile-details .profile-username {
+	font-weight: bold;
+}
+
+.profile-view .profile-details .profile-actions {
+	text-align: left;
+}
+
+.profile-view .profile-details .profile-actions li {
+	margin: 1rem;
+}
+
+@media screen and (min-width:495px) {
+	.profile-view .profile-box {
+		width: 50%;
+		justify-content: space-around;
+	}
+}

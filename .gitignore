@@ -40,3 +40,4 @@ data/mongod.lock
 api/data/db/*
 
 .history
+.DS_Store
