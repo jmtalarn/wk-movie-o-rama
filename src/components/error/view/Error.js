@@ -4,10 +4,7 @@ import './Error.css';
 
 
 class Error extends React.Component {
-	componentWillMount() {
-		const { redirect } = this.props;
-		redirect();
-	}
+
 	render() {
 		const { error } = this.props;
 		return (
