@@ -22,8 +22,11 @@ On the project root folder
     npm start
 This will run _concurrently_ the two scripts above
 ## Environment variables
-You should use environment variables to set the Mongo DB port, Mongo DB binary location and the port for the server. These are set in the ```start``` of ```npm scripts``` section in ```package.json```
-
+You can use the following environment variables:
+* `MONGO_PORT` to set the Mongo DB port *default to 27027*
+* `MONGO ADDRESS` the url where the Mongo DB instance is exposed *default to mongodb://localhost*
+* `PORT` the port where the application will run
+  
 # Design components
 ## For the whole app
  - A *left sidebar* area, where
