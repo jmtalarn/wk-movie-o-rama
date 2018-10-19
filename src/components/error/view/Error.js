@@ -1,18 +1,16 @@
 import React from 'react';
+import './Error.css';
 
 const Error = ({ error }) => {
 
 	return (
-		<div
-			style={{
-				position: 'absolute',
-				top: '2rem',
-				border: '2px doted red',
-				borderRadius: '10px'
-			}}
-		>
-			{error.map(er => (<div>{er.message}</div>))}
-		</div>
+		error.length ?
+			<div className="errors-box"
+			>
+				{error.map(er => (<div className="error">{er.message}</div>))}
+			</div>
+			: null
+
 	);
 };
 
