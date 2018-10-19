@@ -26,9 +26,9 @@ export function getProfile() {
 					return response.json();
 				} else {
 					const message = `${response.status} - ${response.statusText}`;
-					response.json()
+					return response.json()
 						.then(json => {
-							throw new Error(`${message}\njson.message`);
+							throw new Error(`${message}: ${json.message}`);
 						});
 				}
 			})
