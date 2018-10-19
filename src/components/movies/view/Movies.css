@@ -13,7 +13,7 @@
 	grid-template-areas: "cover title"
 		"cover description "
 		"cover description";
-
+	grid-template-rows: 3rem;
 	transition: background-color ease-in 400ms;
 }
 
