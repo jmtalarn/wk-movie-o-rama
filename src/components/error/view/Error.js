@@ -11,7 +11,7 @@ const Error = ({ error }) => {
 				borderRadius: '10px'
 			}}
 		>
-			{error}
+			{error.map(er => (<div>{er.message}</div>))}
 		</div>
 	);
 };

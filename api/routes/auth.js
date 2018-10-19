@@ -67,8 +67,9 @@ router.post('/login', function (req, res) {
 function ensureAuthorized(req, res, next) {
 	var token = req.body.token || req.params.token || req.headers[ 'x-access-token' ];
 	// decode token
-
+	console.log("Analyzing token ... ", token);
 	if (token) {
+		console.log("Token exists, going to verify it...");
 		// verifies secret and checks exp
 		jwt.verify(token, security_issuer.superSecret, function (err, decoded) {
 			if (err) {
@@ -95,7 +96,7 @@ function ensureAuthorized(req, res, next) {
 		});
 	}
 	else {
-
+		console.log("Token doesn't exists...");
 		// if there is no token
 		// return an error
 		return res.status(403).send({
