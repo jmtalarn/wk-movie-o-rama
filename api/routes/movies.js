@@ -30,10 +30,24 @@ router.get('/', Auth.ensureAuthorized, function (req, res, next) {
 });
 
 router.get('/:id', Auth.ensureAuthorized, function (req, res, next) {
-	Movie.findById(req.params.id, function (err, movie) {
-		if (err) return next(err);
-		res.json(movie);
-	});
+	Movie.findById(req.params.id)
+		.populate({
+			path: 'likes',
+			populate: { path: 'profile', select: 'username _id' }
+		})
+		.populate({
+			path: 'shares',
+
+			populate: [
+				{ path: 'to', select: 'username _id' },
+				{ path: 'from', select: 'username _id' }
+			],
+		})
+		.exec(function (err, movie) {
+			if (err) return next(err);
+			movie;
+			res.json(movie);
+		});
 });
 router.get('/:id/cover', function (req, res, next) {
 	Movie.findById(req.params.id, function (err, m) {
