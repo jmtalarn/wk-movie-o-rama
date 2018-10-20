@@ -26,17 +26,30 @@ router.get('/', function (req, res, next) {
 	});
 });
 router.get('/:id', Auth.ensureAuthorized, function (req, res, next) {
-	Profile.findById(req.params.id, function (err, profile) {
-		if (err) return next(err);
-		var result = {
-			id: profile._id,
-			username: profile.username,
-			likes: profile.likes,
-			shares: profile.shares,
-		};
+	Profile.findById(req.params.id)
+		.populate({
+			path: 'likes',
+			populate: { path: 'movie', select: 'title _id' }
+		})
+		.populate({
+			path: 'shares',
+			populate: [
+				{ path: 'to', select: 'username _id' },
+				{ path: 'from', select: 'username _id' }
+			],
+		})
 
-		res.json(result);
-	});
+		.exec(function (err, profile) {
+			if (err) return next(err);
+			var result = {
+				id: profile._id,
+				username: profile.username,
+				likes: profile.likes,
+				shares: profile.shares,
+			};
+
+			res.json(result);
+		});
 });
 router.get('/:id/avatar', function (req, res, next) {
 	Profile.findById(req.params.id, function (err, p) {
