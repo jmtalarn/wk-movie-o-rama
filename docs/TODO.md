@@ -70,9 +70,12 @@ You can use the following environment variables:
 	- [ ] Select profile to view
 	- [ ] View other profile
 - [-] See shared messages 
-	- [ ] by user
-	    - [ ] get data
+	- [-] by user
+	    - [X] get data
     	- [ ] show it
+	- [ ] to user
+		- [ ] get data
+		- [ ] show it
 	- [-] for a movie
 		- [X] get data
 		- [ ] show it
