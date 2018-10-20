@@ -69,12 +69,21 @@ You can use the following environment variables:
 - [ ] Other profile view
 	- [ ] Select profile to view
 	- [ ] View other profile
-- [ ] See shared messages 
+- [-] See shared messages 
 	- [ ] by user
-	- [ ] for a movie
-- [ ] See likes 
+	    - [ ] get data
+    	- [ ] show it
+	- [-] for a movie
+		- [X] get data
+		- [ ] show it
+- [-] See likes 
 	- [ ] of a user
-	- [ ] on a movie
+        - [ ] get data
+    	- [ ] show it
+	- [-] on a movie
+        - [X] get data
+    	- [ ] show it
+
 - [ ] Receiving notifications
 	- [ ] Implement notification system
 
