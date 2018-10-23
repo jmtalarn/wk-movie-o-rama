@@ -19,7 +19,7 @@ const rootReducer = combineReducers(
 		profile: profileReducer,
 		movies: moviesReducer,
 		movie: movieReducer,
-		error: errorReducer,
+		errors: errorReducer,
 	}
 );
 

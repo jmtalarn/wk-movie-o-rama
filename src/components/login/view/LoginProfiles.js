@@ -8,19 +8,14 @@ class LoginProfiles extends React.Component {
 	componentWillMount() {
 		this.props.getLoginProfiles();
 	}
-	renderError(error) {
-		return (<h2 style={{ color: 'red' }}>{error.message}</h2>);
-	}
 	renderProfiles() {
 		const {
 			profiles,
 			auth,
-			error
 		} = this.props;
 
 		return (
 			<div className="LoginProfiles">
-				{this.renderError(error || auth.error)}
 				<h2>Choose a profile to login</h2>
 				<ul className="profile-list">
 					{profiles.map(profile => (

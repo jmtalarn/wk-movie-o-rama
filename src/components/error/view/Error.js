@@ -6,20 +6,20 @@ import './Error.css';
 class Error extends React.Component {
 
 	render() {
-		const { error } = this.props;
+		const { errors } = this.props;
 		return (
-			error.length ?
+			errors.length ?
 				<div className="errors-box"
 				>
 					<h2>Some errors have occurred :</h2>
-					{error.map((er, idx) => (
+					{errors.map((error, idx) => (
 						<button
 							className="error"
 							onClick={() => this.props.dismissError(idx)}
 							title="Click to dismiss the error..."
 						>
 							<FontAwesomeIcon className="icon" icon="trash-alt" />
-							{er.message}
+							{error.message}
 						</button>
 					))}
 

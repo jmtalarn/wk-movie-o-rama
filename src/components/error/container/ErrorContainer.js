@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { dismissError } from '../actions';
 
 const ErrorState = function (state, props) {
-	const { error } = state;
-	console.log("ErrorState", error);
+	const { errors } = state;
+	console.log("ErrorState", errors);
 	return {
-		error
+		errors
 	};
 
 };
