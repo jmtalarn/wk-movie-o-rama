@@ -1,7 +1,7 @@
-var app = require('./app');
+var app = require('./api/app');
 var debug = require('debug')('wk-movie-o-rama:server');
 var http = require('http');
-
+var express = require('express');
 /**
  * Get port from environment and store in Express.
  */
@@ -19,13 +19,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, process.env.IP, () => {
-	var addr = server.address();
-	var bind = typeof addr === 'string'
-		? 'pipe ' + addr
-		: 'port ' + addr.port;
-	console.log('Listening on ' + bind);
-});
+server.listen(port, process.env.IP);
 //server.listen(port);
 
 
@@ -85,10 +79,17 @@ function onError(error) {
  */
 
 function onListening() {
-
 	var addr = server.address();
 	var bind = typeof addr === 'string'
 		? 'pipe ' + addr
 		: 'port ' + addr.port;
 	debug('Listening on ' + bind);
 }
+
+const path = require('path');
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, 'build')));
+// Anything that doesn't match the above, send back index.html
+app.get('react/*', (req, res) => {
+	res.sendFile(path.join(__dirname + '/build/index.html'));
+});
