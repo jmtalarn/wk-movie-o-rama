@@ -11,7 +11,6 @@ class LoginProfiles extends React.Component {
 	renderProfiles() {
 		const {
 			profiles,
-			auth,
 		} = this.props;
 
 		return (
