@@ -164,10 +164,12 @@ class Movie extends React.Component {
 							/>
 							<div className="movie-counters">
 								<div className="movie-counters-shares">
-									<FontAwesomeIcon className="share-icon" icon="share-alt" /> {movie.shares ? movie.shares.length : '0'} shares
+									<FontAwesomeIcon className="icon share-icon" icon="share-alt" />
+									{movie.shares ? movie.shares.length : '0'} shares
 								</div>
 								<div className="movie-counters-likes">
-									<FontAwesomeIcon className="like-icon" icon="heart" /> {movie.likes ? movie.likes.length : '0'} likes
+									<FontAwesomeIcon className="icon like-icon" icon="heart" />
+									{movie.likes ? movie.likes.length : '0'} likes
 								</div>
 							</div>
 						</div>

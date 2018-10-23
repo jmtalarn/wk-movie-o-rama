@@ -27,6 +27,10 @@
 	margin: 0 auto;
 }
 
+.movie-article .movie-counters .icon {
+	margin-right: .5rem;
+}
+
 .movie-article .action-boxes .box {
 	padding: 1rem;
 	display: block;
