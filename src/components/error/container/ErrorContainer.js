@@ -4,7 +4,7 @@ import { dismissError } from '../actions';
 
 const ErrorState = function (state, props) {
 	const { errors } = state;
-	console.log("ErrorState", errors);
+
 	return {
 		errors
 	};
