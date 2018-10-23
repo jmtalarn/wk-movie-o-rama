@@ -22,20 +22,12 @@ function getProfile() {
 function authReducer(state = {
 	isAuthenticated: checkTokenExpiry(),
 	profile: getProfile(),
-	error: ''
 }, action) {
 	switch (action.type) {
 		case ActionTypes.LOGIN_SUCCESS:
 			return Object.assign({}, state, {
 				isAuthenticated: true,
 				profile: action.profile,
-				error: ''
-			});
-		case ActionTypes.LOGIN_ERROR:
-			return Object.assign({}, state, {
-				isAuthenticated: false,
-				profile: null,
-				error: action.error
 			});
 		case ActionTypes.LOGOUT_SUCCESS:
 			return Object.assign({}, state, {
