@@ -120,7 +120,26 @@ class MovieShare extends React.Component {
 		);
 	}
 };
-
+class Likes extends React.Component {
+	render() {
+		const { children } = this.props;
+		return (
+			<div className="likes">
+				{children}
+			</div>
+		);
+	}
+}
+class Shares extends React.Component {
+	render() {
+		const { children } = this.props;
+		return (
+			<div className="shares">
+				{children}
+			</div>
+		);
+	}
+}
 class Movie extends React.Component {
 	constructor(props) {
 		super(props);
@@ -175,15 +194,21 @@ class Movie extends React.Component {
 						</div>
 						: null
 					}
-					<div>
-						<p>
-							{movie.description}
-						</p>
-						<div className="action-boxes">
+
+					<p>
+						{movie.description}
+					</p>
+					<div className="action-box">
+						<Likes>
 							<MovieLike className="box" movie={movie} action={this.likeMovie} />
-							<MovieShare className="box" movie={movie} action={this.shareMovie} profiles={profiles} />
-						</div>
+						</Likes>
 					</div>
+					<div className="action-box">
+						<Shares>
+							<MovieShare className="box" movie={movie} action={this.shareMovie} profiles={profiles} />
+						</Shares>
+					</div>
+
 				</div>
 
 			</article >
