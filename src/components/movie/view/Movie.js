@@ -1,7 +1,8 @@
 import React from 'react';
 import './Movie.css';
+import './Shares.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import ProfileLink from '../../ProfileLink';
 const MovieLike = ({ className, movie, action }) => {
 
 	return (
@@ -131,11 +132,26 @@ class Likes extends React.Component {
 	}
 }
 class Shares extends React.Component {
+
 	render() {
-		const { children } = this.props;
+		const { children, shares = [] } = this.props;
+		console.log(this.props);
 		return (
 			<div className="shares">
-				{children}
+				<div className="children">
+					{children}
+				</div>
+				<div className="messages">
+					{shares.map((item, idx) => (
+						<div key={idx} className="message">
+							<ProfileLink className="from" profile={item.from} />
+							{item.message}
+							<ProfileLink className="to" profile={item.to} />
+						</div>
+					)
+
+					)}
+				</div>
 			</div>
 		);
 	}
@@ -199,12 +215,12 @@ class Movie extends React.Component {
 						{movie.description}
 					</p>
 					<div className="action-box">
-						<Likes>
+						<Likes likes={movie.likes}>
 							<MovieLike className="box" movie={movie} action={this.likeMovie} />
 						</Likes>
 					</div>
 					<div className="action-box">
-						<Shares>
+						<Shares shares={movie.shares}>
 							<MovieShare className="box" movie={movie} action={this.shareMovie} profiles={profiles} />
 						</Shares>
 					</div>

@@ -1,0 +1,14 @@
+.profile-link .profile-avatar {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	border: 2px dotted var(--shadow-color);
+	transition: all 200ms ease-in;
+}
+
+.profile-link:hover .profile-avatar {
+	box-shadow: 3px 0px 5px var(--highlight-color),
+		-3px 0px 5px var(--highlight-color);
+	background-color: var(--highlight-color);
+	border: 2px solid var(--highlight-color);
+}
