@@ -4,6 +4,8 @@ import './Shares.css';
 import './Likes.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfileLink from '../../ProfileLink';
+import Collapsible from '../../Collapsible';
+
 const MovieLike = ({ className, movie, action }) => {
 
 	return (
@@ -11,7 +13,7 @@ const MovieLike = ({ className, movie, action }) => {
 			<fieldset className="dotted-wrapper">
 				<legend className="wrapper-legend">Like</legend>
 				<button
-					className="like-button"
+					className="like-button button"
 					onClick={action}
 				>
 					<FontAwesomeIcon className="icon" icon="heart" />
@@ -112,7 +114,7 @@ class MovieShare extends React.Component {
 						onClick={this.submitMessage.bind(this)}
 						disabled={!this.validForm()}
 						title={!this.validForm() ? "Message and user must be informed to share the movie 😔!" : "Click to share this movie ✅!"}
-						className="share-button"
+						className="share-button button"
 					>
 						<FontAwesomeIcon className="icon share-icon" icon="share-alt" />
 						Share Movie
@@ -130,13 +132,15 @@ class Likes extends React.Component {
 				<div className="children">
 					{children}
 				</div>
-				<div className="users">
-					{likes.map((item, idx) => (
-						<ProfileLink key={idx} profile={item.profile} />
-					)
-					)}
+				<Collapsible description="users who liked this movie">
+					<div className="users">
+						{likes.map((item, idx) => (
+							<ProfileLink key={idx} profile={item.profile} />
+						)
+						)}
 
-				</div>
+					</div>
+				</Collapsible>
 			</div>
 		);
 	}
@@ -151,20 +155,23 @@ class Shares extends React.Component {
 				<div className="children">
 					{children}
 				</div>
-				<div className="messages">
-					{shares.map((item, idx) => (
-						<div key={idx} className="message">
-							<blockquote>
-								<ProfileLink className="from" profile={item.from} />
-								<FontAwesomeIcon className="" icon="quote-left" />
-								{item.message}
-								<FontAwesomeIcon className="" icon="quote-right" />
-							</blockquote>
-							<ProfileLink className="to" profile={item.to} />
-						</div>
-					)
-					)}
-				</div>
+				<Collapsible description="messages shared about this movie">
+					<div className="messages">
+						{shares.map((item, idx) => (
+							<div key={idx} className="message">
+								<blockquote>
+									<ProfileLink className="from" profile={item.from} />
+									<FontAwesomeIcon className="" icon="quote-left" />
+									{item.message}
+									<FontAwesomeIcon className="" icon="quote-right" />
+								</blockquote>
+								<ProfileLink className="to" profile={item.to} />
+							</div>
+						)
+						)}
+					</div>
+				</Collapsible>
+
 			</div>
 		);
 	}

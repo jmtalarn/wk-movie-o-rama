@@ -3,7 +3,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
 	faGhost, faSignInAlt, faSignOutAlt, faHome,
 	faQuestionCircle, faFilm, faUser, faUsers, faShareAlt,
-	faHeart, faComments, faEnvelope, faTrashAlt, faQuoteLeft, faQuoteRight
+	faHeart, faComments, faEnvelope, faTrashAlt, faQuoteLeft, faQuoteRight,
+	faCaretLeft
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faGhost);
@@ -21,3 +22,5 @@ library.add(faEnvelope);
 library.add(faTrashAlt);
 library.add(faQuoteLeft);
 library.add(faQuoteRight);
+library.add(faCaretLeft);
+

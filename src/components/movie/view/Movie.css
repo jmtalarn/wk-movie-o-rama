@@ -39,11 +39,11 @@
 	display: block;
 }
 
-.movie-article .action-box .box button .icon {
+.movie-article .action-box .box .button .icon {
 	margin-right: 1rem;
 }
 
-.movie-article .action-box button {
+.movie-article .action-box .button {
 	display: block;
 	width: 100%;
 	padding: 10px;
@@ -51,7 +51,7 @@
 	transition: background-color ease-in 400ms;
 }
 
-.movie-article .action-box button:not(:disabled):hover {
+.movie-article .action-box .button:not(:disabled):hover {
 	background-color: var(--highlight-color);
 
 }

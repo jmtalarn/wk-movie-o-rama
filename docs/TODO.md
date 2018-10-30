@@ -76,16 +76,16 @@ You can use the following environment variables:
 	- [ ] to user
 		- [ ] get data
 		- [ ] show it
-	- [-] for a movie
+	- [X] for a movie
 		- [X] get data
-		- [ ] show it
+		- [X] show it
 - [-] See likes 
 	- [ ] of a user
         - [ ] get data
     	- [ ] show it
-	- [-] on a movie
+	- [X] on a movie
         - [X] get data
-    	- [ ] show it
+    	- [X] show it
 
 - [ ] Receiving notifications
 	- [ ] Implement notification system

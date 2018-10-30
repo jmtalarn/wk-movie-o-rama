@@ -1,0 +1,45 @@
+.collapsible-component {
+	position: relative;
+	top: -1rem;
+}
+
+.collapsible-component button {
+	/* width: 1rem;
+	text-align: center;
+	height: 1rem;
+	padding: 0;
+	border-radius: 50%;
+	float: right; */
+	background-color: transparent;
+	transition: background-color 400ms ease-in;
+	float: left;
+	margin: .5rem 1rem 0;
+}
+
+.collapsible-component button:hover {
+	background-color: var(--highlight-color);
+}
+
+
+.collapsible-component .children {
+	transition: max-height 600ms ease-in-out;
+	clear: both;
+	width: calc(100% - 2rem);
+	margin: 0 auto;
+	border: 1px dotted var(--shadow-color);
+}
+
+.collapsible-component.collapsed .children {
+	max-height: 0;
+
+	overflow: hidden;
+
+}
+
+.collapsible-component.expanded .children {
+	max-height: 100vh;
+}
+
+.collapsible-component.expanded .fa-caret-left {
+	transform: rotate(-90deg);
+}
