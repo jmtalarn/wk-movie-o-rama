@@ -1,6 +1,7 @@
 import React from 'react';
 import './Movie.css';
 import './Shares.css';
+import './Likes.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfileLink from '../../ProfileLink';
 const MovieLike = ({ className, movie, action }) => {
@@ -123,10 +124,19 @@ class MovieShare extends React.Component {
 };
 class Likes extends React.Component {
 	render() {
-		const { children } = this.props;
+		const { children, likes = [] } = this.props;
 		return (
 			<div className="likes">
-				{children}
+				<div className="children">
+					{children}
+				</div>
+				<div className="users">
+					{likes.map((item, idx) => (
+						<ProfileLink key={idx} profile={item.profile} />
+					)
+					)}
+
+				</div>
 			</div>
 		);
 	}
@@ -135,7 +145,7 @@ class Shares extends React.Component {
 
 	render() {
 		const { children, shares = [] } = this.props;
-		console.log(this.props);
+
 		return (
 			<div className="shares">
 				<div className="children">
@@ -144,12 +154,15 @@ class Shares extends React.Component {
 				<div className="messages">
 					{shares.map((item, idx) => (
 						<div key={idx} className="message">
-							<ProfileLink className="from" profile={item.from} />
-							{item.message}
+							<blockquote>
+								<ProfileLink className="from" profile={item.from} />
+								<FontAwesomeIcon className="" icon="quote-left" />
+								{item.message}
+								<FontAwesomeIcon className="" icon="quote-right" />
+							</blockquote>
 							<ProfileLink className="to" profile={item.to} />
 						</div>
 					)
-
 					)}
 				</div>
 			</div>

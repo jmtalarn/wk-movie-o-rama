@@ -1,0 +1,7 @@
+.likes .users {
+	display: flex;
+}
+
+.likes .users .profile-avatar {
+	margin: 2px;
+}

@@ -56,17 +56,17 @@
 
 }
 
-.movie-article .action-boxes .dotted-wrapper {
+.movie-article .action-box .dotted-wrapper {
 	border: 1px dotted var(--shadow-color);
 }
 
-.movie-article .action-boxes .dotted-wrapper .wrapper-legend {
+.movie-article .action-box .dotted-wrapper .wrapper-legend {
 	text-align: left;
 	margin: .5rem;
 }
 
 
-.movie-article .action-boxes .share-box .share-box-form {
+.movie-article .action-box .share-box .share-box-form {
 
 	display: flex;
 	flex-wrap: wrap;
@@ -74,22 +74,22 @@
 	justify-content: space-around;
 }
 
-.movie-article .action-boxes .share-box .share-box-form .share-box-form-message,
-.movie-article .action-boxes .share-box .share-box-form .share-box-form-user {
+.movie-article .action-box .share-box .share-box-form .share-box-form-message,
+.movie-article .action-box .share-box .share-box-form .share-box-form-user {
 	display: flex;
 	align-items: center;
 	width: 100%;
 	padding: .5rem;
 }
 
-.movie-article .action-boxes .share-box .share-box-form .share-box-form-user .selected {
+.movie-article .action-box .share-box .share-box-form .share-box-form-user .selected {
 	color: var(--green);
 }
 
-.movie-article .action-boxes .share-box .share-box-form input {
+.movie-article .action-box .share-box .share-box-form input {
 	width: 100%;
 }
 
-.movie-article .action-boxes .share-box .share-box-form .icon {
+.movie-article .action-box .share-box .share-box-form .icon {
 	margin-right: .5rem;
 }

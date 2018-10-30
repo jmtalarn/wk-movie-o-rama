@@ -15,7 +15,7 @@ class Profile extends React.Component {
 		const {
 			profile
 		} = this.props;
-		console.log(profile);
+
 		return (
 			<div>
 				{profile.info && profile.info.id ?

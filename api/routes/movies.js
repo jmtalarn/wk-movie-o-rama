@@ -30,23 +30,10 @@ router.get('/', Auth.ensureAuthorized, function (req, res, next) {
 });
 
 router.get('/:id', Auth.ensureAuthorized, function (req, res, next) {
-	Movie.findById(req.params.id)
-		.populate({
-			path: 'likes',
-			populate: { path: 'profile', select: 'username _id' }
-		})
-		.populate({
-			path: 'shares',
-
-			populate: [
-				{ path: 'to', select: 'username _id' },
-				{ path: 'from', select: 'username _id' }
-			],
-		})
-		.exec(function (err, movie) {
+	Movie.findById(req.params.id,
+		function (err, movie) {
 			if (err) return next(err);
-			movie;
-			res.json(movie);
+			ResponsePopulatedMovie(res, movie);
 		});
 });
 router.get('/:id/cover', function (req, res, next) {
@@ -77,15 +64,14 @@ router.post('/:id/like', Auth.ensureAuthorized, function (req, res, next) {
 						if (err) return next(err);
 					});
 					movie.likes.push(newLike);
-					movie.save(function (err, p) {
+					movie.save(function (err, movie) {
 						if (err) return next(err);
+						ResponsePopulatedMovie(res, movie);
 					});
-					//res.json(movie.likes)
-					res.json(movie);
+
 				});
 			} else {
-
-				res.json(movie);
+				ResponsePopulatedMovie(res, movie);
 			}
 
 		});
@@ -118,21 +104,43 @@ router.post('/:id/share', Auth.ensureAuthorized, function (req, res, next) {
 					if (err) return next(err);
 				});
 				movie.shares.push(share);
-				movie.save(function (err, p) {
+				movie.save(function (err, movie) {
 					if (err) return next(err);
+					ResponsePopulatedMovie(res, movie);
+
 				});
-				res.json(movie);
 			});
 		});
-
-
-
-
-
 	});
-
 });
 
-
+function ResponsePopulatedMovie(res, movie) {
+	Movie
+		.populate(
+			movie,
+			[{
+					path: 'likes',
+					populate: {
+						path: 'profile',
+						select: 'username _id'
+					}
+				},
+				{
+					path: 'shares',
+					populate: [{
+							path: 'to',
+							select: 'username _id'
+						},
+						{
+							path: 'from',
+							select: 'username _id'
+						}
+					],
+				}
+			],
+			function (err, movie) {
+				res.json(movie);
+			});
+}
 
 module.exports = router;

@@ -14,6 +14,7 @@ class Error extends React.Component {
 					<h2>Some errors have occurred :</h2>
 					{errors.map((error, idx) => (
 						<button
+							key={idx}
 							className="error"
 							onClick={() => this.props.dismissError(idx)}
 							title="Click to dismiss the error..."
