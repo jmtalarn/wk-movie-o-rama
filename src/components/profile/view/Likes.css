@@ -1,0 +1,7 @@
+.likes .movies {
+	display: flex;
+}
+
+.likes .movies .movie-link {
+	margin: 2px;
+}

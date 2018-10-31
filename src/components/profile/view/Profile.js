@@ -67,7 +67,6 @@ class Shares extends React.Component {
 
 class Profile extends React.Component {
 	componentWillMount() {
-		console.log(this.props);
 		this.props.getProfile(this.props.id || null);
 	}
 

@@ -9,7 +9,6 @@ class Collapsible extends React.Component {
 		this.toggle = this.toggle.bind(this);
 	}
 	toggle() {
-		console.log("Toggle!");
 		this.setState({ collapsed: !this.state.collapsed });
 	}
 	render() {

@@ -1,0 +1,15 @@
+.movie-link .movie-cover {
+	width: 2.5rem;
+	height: 3.5rem;
+	transition: all 200ms ease-in;
+}
+
+.movie-link {
+	padding: 4px;
+}
+
+.movie-link:hover {
+	box-shadow: 3px 0px 5px var(--highlight-color),
+		-3px 0px 5px var(--highlight-color);
+	background-color: var(--highlight-color);
+}

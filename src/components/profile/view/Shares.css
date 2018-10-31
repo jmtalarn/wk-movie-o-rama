@@ -1,0 +1,28 @@
+.shares .messages {
+	display: grid;
+	grid-gap: 5px;
+}
+
+.shares .messages .message {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: flex-start;
+}
+
+.shares .messages .message blockquote {
+	border: 1px dotted var(--shadow-color);
+	/*quote left icon*/
+	margin-right: 1rem;
+	display: flex;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.shares .messages .message blockquote .fa-quote-left {
+	margin-right: .6rem;
+}
+
+.shares .messages .message blockquote .fa-quote-right {
+	margin-left: .6rem;
+}
