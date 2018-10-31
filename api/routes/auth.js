@@ -67,20 +67,19 @@ router.post('/login', function (req, res) {
 function ensureAuthorized(req, res, next) {
 	var token = req.body.token || req.params.token || req.headers[ 'x-access-token' ];
 	// decode token
-	console.log("Analyzing token ... ", token);
+
 	if (token) {
-		console.log("Token exists, going to verify it...");
+
 		// verifies secret and checks exp
 		jwt.verify(token, security_issuer.superSecret, function (err, decoded) {
 			if (err) {
-				console.log(err);
+				console.error(err);
 				return res.status(401).send({
 					success: false,
 					message: 'Failed to authenticate token. ' + err.message
 				});
 			}
 			else {
-				console.log("NO ERROR VALIDATING TOKEN");
 				// if everything is good, save to request for use in other routes
 				var query = Profile.where({ token });
 
@@ -103,7 +102,7 @@ function ensureAuthorized(req, res, next) {
 		});
 	}
 	else {
-		console.log("Token doesn't exists...");
+		console.error("Token doesn't exists...");
 		// if there is no token
 		// return an error
 		return res.status(403).send({
