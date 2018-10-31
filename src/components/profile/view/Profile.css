@@ -4,6 +4,7 @@
 	border-radius: 50%;
 	border: 2px solid var(--shadow-color);
 	margin-bottom: 2rem;
+	max-width: 35rem;
 }
 
 .profile-view .profile-box {
@@ -11,18 +12,13 @@
 	margin: 0 auto;
 	flex-wrap: wrap;
 	justify-content: center;
-	max-width: 35rem;
 }
 
 .profile-view .profile-details .profile-username {
 	font-weight: bold;
 }
 
-.profile-view .profile-details .profile-actions {
-	text-align: left;
-}
-
-.profile-view .profile-details .profile-actions li {
+.profile-view .profile-details .profile-actions h4 {
 	margin: 1rem;
 }
 

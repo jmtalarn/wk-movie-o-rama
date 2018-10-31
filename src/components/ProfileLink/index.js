@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 
 const ProfileLink = ({ profile, className }) => {
-	console.log(profile);
+
 	return (profile ?
 		<a className={`profile-link ${className || ''}`} href={`/profile/${profile._id}`}>
 			<img

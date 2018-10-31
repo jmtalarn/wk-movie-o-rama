@@ -1,10 +1,69 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './Profile.css';
 
-// import {
-// 	Redirect,
-// } from 'react-router-dom';
+import Collapsible from '../../Collapsible';
+import MovieLink from '../../MovieLink';
+import ProfileLink from '../../ProfileLink';
+
+import './Profile.css';
+import './Likes.css';
+import './Shares.css';
+
+
+class Likes extends React.Component {
+	render() {
+		const { children, likes = [], } = this.props;
+		return (
+			<div className="likes">
+				<h4>
+					<FontAwesomeIcon icon="heart" /> Liked {likes ? likes.length : 0} movies
+				</h4>
+				<Collapsible description="movies liked by this user">
+					<div className="movies">
+						{likes.map((item, idx) =>
+							(
+								<MovieLink key={idx} movie={item.movie} />
+							)
+						)}
+
+					</div>
+				</Collapsible>
+			</div>
+		);
+	}
+}
+class Shares extends React.Component {
+
+	render() {
+		const { children, shares = [] } = this.props;
+
+		return (
+			<div className="shares">
+				<h4>
+					<FontAwesomeIcon icon="share-alt" /> Shared {shares ? shares.length : 0} messages
+				</h4>
+
+				<Collapsible description="messages shared by this user">
+					<div className="messages">
+						{shares.map((item, idx) => (
+							<div key={idx} className="message">
+								<blockquote>
+									<MovieLink className="movie" movie={item.movie} />
+									<FontAwesomeIcon className="" icon="quote-left" />
+									{item.message}
+									<FontAwesomeIcon className="" icon="quote-right" />
+								</blockquote>
+								<ProfileLink className="to" profile={item.to} />
+							</div>
+						)
+						)}
+					</div>
+				</Collapsible>
+
+			</div>
+		);
+	}
+}
 
 class Profile extends React.Component {
 	componentWillMount() {
@@ -14,26 +73,26 @@ class Profile extends React.Component {
 
 	renderProfile() {
 		const {
-			profile
+			profile: { info: profile }
 		} = this.props;
-
+		console.log(profile);
 		return (
 			<div>
-				{profile.info && profile.info.id ?
+				{profile && profile.id ?
 					<div className="profile-box">
 						<img
 							className="profile-avatar"
-							alt={`The ${profile.info.username} avatar`}
-							src={`/api/profiles/${profile.info.id}/avatar`}
+							alt={`The ${profile.username} avatar`}
+							src={`/api/profiles/${profile.id}/avatar`}
 						/>
 						<div className="profile-details">
 							<h3 className="profile-username">
-								{profile.info.username}
+								{profile.username}
 							</h3>
-							<ul className="profile-actions">
-								<li><FontAwesomeIcon icon="share-alt" /> Shared {profile.shares ? profile.shares.length : 0} messages</li>
-								<li><FontAwesomeIcon icon="heart" /> Liked {profile.likes ? profile.likes.length : 0} movies</li>
-							</ul>
+							<div className="profile-actions">
+								<Shares shares={profile.shares} />
+								<Likes likes={profile.likes} />
+							</div>
 						</div>
 					</div> :
 					null
