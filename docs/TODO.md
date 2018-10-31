@@ -69,20 +69,20 @@ You can use the following environment variables:
 - [X] Other profile view
 	- [X] Select profile to view
 	- [X] View other profile
-- [-] See shared messages 
-	- [-] by user
+- [X] See shared messages 
+	- [X] by user
 	    - [X] get data
-    	- [ ] show it
+    	- [X] show it
 	- [ ] to user
 		- [ ] get data
 		- [ ] show it
 	- [X] for a movie
 		- [X] get data
 		- [X] show it
-- [-] See likes 
-	- [ ] of a user
-        - [ ] get data
-    	- [ ] show it
+- [X] See likes 
+	- [X] of a user
+        - [X] get data
+    	- [X] show it
 	- [X] on a movie
         - [X] get data
     	- [X] show it
