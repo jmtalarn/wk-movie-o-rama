@@ -7,6 +7,7 @@ import loginReducer from '../components/login/reducers';
 import profileReducer from '../components/profile/reducers';
 import moviesReducer from '../components/movies/reducers';
 import movieReducer from '../components/movie/reducers';
+import inboxReducer from '../components/inbox/reducers';
 import errorReducer from '../components/error/reducers';
 
 // redux-cli-logger enables logging in CLI, so in tests with test environment variable defined will print out things on the screen
@@ -20,6 +21,7 @@ const rootReducer = combineReducers(
 		movies: moviesReducer,
 		movie: movieReducer,
 		errors: errorReducer,
+		inbox: inboxReducer,
 	}
 );
 

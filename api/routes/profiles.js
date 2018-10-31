@@ -3,6 +3,7 @@ var router = express.Router();
 var Auth = require('../routes/auth.js');
 var mongoose = require('mongoose');
 var Profile = require('../models/Profile.js');
+var Share = require('../models/Share.js');
 
 var image_contentType = 'image/png';
 
@@ -23,6 +24,18 @@ router.get('/', function (req, res, next) {
 
 		});
 		res.json(result);
+	});
+});
+router.get('/inbox', Auth.ensureAuthorized, function (req, res, next) {
+
+	Share.find({
+		from: req.profile.id
+	}).populate([
+		{ path: 'to', select: 'username _id' },
+		{ path: 'movie', select: 'title _id' }
+	]).exec(function (err, shares) {
+		if (err) return next(err);
+		res.json(shares);
 	});
 });
 router.get('/:id', Auth.ensureAuthorized, function (req, res, next) {

@@ -9,6 +9,7 @@ import Profile from './components/profile';
 import Movies from './components/movies';
 import Movie from './components/movie';
 import Error from './components/error';
+import Inbox from './components/inbox';
 import LoginProfilesContainer from './components/login/container/LoginProfilesContainer';
 import AuthContainer from './components/auth/container/AuthContainer';
 import {
@@ -71,6 +72,17 @@ class App extends Component {
 									</PrivateComponent>
 									<PrivateComponent>
 										<li>
+											<Link to="/inbox">
+												<FontAwesomeIcon
+													className="nav-menu-icon"
+													icon="envelope"
+												/>
+												Inbox
+											</Link>
+										</li>
+									</PrivateComponent>
+									<PrivateComponent>
+										<li>
 											<Link to="/movies">
 												<FontAwesomeIcon
 													className="nav-menu-icon"
@@ -90,6 +102,7 @@ class App extends Component {
 									<Route path="/login" component={LoginProfilesContainer} />
 									<PrivateRoute path="/about" component={About} />
 									<PrivateRoute path="/profile/:id?" component={Profile} />
+									<PrivateRoute path="/inbox" component={Inbox} />
 									<PrivateRoute path="/movies" component={Movies} />
 									<PrivateRoute path="/movie/:id" component={Movie} />
 									<Route exact path="/" component={Home} />
