@@ -26,6 +26,7 @@ router.get('/', function (req, res, next) {
 	});
 });
 router.get('/:id', Auth.ensureAuthorized, function (req, res, next) {
+	console.log("*** profiles", req.params.id);
 	Profile.findById(req.params.id)
 		.populate({
 			path: 'likes',
@@ -40,6 +41,7 @@ router.get('/:id', Auth.ensureAuthorized, function (req, res, next) {
 		})
 
 		.exec(function (err, profile) {
+			console.log("*** profiles", profile);
 			if (err) return next(err);
 			var result = {
 				id: profile._id,

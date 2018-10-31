@@ -8,7 +8,8 @@ import './Profile.css';
 
 class Profile extends React.Component {
 	componentWillMount() {
-		this.props.getProfile();
+		console.log(this.props);
+		this.props.getProfile(this.props.id || null);
 	}
 
 	renderProfile() {

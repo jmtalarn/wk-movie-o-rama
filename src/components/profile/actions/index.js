@@ -4,7 +4,7 @@ import Auth from '../../auth/Auth';
 
 const auth = new Auth();
 
-const uri = 'api/profiles';
+const uri = '/api/profiles';
 
 function getProfileSuccess(profile) {
 	return {
@@ -18,9 +18,9 @@ function getProfileError(error) {
 		error,
 	};
 }
-export function getProfile() {
+export function getProfile(id) {
 	return dispatch => {
-		auth.fetch(`${uri}/${auth.getProfileId()}`)
+		auth.fetch(`${uri}/${id || auth.getProfileId()}`)
 			.then(response => {
 				if (response.ok) {
 					return response.json();

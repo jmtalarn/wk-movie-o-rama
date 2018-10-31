@@ -89,7 +89,7 @@ class App extends Component {
 								<Switch>
 									<Route path="/login" component={LoginProfilesContainer} />
 									<PrivateRoute path="/about" component={About} />
-									<PrivateRoute path="/profile" component={Profile} />
+									<PrivateRoute path="/profile/:id?" component={Profile} />
 									<PrivateRoute path="/movies" component={Movies} />
 									<PrivateRoute path="/movie/:id" component={Movie} />
 									<Route exact path="/" component={Home} />

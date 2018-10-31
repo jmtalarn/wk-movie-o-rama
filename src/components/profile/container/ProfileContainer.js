@@ -11,8 +11,8 @@ const ProfilesState = function (state) {
 };
 const ProfileDispatch = function (dispatch) {
 	return {
-		getProfile: () => {
-			dispatch(getProfile());
+		getProfile: (id) => {
+			dispatch(getProfile(id));
 		},
 	};
 };
