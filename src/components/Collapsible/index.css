@@ -37,7 +37,8 @@
 }
 
 .collapsible-component.expanded .children {
-	max-height: 100vh;
+	max-height: 2500px;
+	overflow: auto;
 }
 
 .collapsible-component.expanded .fa-caret-left {

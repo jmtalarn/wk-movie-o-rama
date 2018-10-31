@@ -12,7 +12,7 @@ import './Shares.css';
 
 class Likes extends React.Component {
 	render() {
-		const { children, likes = [], } = this.props;
+		const { likes = [], } = this.props;
 		return (
 			<div className="likes">
 				<h4>
@@ -35,7 +35,7 @@ class Likes extends React.Component {
 class Shares extends React.Component {
 
 	render() {
-		const { children, shares = [] } = this.props;
+		const { shares = [] } = this.props;
 
 		return (
 			<div className="shares">
