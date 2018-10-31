@@ -66,9 +66,9 @@ You can use the following environment variables:
 - [X] Implement actions and views for the specifications
 - [X] Manage errors with state
 - [X] Display errors properly
-- [ ] Other profile view
-	- [ ] Select profile to view
-	- [ ] View other profile
+- [X] Other profile view
+	- [X] Select profile to view
+	- [X] View other profile
 - [-] See shared messages 
 	- [-] by user
 	    - [X] get data
@@ -91,7 +91,7 @@ You can use the following environment variables:
 	- [ ] Implement notification system
 
 # Styling app
-- [-] Styling app
+- [X] Styling app
 	- [X] Layout
 	- [X] Navigation
 		- [X] Content
@@ -103,6 +103,6 @@ You can use the following environment variables:
 		- [X] Like a movie
 		- [X] Share a movie
 	- [X] Profile
-	- [ ] Any new thing there 
+	- [X] Any new thing there 
 
 
