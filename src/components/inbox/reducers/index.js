@@ -1,11 +1,9 @@
 import * as ActionTypes from '../actions/types';
 
-function inboxReducer(state = [], action) {
+function inboxReducer(state = { data: [] }, action) {
 	switch (action.type) {
 		case ActionTypes.INBOX_SUCCESS:
-			return Object.assign({}, state, {
-				info: action.inbox,
-			});
+			return { data: action.inbox };
 		default:
 			return state;
 	}

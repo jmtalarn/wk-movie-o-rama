@@ -29,9 +29,9 @@ router.get('/', function (req, res, next) {
 router.get('/inbox', Auth.ensureAuthorized, function (req, res, next) {
 
 	Share.find({
-		from: req.profile.id
+		to: req.profile.id
 	}).populate([
-		{ path: 'to', select: 'username _id' },
+		{ path: 'from', select: 'username _id' },
 		{ path: 'movie', select: 'title _id' }
 	]).exec(function (err, shares) {
 		if (err) return next(err);

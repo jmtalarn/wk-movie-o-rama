@@ -1,1 +1,33 @@
+.inbox-view .messages table {
+	width: 100%;
+}
 
+.inbox-view .messages thead {
+	box-shadow: 0px 2px 4px var(--shadow-color);
+}
+
+.inbox-view .messages tr th,
+.inbox-view .messages tr td {
+	padding: .5rem;
+}
+
+.inbox-view .messages tbody tr:nth-child(even) {
+	background-color: var(--stripped-table-color);
+}
+
+.inbox-view .messages .message {
+	font-weight: 200;
+	font-size: .8rem;
+	width: 100%;
+	vertical-align: top;
+	padding: .5rem;
+	text-align: left;
+}
+
+.inbox-view .messages .message blockquote .fa-quote-left {
+	margin-right: .5rem;
+}
+
+.inbox-view .messages .message blockquote .fa-quote-right {
+	margin-left: .5rem;
+}
