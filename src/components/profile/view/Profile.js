@@ -45,18 +45,36 @@ class Shares extends React.Component {
 
 				<Collapsible description="messages shared by this user">
 					<div className="messages">
-						{shares.map((item, idx) => (
-							<div key={idx} className="message">
-								<blockquote>
-									<MovieLink className="movie" movie={item.movie} />
-									<FontAwesomeIcon className="" icon="quote-left" />
-									{item.message}
-									<FontAwesomeIcon className="" icon="quote-right" />
-								</blockquote>
-								<ProfileLink className="to" profile={item.to} />
-							</div>
-						)
-						)}
+						<table>
+							<thead>
+								<tr>
+									<th>Movie</th>
+									<th>Message</th>
+									<th>To</th>
+								</tr>
+							</thead>
+							<tbody>
+								{shares.map((item, idx) => (
+									<tr key={idx} >
+										<td>
+											<MovieLink className="movie" movie={item.movie} />
+										</td>
+										<td className="message">
+											<blockquote>
+												<FontAwesomeIcon className="" icon="quote-left" />
+												{item.message}
+												<FontAwesomeIcon className="" icon="quote-right" />
+											</blockquote>
+										</td>
+										<td>
+											<ProfileLink className="to" profile={item.to} />
+										</td>
+									</tr>
+								)
+								)}
+							</tbody>
+						</table>
+
 					</div>
 				</Collapsible>
 
