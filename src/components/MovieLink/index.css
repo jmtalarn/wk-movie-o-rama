@@ -1,11 +1,16 @@
+.movie-link {
+	display: inline-block;
+}
+
 .movie-link .movie-cover {
 	width: 2.5rem;
 	height: 3.5rem;
-	transition: all 200ms ease-in;
+
 }
 
 .movie-link {
 	padding: 4px;
+	transition: all 200ms ease-in;
 }
 
 .movie-link:hover {
