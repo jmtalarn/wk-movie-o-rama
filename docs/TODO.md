@@ -8,25 +8,6 @@
 + [X] Combine React router, Auth and Redux
 
 
-# Run the project
-## Run the API
-On the project root folder
-    node api/server.js
-This will start both an instance of MongoDB and the API server
-## Run the react app
-On the project root folder 
-    react-scripts start
-This will start only the React App development server
-## Run both at once
-On the project root folder
-    npm start
-This will run _concurrently_ the two scripts above
-## Environment variables
-You can use the following environment variables:
-* `MONGO_PORT` to set the Mongo DB port *default to 27027*
-* `MONGO ADDRESS` the url where the Mongo DB instance is exposed *default to mongodb://localhost*
-* `PORT` the port where the application will run
-  
 # Design components
 ## For the whole app
  - A *left sidebar* area, where

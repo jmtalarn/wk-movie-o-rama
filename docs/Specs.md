@@ -16,10 +16,10 @@ As a user I can:
 - [X] Like a movie
 - [X] Share a movie with some other user including a message
 - [ ] Recieve a movie via sharing with a message written from another user
-- [ ] A user can visit any other user's profile
-- [-] Login with (at least) 2 different users to see the shared movies
+- [X] A user can visit any other user's profile
+- [X] Login with (at least) 2 different users to see the shared movies
 	- [X] Login with (at least) 2 different users
-	- [ ] to see the sared movies
+	- [X] to see the sared movies
 
 ## Extra Balls (any of them are mandatory):
 - [ ] In a movie detail page you can also view a list with another movies liked from another
