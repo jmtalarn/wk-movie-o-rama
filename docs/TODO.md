@@ -69,7 +69,11 @@
     	- [X] show it
 
 - [ ] Receiving notifications
-	- [ ] Implement notification system <https://blog.joshsoftware.com/2012/01/30/push-notifications-using-express-js-and-socket-io/>
+	- [ ] Implement notification system 
+	- [ ] Check links
+		- [ ] <https://blog.joshsoftware.com/2012/01/30/push-notifications-using-express-js-and-socket-io/>
+		- [ ] <https://www.programwitherik.com/getting-started-with-socket-io-node-js-and-express/>
+
 
 
 # Styling app
