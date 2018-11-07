@@ -73,9 +73,9 @@ You can use the following environment variables:
 	- [X] by user
 	    - [X] get data
     	- [X] show it
-	- [ ] to user
-		- [ ] get data
-		- [ ] show it
+	- [X] to user
+		- [X] get data
+		- [X] show it
 	- [X] for a movie
 		- [X] get data
 		- [X] show it
@@ -88,7 +88,8 @@ You can use the following environment variables:
     	- [X] show it
 
 - [ ] Receiving notifications
-	- [ ] Implement notification system
+	- [ ] Implement notification system <https://blog.joshsoftware.com/2012/01/30/push-notifications-using-express-js-and-socket-io/>
+
 
 # Styling app
 - [X] Styling app
